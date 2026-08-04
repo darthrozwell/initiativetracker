@@ -11,10 +11,8 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
     async with new_session() as session:
         yield session
 
-db_session_dep = Annotated[AsyncSession, Depends(get_db)]
-
-async def get_monster_repo(session: db_session_dep) -> MonsterRepo:
+async def get_monster_repo(session: Annotated[AsyncSession, Depends(get_db)]) -> MonsterRepo:
     return MonsterRepo(session=session)
 
 async def get_monster_service(repo: Annotated[MonsterRepo, Depends(get_monster_repo)]) -> MonsterService:
-    return MonsterService(repo)
+    return MonsterService(repository=repo)

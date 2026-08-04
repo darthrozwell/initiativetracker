@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="first">
-      <change afterPath="$PROJECT_DIR$/api/v1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/v1/router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monster/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monster/dependencies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monster/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monster/repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monster/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/monster/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/initiativetracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/initiativetracker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="skeleton added, dependencies added as well">
+      <change beforePath="$PROJECT_DIR$/monster/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/monster/dependencies.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,61 +31,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000018814054596" />
-      <entry key="MS500" value="1.0841881041287604" />
-      <entry key="S2" value="1.9673883872258642" />
-      <entry key="S5" value="3.2272294821653067" />
-      <entry key="S10" value="4.241771186424787" />
-      <entry key="S30" value="5.300175534441856" />
-      <entry key="S60" value="5.649444093960486" />
-      <entry key="M2" value="5.980495718652492" />
-      <entry key="M5" value="7.796234450656025" />
-      <entry key="M10" value="14.75720354442018" />
-      <entry key="M15" value="25.754831084675807" />
-      <entry key="M30" value="71.39457476149482" />
-      <entry key="H1" value="164.46245232426142" />
-      <entry key="H2" value="288.04141990417907" />
-      <entry key="H4" value="399.2294943596278" />
-      <entry key="D1" value="537.4739847049362" />
-      <entry key="W1" value="566.9029437293271" />
+      <entry key="MS100" value="4.986763488744039E-82" />
+      <entry key="MS500" value="5.489891410253745E-17" />
+      <entry key="S2" value="8.6077756377221E-5" />
+      <entry key="S5" value="0.02365682100420266" />
+      <entry key="S10" value="0.15386924651199219" />
+      <entry key="S30" value="0.7342982516933886" />
+      <entry key="S60" value="2.3972074302928537" />
+      <entry key="M2" value="6.083103962247048" />
+      <entry key="M5" value="12.630460844343242" />
+      <entry key="M10" value="20.97797283063938" />
+      <entry key="M15" value="31.63865289338429" />
+      <entry key="M30" value="75.43189115754356" />
+      <entry key="H1" value="167.3778968107491" />
+      <entry key="H2" value="292.23557441851983" />
+      <entry key="H4" value="406.1216419301704" />
+      <entry key="D1" value="549.1009689072309" />
+      <entry key="W1" value="579.6959731901909" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.9958362084622554E-14" />
-      <entry key="MS500" value="0.0018198055259858843" />
-      <entry key="S2" value="0.20654098548208644" />
-      <entry key="S5" value="0.5321113198211382" />
-      <entry key="S10" value="0.7294596098849415" />
-      <entry key="S30" value="0.9014065126042137" />
-      <entry key="S60" value="0.9837398590945032" />
-      <entry key="M2" value="1.1772197305769727" />
-      <entry key="M5" value="2.0381852052381126" />
-      <entry key="M10" value="4.006576206540169" />
-      <entry key="M15" value="6.2623187174543915" />
-      <entry key="M30" value="13.624027306414188" />
-      <entry key="H1" value="26.16871844639356" />
-      <entry key="H2" value="40.835952341797444" />
-      <entry key="H4" value="53.05732088189619" />
-      <entry key="D1" value="67.49155007541299" />
-      <entry key="W1" value="70.48411838747349" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.00000000024422" />
+      <entry key="S30" value="1.0006259130074857" />
+      <entry key="S60" value="1.0259225016744233" />
+      <entry key="M2" value="1.1910978732528164" />
+      <entry key="M5" value="1.9849245741624255" />
+      <entry key="M10" value="3.7851787428037516" />
+      <entry key="M15" value="5.914223939190643" />
+      <entry key="M30" value="13.06883621315044" />
+      <entry key="H1" value="25.629885825211918" />
+      <entry key="H2" value="40.61709804939497" />
+      <entry key="H4" value="53.259506301247065" />
+      <entry key="D1" value="68.32133718806973" />
+      <entry key="W1" value="71.45869659576623" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.939524456635614" />
-      <entry key="MS500" value="1.0702799155761553" />
-      <entry key="S2" value="2.014392330066603" />
-      <entry key="S5" value="3.517010581612007" />
-      <entry key="S10" value="4.775649793888323" />
-      <entry key="S30" value="6.110824020066079" />
-      <entry key="S60" value="6.581953488891081" />
-      <entry key="M2" value="7.126390051466726" />
-      <entry key="M5" value="9.812319095255559" />
-      <entry key="M10" value="18.739765780861934" />
-      <entry key="M15" value="31.990201170200077" />
-      <entry key="M30" value="84.98393129380916" />
-      <entry key="H1" value="190.5930052930321" />
-      <entry key="H2" value="328.84553033045194" />
-      <entry key="H4" value="452.2655345293517" />
-      <entry key="D1" value="604.9609341169693" />
-      <entry key="W1" value="637.3863737331783" />
+      <entry key="MS100" value="2.7887922675457772E-5" />
+      <entry key="MS500" value="0.12276744940792395" />
+      <entry key="S2" value="0.5919808908586192" />
+      <entry key="S5" value="0.829867177122414" />
+      <entry key="S10" value="1.0386196927256877" />
+      <entry key="S30" value="1.6801215081520349" />
+      <entry key="S60" value="3.385194229215929" />
+      <entry key="M2" value="7.24376289910279" />
+      <entry key="M5" value="14.591035311651893" />
+      <entry key="M10" value="24.738759981553276" />
+      <entry key="M15" value="37.52637825772737" />
+      <entry key="M30" value="88.46722151720255" />
+      <entry key="H1" value="192.97043425330273" />
+      <entry key="H2" value="332.82105945575023" />
+      <entry key="H4" value="459.3598247629585" />
+      <entry key="D1" value="617.4176562962004" />
+      <entry key="W1" value="651.1539729667968" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -157,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1785849767287</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="skeleton added, dependencies added as well">
+      <option name="closed" value="true" />
+      <created>1785865906006</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1785865906006</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +158,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
-    <option name="LAST_COMMIT_MESSAGE" value="first" />
+    <MESSAGE value="skeleton added, dependencies added as well" />
+    <option name="LAST_COMMIT_MESSAGE" value="skeleton added, dependencies added as well" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -177,10 +171,6 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/monster/dependencies.py</url>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/monster/service.py</url>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
