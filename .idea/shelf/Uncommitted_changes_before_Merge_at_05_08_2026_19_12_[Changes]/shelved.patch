@@ -1,0 +1,231 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"afa335d1-1bb6-4482-ae6f-f827945fa43f\" name=\"Changes\" comment=\"skeleton added, dependencies added as well\">\r\n      <change beforePath=\"$PROJECT_DIR$/monster/dependencies.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/monster/dependencies.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"EmbeddingIndexingInfo\">\r\n    <option name=\"cachedIndexableFilesCount\" value=\"21\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"McpProjectServerCommands\">\r\n    <commands />\r\n    <urls />\r\n  </component>\r\n  <component name=\"NextEditCompletionFeaturesState\">\r\n    <decayedCancelled>\r\n      <entry key=\"MS100\" value=\"4.986763488744039E-82\" />\r\n      <entry key=\"MS500\" value=\"5.489891410253745E-17\" />\r\n      <entry key=\"S2\" value=\"8.6077756377221E-5\" />\r\n      <entry key=\"S5\" value=\"0.02365682100420266\" />\r\n      <entry key=\"S10\" value=\"0.15386924651199219\" />\r\n      <entry key=\"S30\" value=\"0.7342982516933886\" />\r\n      <entry key=\"S60\" value=\"2.3972074302928537\" />\r\n      <entry key=\"M2\" value=\"6.083103962247048\" />\r\n      <entry key=\"M5\" value=\"12.630460844343242\" />\r\n      <entry key=\"M10\" value=\"20.97797283063938\" />\r\n      <entry key=\"M15\" value=\"31.63865289338429\" />\r\n      <entry key=\"M30\" value=\"75.43189115754356\" />\r\n      <entry key=\"H1\" value=\"167.3778968107491\" />\r\n      <entry key=\"H2\" value=\"292.23557441851983\" />\r\n      <entry key=\"H4\" value=\"406.1216419301704\" />\r\n      <entry key=\"D1\" value=\"549.1009689072309\" />\r\n      <entry key=\"W1\" value=\"579.6959731901909\" />\r\n    </decayedCancelled>\r\n    <decayedSelected>\r\n      <entry key=\"MS100\" value=\"1.0\" />\r\n      <entry key=\"MS500\" value=\"1.0\" />\r\n      <entry key=\"S2\" value=\"1.0\" />\r\n      <entry key=\"S5\" value=\"1.0\" />\r\n      <entry key=\"S10\" value=\"1.00000000024422\" />\r\n      <entry key=\"S30\" value=\"1.0006259130074857\" />\r\n      <entry key=\"S60\" value=\"1.0259225016744233\" />\r\n      <entry key=\"M2\" value=\"1.1910978732528164\" />\r\n      <entry key=\"M5\" value=\"1.9849245741624255\" />\r\n      <entry key=\"M10\" value=\"3.7851787428037516\" />\r\n      <entry key=\"M15\" value=\"5.914223939190643\" />\r\n      <entry key=\"M30\" value=\"13.06883621315044\" />\r\n      <entry key=\"H1\" value=\"25.629885825211918\" />\r\n      <entry key=\"H2\" value=\"40.61709804939497\" />\r\n      <entry key=\"H4\" value=\"53.259506301247065\" />\r\n      <entry key=\"D1\" value=\"68.32133718806973\" />\r\n      <entry key=\"W1\" value=\"71.45869659576623\" />\r\n    </decayedSelected>\r\n    <decayedShown>\r\n      <entry key=\"MS100\" value=\"2.7887922675457772E-5\" />\r\n      <entry key=\"MS500\" value=\"0.12276744940792395\" />\r\n      <entry key=\"S2\" value=\"0.5919808908586192\" />\r\n      <entry key=\"S5\" value=\"0.829867177122414\" />\r\n      <entry key=\"S10\" value=\"1.0386196927256877\" />\r\n      <entry key=\"S30\" value=\"1.6801215081520349\" />\r\n      <entry key=\"S60\" value=\"3.385194229215929\" />\r\n      <entry key=\"M2\" value=\"7.24376289910279\" />\r\n      <entry key=\"M5\" value=\"14.591035311651893\" />\r\n      <entry key=\"M10\" value=\"24.738759981553276\" />\r\n      <entry key=\"M15\" value=\"37.52637825772737\" />\r\n      <entry key=\"M30\" value=\"88.46722151720255\" />\r\n      <entry key=\"H1\" value=\"192.97043425330273\" />\r\n      <entry key=\"H2\" value=\"332.82105945575023\" />\r\n      <entry key=\"H4\" value=\"459.3598247629585\" />\r\n      <entry key=\"D1\" value=\"617.4176562962004\" />\r\n      <entry key=\"W1\" value=\"651.1539729667968\" />\r\n    </decayedShown>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3HS7WqIAtB8p3YgzNxeJg4rmqU1\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,\r\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-6fa658e1df1a-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.8665.369\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"afa335d1-1bb6-4482-ae6f-f827945fa43f\" name=\"Changes\" comment=\"\" />\r\n      <created>1785849650649</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1785849650649</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"first\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1785849767287</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1785849767287</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"skeleton added, dependencies added as well\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1785865906006</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1785865906006</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"first\" />\r\n    <MESSAGE value=\"skeleton added, dependencies added as well\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"skeleton added, dependencies added as well\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/main.py</url>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/monster/dependencies.py</url>\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ca99deab4b9c45d465aff0f77ce8902a9c8d65eb)
++++ b/.idea/workspace.xml	(date 1785946340445)
+@@ -4,8 +4,16 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="skeleton added, dependencies added as well">
+-      <change beforePath="$PROJECT_DIR$/monster/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/monster/dependencies.py" afterDir="false" />
++    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="small fix in deps">
++      <change afterPath="$PROJECT_DIR$/monster.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/api/v1/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/router.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/monster/models.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/monster/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/monster/repository.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/monster/schemas.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/monster/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/monster/service.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -13,7 +21,7 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="EmbeddingIndexingInfo">
+-    <option name="cachedIndexableFilesCount" value="21" />
++    <option name="cachedIndexableFilesCount" value="31" />
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -23,7 +31,37 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="master" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitToolBoxStore">
++    <option name="recentBranches">
++      <RecentBranches>
++        <option name="branchesForRepo">
++          <list>
++            <RecentBranchesForRepo>
++              <option name="branches">
++                <list>
++                  <RecentBranch>
++                    <option name="branchName" value="monsterschema" />
++                    <option name="lastUsedInstant" value="1785880401" />
++                  </RecentBranch>
++                  <RecentBranch>
++                    <option name="branchName" value="master" />
++                    <option name="lastUsedInstant" value="1785880400" />
++                  </RecentBranch>
++                </list>
++              </option>
++              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
++            </RecentBranchesForRepo>
++          </list>
++        </option>
++      </RecentBranches>
++    </option>
+   </component>
+   <component name="McpProjectServerCommands">
+     <commands />
+@@ -31,61 +69,61 @@
+   </component>
+   <component name="NextEditCompletionFeaturesState">
+     <decayedCancelled>
+-      <entry key="MS100" value="4.986763488744039E-82" />
+-      <entry key="MS500" value="5.489891410253745E-17" />
+-      <entry key="S2" value="8.6077756377221E-5" />
+-      <entry key="S5" value="0.02365682100420266" />
+-      <entry key="S10" value="0.15386924651199219" />
+-      <entry key="S30" value="0.7342982516933886" />
+-      <entry key="S60" value="2.3972074302928537" />
+-      <entry key="M2" value="6.083103962247048" />
+-      <entry key="M5" value="12.630460844343242" />
+-      <entry key="M10" value="20.97797283063938" />
+-      <entry key="M15" value="31.63865289338429" />
+-      <entry key="M30" value="75.43189115754356" />
+-      <entry key="H1" value="167.3778968107491" />
+-      <entry key="H2" value="292.23557441851983" />
+-      <entry key="H4" value="406.1216419301704" />
+-      <entry key="D1" value="549.1009689072309" />
+-      <entry key="W1" value="579.6959731901909" />
++      <entry key="MS100" value="1.6193311370405914E-231" />
++      <entry key="MS500" value="7.61165153371642E-47" />
++      <entry key="S2" value="5.661082105600438E-12" />
++      <entry key="S5" value="8.107719323985867E-5" />
++      <entry key="S10" value="0.022636355438977688" />
++      <entry key="S30" value="1.0720138708203624" />
++      <entry key="S60" value="4.088959825311855" />
++      <entry key="M2" value="12.973543175095868" />
++      <entry key="M5" value="39.095952953032544" />
++      <entry key="M10" value="73.56721693263833" />
++      <entry key="M15" value="100.1948409854393" />
++      <entry key="M30" value="151.19317509665987" />
++      <entry key="H1" value="217.38913419961003" />
++      <entry key="H2" value="351.43885685820106" />
++      <entry key="H4" value="563.8152103597264" />
++      <entry key="D1" value="995.7633377236587" />
++      <entry key="W1" value="1116.0639793581745" />
+     </decayedCancelled>
+     <decayedSelected>
+       <entry key="MS100" value="1.0" />
+       <entry key="MS500" value="1.0" />
+       <entry key="S2" value="1.0" />
+       <entry key="S5" value="1.0" />
+-      <entry key="S10" value="1.00000000024422" />
+-      <entry key="S30" value="1.0006259130074857" />
+-      <entry key="S60" value="1.0259225016744233" />
+-      <entry key="M2" value="1.1910978732528164" />
+-      <entry key="M5" value="1.9849245741624255" />
+-      <entry key="M10" value="3.7851787428037516" />
+-      <entry key="M15" value="5.914223939190643" />
+-      <entry key="M30" value="13.06883621315044" />
+-      <entry key="H1" value="25.629885825211918" />
+-      <entry key="H2" value="40.61709804939497" />
+-      <entry key="H4" value="53.259506301247065" />
+-      <entry key="D1" value="68.32133718806973" />
+-      <entry key="W1" value="71.45869659576623" />
++      <entry key="S10" value="1.0000000000124747" />
++      <entry key="S30" value="1.0003284055018549" />
++      <entry key="S60" value="1.029490558185826" />
++      <entry key="M2" value="1.4355703448295531" />
++      <entry key="M5" value="5.520388823164188" />
++      <entry key="M10" value="12.807207236825706" />
++      <entry key="M15" value="17.606089820354022" />
++      <entry key="M30" value="24.762944254954373" />
++      <entry key="H1" value="31.644834606465995" />
++      <entry key="H2" value="44.51238129004149" />
++      <entry key="H4" value="65.45695082490835" />
++      <entry key="D1" value="108.71570792310517" />
++      <entry key="W1" value="120.79704245737085" />
+     </decayedSelected>
+     <decayedShown>
+-      <entry key="MS100" value="2.7887922675457772E-5" />
+-      <entry key="MS500" value="0.12276744940792395" />
+-      <entry key="S2" value="0.5919808908586192" />
+-      <entry key="S5" value="0.829867177122414" />
+-      <entry key="S10" value="1.0386196927256877" />
+-      <entry key="S30" value="1.6801215081520349" />
+-      <entry key="S60" value="3.385194229215929" />
+-      <entry key="M2" value="7.24376289910279" />
+-      <entry key="M5" value="14.591035311651893" />
+-      <entry key="M10" value="24.738759981553276" />
+-      <entry key="M15" value="37.52637825772737" />
+-      <entry key="M30" value="88.46722151720255" />
+-      <entry key="H1" value="192.97043425330273" />
+-      <entry key="H2" value="332.82105945575023" />
+-      <entry key="H4" value="459.3598247629585" />
+-      <entry key="D1" value="617.4176562962004" />
+-      <entry key="W1" value="651.1539729667968" />
++      <entry key="MS100" value="2.7010056621928164E-7" />
++      <entry key="MS500" value="0.04856295429900309" />
++      <entry key="S2" value="0.4694358736633723" />
++      <entry key="S5" value="0.73905729024257" />
++      <entry key="S10" value="0.8822613897995972" />
++      <entry key="S30" value="2.022651514272039" />
++      <entry key="S60" value="5.086356983622593" />
++      <entry key="M2" value="14.369932617131473" />
++      <entry key="M5" value="44.560678763889605" />
++      <entry key="M10" value="86.31515712184371" />
++      <entry key="M15" value="117.74557381636015" />
++      <entry key="M30" value="175.9143117227154" />
++      <entry key="H1" value="249.00411585244407" />
++      <entry key="H2" value="395.9262554163824" />
++      <entry key="H4" value="629.2510798118145" />
++      <entry key="D1" value="1104.4725210439665" />
++      <entry key="W1" value="1236.8599688477864" />
+     </decayedShown>
+   </component>
+   <component name="ProjectColorInfo">{
+@@ -108,7 +146,7 @@
+     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;monsterschema&quot;,
+     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+@@ -116,7 +154,8 @@
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+     &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;
+   }
+ }</component>
+   <component name="SharedIndexes">
+@@ -150,7 +189,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1785865906006</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="small fix in deps">
++      <option name="closed" value="true" />
++      <created>1785866154495</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1785866154495</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -159,7 +206,8 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="first" />
+     <MESSAGE value="skeleton added, dependencies added as well" />
+-    <option name="LAST_COMMIT_MESSAGE" value="skeleton added, dependencies added as well" />
++    <MESSAGE value="small fix in deps" />
++    <option name="LAST_COMMIT_MESSAGE" value="small fix in deps" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
