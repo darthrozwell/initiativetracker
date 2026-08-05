@@ -7,7 +7,8 @@ from typing_extensions import Annotated
 class BaseMonster(BaseModel):
     pass
 
-class Monster(BaseMonster):
+class MonsterSchema(BaseMonster):
+    id: str | None = None
     name: str = Field(min_length=1, max_length=500)
     source: str | None = Field(min_length=1, max_length=500)
     size: str | None = Field(min_length=1, max_length=500)

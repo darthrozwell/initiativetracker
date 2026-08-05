@@ -7,7 +7,7 @@ from typing_extensions import Annotated
 
 from monster.dependencies import get_monster_service
 from monster.models import MonsterModel
-from monster.schemas import Monster as MonsterSchema
+from monster.schemas import MonsterSchema
 from monster.service import MonsterService
 
 router = APIRouter()
@@ -45,6 +45,16 @@ async def upload_monster(
     for monster in monsters:
         await service.add_monster(monster)
     return {"count": len(monsters)}
+
+
+@router.put("/monster/")
+async def update_monster(
+        monster: MonsterSchema,
+        service: Annotated[MonsterService, Depends(get_monster_service)],
+):
+    response = await service.update_monster(monster)
+    return
+
 
 @router.delete("/monster/")
 async def delete_monster(
