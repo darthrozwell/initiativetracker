@@ -20,7 +20,15 @@ class MonsterRepo:
         result = await self.session.execute(query)
         return result
 
-    async def add_monster(self, name: str):
-        self.session.add(MonsterModel(id=str(uuid.uuid4()), name=name))
+    async def add_monster(self, monster: MonsterModel):
+        monster.id = str(uuid.uuid4())
+        self.session.add(monster)
         await self.session.commit()
 
+    async def delete(self, monster_id: str):
+        query = select(MonsterModel).where(MonsterModel.id == monster_id)
+        result = await self.session.execute(query)
+        res = result.scalar_one_or_none()
+        if res:
+            await self.session.delete(res)
+        await self.session.commit()
