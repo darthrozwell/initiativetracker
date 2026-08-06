@@ -1,3 +1,5 @@
+from operator import gt
+
 from sqlalchemy import JSON
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -10,7 +12,7 @@ class EncounterModel(Base):
     id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column()
 
-    round: Mapped[int] = mapped_column(default=0)
+    round: Mapped[int] = mapped_column(default=1)
     current_turn: Mapped[int] = mapped_column(default=0)
     combatants: Mapped[list[dict]] = mapped_column(JSON, nullable=True)
     history: Mapped[list[dict]] = mapped_column(JSON, nullable=True)

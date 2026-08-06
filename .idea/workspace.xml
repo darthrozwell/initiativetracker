@@ -4,21 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="dsfdf">
-      <change afterPath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/encounter/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/encounter/dependencies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/encounter/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/encounter/repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/encounter/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/encounter/service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models_core.py" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="get and post encounter temt">
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/encounter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/v1/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/monster_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/65708dcc459c_new_columns_for_statswith_int.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/aca9f2d53e67_not_unique_names.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/bca9f31ae4b8_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/f7c60e266bb9_new_columns.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/v1/monster_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/monster_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/encounter/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/encounter/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/encounter/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monster/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monster/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/types/combat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/combat.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +43,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -75,61 +87,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000002104528087" />
-      <entry key="MS500" value="1.0479325531277237" />
-      <entry key="S2" value="1.73854689036877" />
-      <entry key="S5" value="2.627591621670445" />
-      <entry key="S10" value="3.376225584731412" />
-      <entry key="S30" value="5.4168942426108995" />
-      <entry key="S60" value="8.775398869739414" />
-      <entry key="M2" value="16.663691747388746" />
-      <entry key="M5" value="34.62030838109628" />
-      <entry key="M10" value="58.550609017101394" />
-      <entry key="M15" value="85.0707782967153" />
-      <entry key="M30" value="173.1838026407467" />
-      <entry key="H1" value="337.1938161444628" />
-      <entry key="H2" value="583.6303686094348" />
-      <entry key="H4" value="908.0180799032292" />
-      <entry key="D1" value="1596.177949163959" />
-      <entry key="W1" value="1802.6329109676642" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000285933" />
+      <entry key="S10" value="1.0000111749456455" />
+      <entry key="S30" value="1.0799133553743647" />
+      <entry key="S60" value="2.0798213265619445" />
+      <entry key="M2" value="6.777604499387344" />
+      <entry key="M5" value="25.297419148150034" />
+      <entry key="M10" value="69.08574442917828" />
+      <entry key="M15" value="130.05971843979913" />
+      <entry key="M30" value="313.64879062352907" />
+      <entry key="H1" value="598.592431001379" />
+      <entry key="H2" value="1007.3489377790719" />
+      <entry key="H4" value="1555.3256199317186" />
+      <entry key="D1" value="2882.8416424759707" />
+      <entry key="W1" value="3336.74938658867" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="6.27354521725124E-10" />
-      <entry key="MS500" value="0.014549869281677825" />
-      <entry key="S2" value="0.44951512918968006" />
-      <entry key="S5" value="1.0572126821383059" />
-      <entry key="S10" value="1.4445917854080712" />
-      <entry key="S30" value="1.9033128616646058" />
-      <entry key="S60" value="2.3895965260044187" />
-      <entry key="M2" value="3.4179916592667596" />
-      <entry key="M5" value="5.545179764050544" />
-      <entry key="M10" value="7.790140694350807" />
-      <entry key="M15" value="9.99222302096879" />
-      <entry key="M30" value="16.365601570844976" />
-      <entry key="H1" value="28.13276147149223" />
-      <entry key="H2" value="47.7673674055263" />
-      <entry key="H4" value="76.4037043093335" />
-      <entry key="D1" value="141.35034503137197" />
-      <entry key="W1" value="161.28345131500177" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.979539976220258E-198" />
+      <entry key="S2" value="6.053526609225965E-50" />
+      <entry key="S5" value="3.753245194799909E-20" />
+      <entry key="S10" value="3.319915060265085E-10" />
+      <entry key="S30" value="0.0014367830344388928" />
+      <entry key="S60" value="0.06563288333048763" />
+      <entry key="M2" value="0.4439502995835609" />
+      <entry key="M5" value="1.4842363900385787" />
+      <entry key="M10" value="2.7104139462672983" />
+      <entry key="M15" value="3.712872352814183" />
+      <entry key="M30" value="6.1656162315876415" />
+      <entry key="H1" value="11.020402315357197" />
+      <entry key="H2" value="23.664536933916903" />
+      <entry key="H4" value="51.8666472830634" />
+      <entry key="D1" value="147.83443902869317" />
+      <entry key="W1" value="184.76435599256772" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.15177436333377517" />
-      <entry key="MS500" value="0.7084731239182789" />
-      <entry key="S2" value="1.7855808589821491" />
-      <entry key="S5" value="3.298686200407446" />
-      <entry key="S10" value="4.537696251488285" />
-      <entry key="S30" value="7.179551746526465" />
-      <entry key="S60" value="11.062036370504403" />
-      <entry key="M2" value="19.982561837538416" />
-      <entry key="M5" value="40.07976368448973" />
-      <entry key="M10" value="66.2760939982075" />
-      <entry key="M15" value="95.00727624927323" />
-      <entry key="M30" value="189.50258285286776" />
-      <entry key="H1" value="365.2854011760119" />
-      <entry key="H2" value="631.3624904764179" />
-      <entry key="H4" value="984.3931300824642" />
-      <entry key="D1" value="1737.5191882849053" />
-      <entry key="W1" value="1963.9148684212219" />
+      <entry key="MS100" value="0.028755864082027342" />
+      <entry key="MS500" value="0.49175103701312417" />
+      <entry key="S2" value="0.8374064875084265" />
+      <entry key="S5" value="0.9314821318399567" />
+      <entry key="S10" value="0.9651440382215466" />
+      <entry key="S30" value="1.0684733872529322" />
+      <entry key="S60" value="2.128589316466786" />
+      <entry key="M2" value="7.190524412006434" />
+      <entry key="M5" value="26.748884853869075" />
+      <entry key="M10" value="71.77079558983044" />
+      <entry key="M15" value="133.7510541229378" />
+      <entry key="M30" value="319.7968555275848" />
+      <entry key="H1" value="609.5959459729279" />
+      <entry key="H2" value="1030.9947328388994" />
+      <entry key="H4" value="1607.1718398501878" />
+      <entry key="D1" value="3030.6663579390815" />
+      <entry key="W1" value="3521.512002052044" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -261,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786014477747</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="get and post encounter temt">
+      <option name="closed" value="true" />
+      <created>1786019979602</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1786019979602</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +295,8 @@
     <MESSAGE value="get post put delete default done" />
     <MESSAGE value="front v1" />
     <MESSAGE value="dsfdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="dsfdf" />
+    <MESSAGE value="get and post encounter temt" />
+    <option name="LAST_COMMIT_MESSAGE" value="get and post encounter temt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -297,6 +318,12 @@
           <line>2</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/mock/encounter.ts</url>
+          <line>3</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

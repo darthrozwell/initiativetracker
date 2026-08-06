@@ -21,7 +21,7 @@ class MonsterRepo:
     async def get_all(self):
         query = select(MonsterModel).order_by(MonsterModel.name)
         result = await self.session.execute(query)
-        return result
+        return result.scalars()
 
 
     async def add(self, monster_schema: MonsterSchema):
@@ -39,7 +39,7 @@ class MonsterRepo:
 
 
     async def delete(self, monster_id: str):
-        query = select(MonsterModel).where(MonsterModel.id == monster_id)
+        query = select(MonsterModel).where(MonsterModel.id == monster_id).with_for_update()
         result = await self.session.execute(query)
         res = result.scalar_one_or_none()
         if res:

@@ -13,9 +13,9 @@ from monster.service import MonsterService
 router = APIRouter()
 
 
-@router.get("/monster/", response_model=MonsterSchema, tags=["monster"])
+@router.get(path="/monster/{monster_name}", response_model=MonsterSchema, tags=["monster"])
 async def get_monster(
-        monster_name: Annotated[str, Query(min_length=2, max_length=50)],
+        monster_name: str,
         service: Annotated[MonsterService, Depends(get_monster_service)]
 ) -> MonsterModel | None:
     monster = await service.get_by_name(name=monster_name)
@@ -24,6 +24,14 @@ async def get_monster(
         raise HTTPException(status_code=404, detail="Monster not found")
 
     return monster
+
+
+@router.get(path="/monster/", response_model=list[MonsterSchema], tags=["monster"])
+async def get_all_monsters(
+        service: Annotated[MonsterService, Depends(get_monster_service)]
+):
+    monsters = await service.get_all_monsters()
+    return monsters
 
 
 @router.post("/monster/", tags=["monster"])

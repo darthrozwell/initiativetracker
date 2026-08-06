@@ -4,14 +4,16 @@ from pydantic import BaseModel
 class BaseEncounter(BaseModel):
     pass
 
-
-class EncounterSchema(BaseEncounter):
-
-    id: str | None = None
+class EncounterUpdateSchema(BaseEncounter):
     name: str
 
-    round: int = 0
+    round: int = 1
     current_turn: int = 0
-    combatants: list | None = None
-    history: list | None = None
-    settings: dict | None = None
+    combatants: list | None = []
+    history: list | None = []
+    settings: dict | None = {}
+
+
+class EncounterSchema(EncounterUpdateSchema):
+
+    id: str | None = None

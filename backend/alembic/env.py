@@ -5,6 +5,9 @@ from sqlalchemy import pool
 
 from alembic import context
 
+import monster.models
+import encounter.models
+
 from models_core import Base
 
 # this is the Alembic Config object, which provides

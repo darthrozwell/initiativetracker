@@ -1,9 +1,11 @@
+from typing import List
+
 from fastapi import APIRouter, HTTPException
-from fastapi.params import Depends
+from fastapi.params import Depends, Body
 from typing_extensions import Annotated
 
 from encounter.dependencies import get_encounter_service
-from encounter.schemas import EncounterSchema
+from encounter.schemas import EncounterSchema, EncounterUpdateSchema
 from encounter.service import EncounterService
 
 router = APIRouter()
@@ -20,9 +22,38 @@ async def get_encounter(
     return encounter
 
 
-@router.post(path="/encounter/create", response_model=EncounterSchema, tags=["encounter"])
+@router.get(path="/encounters", response_model=List[EncounterSchema], tags=["encounter"])
+async def get_all_encounters(
+service: Annotated[EncounterService, Depends(get_encounter_service)],
+):
+    encounters = await service.get_all_encounters()
+    if encounters is None:
+        raise HTTPException(status_code=404, detail="There is no encounters found")
+    return encounters
+
+
+@router.post(path="/encounter", response_model=EncounterSchema, tags=["encounter"])
 async def create_encounter(
         service: Annotated[EncounterService, Depends(get_encounter_service)],
 ):
     encounter = await service.create_encounter()
     return encounter
+
+
+@router.delete(path="/encounter/{encounter_id}", tags=["encounter"])
+async def delete_encounter(
+        encounter_id: str,
+        service: Annotated[EncounterService, Depends(get_encounter_service)]
+):
+    await service.delete_encounter(encounter_id=encounter_id)
+    return {"message": "Encounter deleted successfully"}
+
+
+@router.put(path="/encounter/{encounter_id}", tags=["encounter"])
+async def update_encounter(
+        encounter_id: str,
+        encounter: Annotated[EncounterUpdateSchema, Body(embed=True)],
+        service: Annotated[EncounterService, Depends(get_encounter_service)],
+):
+    await service.update_encounter(encounter_id=encounter_id, encounter=encounter)
+    return {"message": "Encounter updated successfully"}

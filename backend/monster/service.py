@@ -12,7 +12,7 @@ class MonsterService:
         return await self.repository.get_by_name(name)
 
 
-    async def get_all(self) -> list[MonsterModel]:
+    async def get_all_monsters(self) -> list[MonsterModel]:
         return await self.repository.get_all()
 
 

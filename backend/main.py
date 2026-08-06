@@ -1,19 +1,27 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from api.v1.monster_router import router as monster_router
 from api.v1.encounter_router import router as encounter_router
-from database_core import setup_db
 
 
-@asynccontextmanager
-async def lifespan(_: FastAPI):
-    await setup_db()
-    yield
+
+app = FastAPI()
 
 
-app = FastAPI(lifespan=lifespan)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app.include_router(monster_router)
 app.include_router(encounter_router)
