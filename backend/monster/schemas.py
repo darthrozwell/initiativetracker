@@ -1,8 +1,4 @@
-from collections import defaultdict
-
 from pydantic import BaseModel, Field
-from typing_extensions import Annotated
-
 
 class BaseMonster(BaseModel):
     pass

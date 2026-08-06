@@ -1,9 +1,8 @@
 from sqlalchemy import JSON
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 
+from models_core import Base
 
-class Base(DeclarativeBase):
-    pass
 
 class MonsterModel(Base):
     __tablename__ = "monsters"

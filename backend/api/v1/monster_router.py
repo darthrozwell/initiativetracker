@@ -13,7 +13,7 @@ from monster.service import MonsterService
 router = APIRouter()
 
 
-@router.get("/monster/", response_model=MonsterSchema)
+@router.get("/monster/", response_model=MonsterSchema, tags=["monster"])
 async def get_monster(
         monster_name: Annotated[str, Query(min_length=2, max_length=50)],
         service: Annotated[MonsterService, Depends(get_monster_service)]
@@ -26,7 +26,7 @@ async def get_monster(
     return monster
 
 
-@router.post("/monster/")
+@router.post("/monster/", tags=["monster"])
 async def post_monster(
         monster: MonsterSchema,
         service: Annotated[MonsterService, Depends(get_monster_service)]
@@ -34,7 +34,7 @@ async def post_monster(
     response = await service.add_monster(monster_schema=monster)
     return
 
-@router.post("/monster/upload")
+@router.post("/monster/upload", tags=["monster"])
 async def upload_monster(
         file: UploadFile,
         service: Annotated[MonsterService, Depends(get_monster_service)],
@@ -47,7 +47,7 @@ async def upload_monster(
     return {"count": len(monsters)}
 
 
-@router.put("/monster/")
+@router.put("/monster/", tags=["monster"])
 async def update_monster(
         monster: MonsterSchema,
         service: Annotated[MonsterService, Depends(get_monster_service)],
@@ -56,7 +56,7 @@ async def update_monster(
     return
 
 
-@router.delete("/monster/")
+@router.delete("/monster/", tags=["monster"])
 async def delete_monster(
         monster_id: str,
         service: Annotated[MonsterService, Depends(get_monster_service)],

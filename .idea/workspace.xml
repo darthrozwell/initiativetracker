@@ -4,34 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/api/v1/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/monster/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/initiativetracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/initiativetracker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="dsfdf">
+      <change afterPath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/encounter/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/encounter/dependencies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/encounter/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/encounter/repository.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/encounter/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/encounter/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models_core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/README" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/script.py.mako" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/script.py.mako" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/65708dcc459c_new_columns_for_statswith_int.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/versions/65708dcc459c_new_columns_for_statswith_int.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/aca9f2d53e67_not_unique_names.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/versions/aca9f2d53e67_not_unique_names.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/bca9f31ae4b8_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/versions/bca9f31ae4b8_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/f7c60e266bb9_new_columns.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/versions/f7c60e266bb9_new_columns.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/dependencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monster/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/v1/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/monster_router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/schemas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +41,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitToolBoxStore">
@@ -88,61 +75,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.478107658048064E-8" />
-      <entry key="MS500" value="0.04701490129238848" />
-      <entry key="S2" value="1.4562306704247365" />
-      <entry key="S5" value="5.713063367353481" />
-      <entry key="S10" value="10.823931776435098" />
-      <entry key="S30" value="23.112676717786194" />
-      <entry key="S60" value="32.46709479755918" />
-      <entry key="M2" value="43.222952556748446" />
-      <entry key="M5" value="61.469482638085054" />
-      <entry key="M10" value="79.93062346142051" />
-      <entry key="M15" value="99.28283443307572" />
-      <entry key="M30" value="168.8587413595756" />
-      <entry key="H1" value="287.97216064415545" />
-      <entry key="H2" value="468.2345861090405" />
-      <entry key="H4" value="721.7354959454145" />
-      <entry key="D1" value="1250.8460629102988" />
-      <entry key="W1" value="1403.8461502097662" />
+      <entry key="MS100" value="1.0000002104528087" />
+      <entry key="MS500" value="1.0479325531277237" />
+      <entry key="S2" value="1.73854689036877" />
+      <entry key="S5" value="2.627591621670445" />
+      <entry key="S10" value="3.376225584731412" />
+      <entry key="S30" value="5.4168942426108995" />
+      <entry key="S60" value="8.775398869739414" />
+      <entry key="M2" value="16.663691747388746" />
+      <entry key="M5" value="34.62030838109628" />
+      <entry key="M10" value="58.550609017101394" />
+      <entry key="M15" value="85.0707782967153" />
+      <entry key="M30" value="173.1838026407467" />
+      <entry key="H1" value="337.1938161444628" />
+      <entry key="H2" value="583.6303686094348" />
+      <entry key="H4" value="908.0180799032292" />
+      <entry key="D1" value="1596.177949163959" />
+      <entry key="W1" value="1802.6329109676642" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000000049" />
-      <entry key="S10" value="1.0000000705293997" />
-      <entry key="S30" value="1.0041338678847773" />
-      <entry key="S60" value="1.066616961628656" />
-      <entry key="M2" value="1.3375080598022349" />
-      <entry key="M5" value="2.3904648681384355" />
-      <entry key="M10" value="3.848940071680516" />
-      <entry key="M15" value="5.529730552481311" />
-      <entry key="M30" value="12.141955360994324" />
-      <entry key="H1" value="23.76818840963686" />
-      <entry key="H2" value="41.21844702329681" />
-      <entry key="H4" value="66.12816625586737" />
-      <entry key="D1" value="118.87093207220786" />
-      <entry key="W1" value="134.1817802612159" />
+      <entry key="MS100" value="6.27354521725124E-10" />
+      <entry key="MS500" value="0.014549869281677825" />
+      <entry key="S2" value="0.44951512918968006" />
+      <entry key="S5" value="1.0572126821383059" />
+      <entry key="S10" value="1.4445917854080712" />
+      <entry key="S30" value="1.9033128616646058" />
+      <entry key="S60" value="2.3895965260044187" />
+      <entry key="M2" value="3.4179916592667596" />
+      <entry key="M5" value="5.545179764050544" />
+      <entry key="M10" value="7.790140694350807" />
+      <entry key="M15" value="9.99222302096879" />
+      <entry key="M30" value="16.365601570844976" />
+      <entry key="H1" value="28.13276147149223" />
+      <entry key="H2" value="47.7673674055263" />
+      <entry key="H4" value="76.4037043093335" />
+      <entry key="D1" value="141.35034503137197" />
+      <entry key="W1" value="161.28345131500177" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0804039150187136E-5" />
-      <entry key="MS500" value="0.14829530896592968" />
-      <entry key="S2" value="2.0184502882430597" />
-      <entry key="S5" value="6.5047645037999375" />
-      <entry key="S10" value="11.711885029401666" />
-      <entry key="S30" value="24.0758881226055" />
-      <entry key="S60" value="33.51040707187158" />
-      <entry key="M2" value="44.54305440397591" />
-      <entry key="M5" value="63.84085546009034" />
-      <entry key="M10" value="83.75348367091202" />
-      <entry key="M15" value="104.78078007155484" />
-      <entry key="M30" value="180.96286167084577" />
-      <entry key="H1" value="311.7050798969843" />
-      <entry key="H2" value="509.4227964814337" />
-      <entry key="H4" value="787.8388819626598" />
-      <entry key="D1" value="1369.7093049667685" />
-      <entry key="W1" value="1538.0266819734459" />
+      <entry key="MS100" value="0.15177436333377517" />
+      <entry key="MS500" value="0.7084731239182789" />
+      <entry key="S2" value="1.7855808589821491" />
+      <entry key="S5" value="3.298686200407446" />
+      <entry key="S10" value="4.537696251488285" />
+      <entry key="S30" value="7.179551746526465" />
+      <entry key="S60" value="11.062036370504403" />
+      <entry key="M2" value="19.982561837538416" />
+      <entry key="M5" value="40.07976368448973" />
+      <entry key="M10" value="66.2760939982075" />
+      <entry key="M15" value="95.00727624927323" />
+      <entry key="M30" value="189.50258285286776" />
+      <entry key="H1" value="365.2854011760119" />
+      <entry key="H2" value="631.3624904764179" />
+      <entry key="H4" value="984.3931300824642" />
+      <entry key="D1" value="1737.5191882849053" />
+      <entry key="W1" value="1963.9148684212219" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -157,28 +144,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roz/PycharmProjects/InitiativeTracker&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Program Files\\JetBrains\\PyCharm 2026.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "default__monster__routes",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Roz/PycharmProjects/InitiativeTracker",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "ts.external.directory.path": "D:\\Program Files\\JetBrains\\PyCharm 2026.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Roz\PycharmProjects\InitiativeTracker\backend" />
@@ -266,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786010573155</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="dsfdf">
+      <option name="closed" value="true" />
+      <created>1786014477747</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1786014477747</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,15 +274,12 @@
     <MESSAGE value="fff" />
     <MESSAGE value="get post put delete default done" />
     <MESSAGE value="front v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="dsfdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="dsfdf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/backend/main.py</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/monster/dependencies.py</url>
           <option name="timeStamp" value="3" />
@@ -295,6 +287,16 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/database_core.py</url>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backend/monster/service.py</url>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
+          <line>2</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
