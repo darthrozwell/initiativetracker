@@ -1,6 +1,6 @@
 import json
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from fastapi.params import Query
 from pydantic import TypeAdapter
 from typing_extensions import Annotated
