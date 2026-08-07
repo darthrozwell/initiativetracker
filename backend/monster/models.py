@@ -1,4 +1,4 @@
-from sqlalchemy import JSON
+from sqlalchemy import JSON, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
 
 from models_core import Base
@@ -8,38 +8,67 @@ class MonsterModel(Base):
     __tablename__ = "monsters"
 
     id: Mapped[str] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column()
+    name: Mapped[str] = mapped_column(unique=True, index=True)
     source: Mapped[str] = mapped_column(nullable=True)
     size: Mapped[str] = mapped_column(nullable=True)
     creature_type: Mapped[str] = mapped_column(nullable=True)
     alignment: Mapped[str] = mapped_column(nullable=True)
-    info: Mapped[dict] = mapped_column(JSON, nullable=True)
-    abilities: Mapped[list] = mapped_column(JSON, nullable=True)
-    stats: Mapped[dict] = mapped_column(JSON, nullable=True)
 
-    armor_class: Mapped[str] = mapped_column(nullable=True)  # "Класс Защиты": "16",
-    initiative: Mapped[str] = mapped_column(nullable=True)  # "Инициатива": "+3 (13)",
-    hp: Mapped[str] = mapped_column(nullable=True)  # "Хиты": "66 (12к8 + 12)",
-    movement: Mapped[str] = mapped_column(nullable=True)  # "Скорость": "20 футов, Полёта 50 футов",
-    skills: Mapped[str] = mapped_column(nullable=True)  # "Навыки": "Восприятие +7, Природа +5, Тайная магия +3",
-    resistances: Mapped[str] = mapped_column(nullable=True)  # Сопротивление урону
-    immunities: Mapped[str] = mapped_column(nullable=True)  # Иммунитеты
-    senses: Mapped[str] = mapped_column(nullable=True)  # "Чувства": "пассивное Восприятие 17",
-    languages: Mapped[str] = mapped_column(nullable=True)  # "Языки": "Первичный (Ауран), Язык Ааракокра",
-    areal: Mapped[str] = mapped_column(nullable=True)  # "Среда обитания": "Горы, Стихийный план Воздуха",
-    gear: Mapped[str] = mapped_column(nullable=True)  # Снаряжение
-    loot: Mapped[str] = mapped_column(nullable=True)  # "Сокровища": "Личные , Инструментальные",
-    danger: Mapped[str] = mapped_column(nullable=True)  # "Опасность": "4 (1 100 опыта; БВ +2)"
+    armor_class: Mapped[int] = mapped_column()  # "Класс Защиты": "16",
+    initiative: Mapped[int] = mapped_column()  # "Инициатива": "+3 (13)",
+    hit_points_value: Mapped[int] = mapped_column()  # "Хиты": "66 (12к8 + 12)",
+    hit_points_formula: Mapped[str] = mapped_column()
+    speed: Mapped[str] = mapped_column()  # "Скорость": "20 футов, Полёта 50 футов",
+    skills: Mapped[str] = mapped_column()  # "Навыки": "Восприятие +7, Природа +5, Тайная магия +3",
+    damage_resistance: Mapped[str] = mapped_column()
+    damage_immunity: Mapped[str] = mapped_column()
+    damage_vulnerability: Mapped[str] = mapped_column()
+    senses: Mapped[str] = mapped_column()  # "Чувства": "пассивное Восприятие 17",
+    languages: Mapped[str] = mapped_column()  # "Языки": "Первичный (Ауран), Язык Ааракокра",
+    challenge_rating: Mapped[str] = mapped_column()
+    experience: Mapped[int] = mapped_column()
+    proficiency_bonus: Mapped[int] = mapped_column()
+    equipment: Mapped[str] = mapped_column()
+    treasure: Mapped[str] = mapped_column()
+    habitat: Mapped[str] = mapped_column()
 
-    strength: Mapped[int] = mapped_column(nullable=True)
-    dexterity: Mapped[int] = mapped_column(nullable=True)
-    constitution: Mapped[int] = mapped_column(nullable=True)
-    intelligence: Mapped[int] = mapped_column(nullable=True)
-    wisdom: Mapped[int] = mapped_column(nullable=True)
-    charisma: Mapped[int] = mapped_column(nullable=True)
-    strength_save: Mapped[str] = mapped_column(nullable=True)
-    dexterity_save: Mapped[str] = mapped_column(nullable=True)
-    constitution_save: Mapped[str] = mapped_column(nullable=True)
-    intelligence_save: Mapped[str] = mapped_column(nullable=True)
-    wisdom_save: Mapped[str] = mapped_column(nullable=True)
-    charisma_save: Mapped[str] = mapped_column(nullable=True)
+    strength_value: Mapped[int] = mapped_column()
+    strength_mod: Mapped[int] = mapped_column()
+    strength_save: Mapped[int] = mapped_column()
+    dexterity_value: Mapped[int] = mapped_column()
+    dexterity_mod: Mapped[int] = mapped_column()
+    dexterity_save: Mapped[int] = mapped_column()
+    constitution_value: Mapped[int] = mapped_column()
+    constitution_mod: Mapped[int] = mapped_column()
+    constitution_save: Mapped[int] = mapped_column()
+    intelligence_value: Mapped[int] = mapped_column()
+    intelligence_mod: Mapped[int] = mapped_column()
+    intelligence_save: Mapped[int] = mapped_column()
+    wisdom_value: Mapped[int] = mapped_column()
+    wisdom_mod: Mapped[int] = mapped_column()
+    wisdom_save: Mapped[int] = mapped_column()
+    charisma_value: Mapped[int] = mapped_column()
+    charisma_mod: Mapped[int] = mapped_column()
+    charisma_save: Mapped[int] = mapped_column()
+
+
+
+class MonsterAttackModel(Base):
+    __tablename__ = "monster_attacks"
+
+    id: Mapped[str] = mapped_column(primary_key=True)
+    monster_name: Mapped[str] = mapped_column(
+        ForeignKey(
+            column="monsters.name",
+            ondelete="CASCADE",
+            onupdate="CASCADE",
+        )
+    )
+    title: Mapped[str] = mapped_column()
+    name: Mapped[str] = mapped_column()
+    text: Mapped[str] = mapped_column()
+    attack_type: Mapped[str] = mapped_column()
+    attack_range: Mapped[str] = mapped_column()
+    hit_bonus: Mapped[int] = mapped_column()
+    reach: Mapped[str] = mapped_column()
+    damage: Mapped[str] = mapped_column()

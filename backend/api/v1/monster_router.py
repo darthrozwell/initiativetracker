@@ -42,6 +42,7 @@ async def post_monster(
     response = await service.add_monster(monster_schema=monster)
     return
 
+
 @router.post("/monster/upload", tags=["monster"])
 async def upload_monster(
         file: UploadFile,

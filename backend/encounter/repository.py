@@ -1,10 +1,10 @@
 import uuid
 
-from sqlalchemy import select, update
+from sqlalchemy import select, update, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from encounter.models import EncounterModel
-from encounter.schemas import EncounterSchema, EncounterUpdateSchema
+from encounter.models import EncounterModel, CombatantModel
+from encounter.schemas import EncounterSchema, EncounterUpdateSchema, CombatantSchema
 
 
 class EncounterRepo:
@@ -46,5 +46,32 @@ class EncounterRepo:
     async def update(self, encounter_id: str, new_schema: EncounterUpdateSchema) -> EncounterModel | None:
         query = update(EncounterModel).where(EncounterModel.id == encounter_id).values(**new_schema.model_dump())
         result = await self.session.execute(query)
+        await self.session.commit()
+        return
+
+
+    async def get_combatants(self, encounter_id: str):
+        query = select(CombatantModel).where(CombatantModel.encounter_id == encounter_id)
+        result = await self.session.execute(query)
+        return result.scalars()
+
+
+    async def create_combatant(self, encounter_id: str, new_schema: CombatantSchema):
+        new_model = CombatantModel(**new_schema.model_dump())
+        new_model.id = str(uuid.uuid4())
+        self.session.add(new_model)
+        await self.session.commit()
+        return new_model
+
+
+    async def update_combatant(self, new_schema: CombatantSchema):
+        query = update(CombatantModel).where(CombatantModel.id == new_schema.id).values(**new_schema.model_dump())
+        result = await self.session.execute(query)
+        await self.session.commit()
+        return
+
+    async def delete_combatant(self, combatant_id: str):
+        query = delete(CombatantModel).where(CombatantModel.id == combatant_id)
+        await self.session.execute(query)
         await self.session.commit()
         return

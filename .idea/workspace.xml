@@ -4,31 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="get and post encounter temt">
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/encounter.ts" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="finished day 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/65708dcc459c_new_columns_for_statswith_int.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/aca9f2d53e67_not_unique_names.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/bca9f31ae4b8_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/f7c60e266bb9_new_columns.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/e67e8ff968b8_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/v1/monster_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/v1/monster_router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/encounter/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/encounter/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/encounter/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/encounter/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/monster/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/monster/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monster/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/types/combat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/combat.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +26,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="3000" />
+    <option name="cachedIndexableFilesCount" value="3008" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,7 +42,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitToolBoxStore">
@@ -87,61 +76,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000285933" />
-      <entry key="S10" value="1.0000111749456455" />
-      <entry key="S30" value="1.0799133553743647" />
-      <entry key="S60" value="2.0798213265619445" />
-      <entry key="M2" value="6.777604499387344" />
-      <entry key="M5" value="25.297419148150034" />
-      <entry key="M10" value="69.08574442917828" />
-      <entry key="M15" value="130.05971843979913" />
-      <entry key="M30" value="313.64879062352907" />
-      <entry key="H1" value="598.592431001379" />
-      <entry key="H2" value="1007.3489377790719" />
-      <entry key="H4" value="1555.3256199317186" />
-      <entry key="D1" value="2882.8416424759707" />
-      <entry key="W1" value="3336.74938658867" />
+      <entry key="MS100" value="1.2034559588588982" />
+      <entry key="MS500" value="4.147038341096944" />
+      <entry key="S2" value="12.236838293589287" />
+      <entry key="S5" value="23.58655140127799" />
+      <entry key="S10" value="33.157161520711576" />
+      <entry key="S30" value="44.67634763134919" />
+      <entry key="S60" value="55.19992902568066" />
+      <entry key="M2" value="72.34586411048727" />
+      <entry key="M5" value="98.63135015354415" />
+      <entry key="M10" value="120.55360681883265" />
+      <entry key="M15" value="132.90813047101653" />
+      <entry key="M30" value="159.1971867737201" />
+      <entry key="H1" value="236.11572199695348" />
+      <entry key="H2" value="475.4724507613011" />
+      <entry key="H4" value="1044.3559900933292" />
+      <entry key="D1" value="3221.3651713179534" />
+      <entry key="W1" value="4161.3968585258335" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.979539976220258E-198" />
-      <entry key="S2" value="6.053526609225965E-50" />
-      <entry key="S5" value="3.753245194799909E-20" />
-      <entry key="S10" value="3.319915060265085E-10" />
-      <entry key="S30" value="0.0014367830344388928" />
-      <entry key="S60" value="0.06563288333048763" />
-      <entry key="M2" value="0.4439502995835609" />
-      <entry key="M5" value="1.4842363900385787" />
-      <entry key="M10" value="2.7104139462672983" />
-      <entry key="M15" value="3.712872352814183" />
-      <entry key="M30" value="6.1656162315876415" />
-      <entry key="H1" value="11.020402315357197" />
-      <entry key="H2" value="23.664536933916903" />
-      <entry key="H4" value="51.8666472830634" />
-      <entry key="D1" value="147.83443902869317" />
-      <entry key="W1" value="184.76435599256772" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="8.561641667297487E-294" />
+      <entry key="S30" value="2.12464614024954E-98" />
+      <entry key="S60" value="1.938065279534146E-49" />
+      <entry key="M2" value="8.68904051882336E-25" />
+      <entry key="M5" value="8.329603289392488E-10" />
+      <entry key="M10" value="1.0565231320307002E-4" />
+      <entry key="M15" value="0.005679499718396243" />
+      <entry key="M30" value="0.33547974564983096" />
+      <entry key="H1" value="3.003092525272887" />
+      <entry key="H2" value="11.666031941222897" />
+      <entry key="H4" value="33.76755743985874" />
+      <entry key="D1" value="152.23098738043228" />
+      <entry key="W1" value="213.18944692717284" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.028755864082027342" />
-      <entry key="MS500" value="0.49175103701312417" />
-      <entry key="S2" value="0.8374064875084265" />
-      <entry key="S5" value="0.9314821318399567" />
-      <entry key="S10" value="0.9651440382215466" />
-      <entry key="S30" value="1.0684733872529322" />
-      <entry key="S60" value="2.128589316466786" />
-      <entry key="M2" value="7.190524412006434" />
-      <entry key="M5" value="26.748884853869075" />
-      <entry key="M10" value="71.77079558983044" />
-      <entry key="M15" value="133.7510541229378" />
-      <entry key="M30" value="319.7968555275848" />
-      <entry key="H1" value="609.5959459729279" />
-      <entry key="H2" value="1030.9947328388994" />
-      <entry key="H4" value="1607.1718398501878" />
-      <entry key="D1" value="3030.6663579390815" />
-      <entry key="W1" value="3521.512002052044" />
+      <entry key="MS100" value="1.1706289534540937" />
+      <entry key="MS500" value="4.122384677640861" />
+      <entry key="S2" value="12.217677250672766" />
+      <entry key="S5" value="23.570970225662514" />
+      <entry key="S10" value="33.14595696233885" />
+      <entry key="S30" value="44.67008124338541" />
+      <entry key="S60" value="55.19043643443225" />
+      <entry key="M2" value="72.3333368634331" />
+      <entry key="M5" value="98.62165178971418" />
+      <entry key="M10" value="120.54757525226991" />
+      <entry key="M15" value="132.9093084201662" />
+      <entry key="M30" value="159.52851316401532" />
+      <entry key="H1" value="239.110040875519" />
+      <entry key="H2" value="487.12391678358324" />
+      <entry key="H4" value="1078.1051535417992" />
+      <entry key="D1" value="3373.5845778849093" />
+      <entry key="W1" value="4374.584047181705" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -164,7 +153,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "default__monster__routes",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Roz/PycharmProjects/InitiativeTracker",
     "node.js.detected.package.eslint": "true",
@@ -174,7 +163,7 @@
     "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "editor.preferences.completion.inline",
     "ts.external.directory.path": "D:\\Program Files\\JetBrains\\PyCharm 2026.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
@@ -281,7 +270,23 @@
       <option name="project" value="LOCAL" />
       <updated>1786019979602</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="finished day 2">
+      <option name="closed" value="true" />
+      <created>1786038274387</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1786038274387</updated>
+    </task>
+    <task id="LOCAL-00012" summary="finished day 2">
+      <option name="closed" value="true" />
+      <created>1786038286948</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1786038286948</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +301,8 @@
     <MESSAGE value="front v1" />
     <MESSAGE value="dsfdf" />
     <MESSAGE value="get and post encounter temt" />
-    <option name="LAST_COMMIT_MESSAGE" value="get and post encounter temt" />
+    <MESSAGE value="finished day 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished day 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,13 +322,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
           <line>2</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/mock/encounter.ts</url>
           <line>3</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

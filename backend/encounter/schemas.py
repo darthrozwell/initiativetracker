@@ -17,3 +17,13 @@ class EncounterUpdateSchema(BaseEncounter):
 class EncounterSchema(EncounterUpdateSchema):
 
     id: str | None = None
+
+
+class CombatantSchema(BaseModel):
+    id: str
+    encounter_id: str
+    monster_id: str
+
+    nickname: str = ""
+    current_hp: int = 0
+    status: str = ""

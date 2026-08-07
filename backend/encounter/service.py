@@ -1,6 +1,6 @@
-from encounter.models import EncounterModel
+from encounter.models import EncounterModel, CombatantModel
 from encounter.repository import EncounterRepo
-from encounter.schemas import EncounterSchema, EncounterUpdateSchema
+from encounter.schemas import EncounterSchema, EncounterUpdateSchema, CombatantSchema
 
 
 class EncounterService:
@@ -31,4 +31,22 @@ class EncounterService:
 
     async def update_encounter(self, encounter_id: str, encounter: EncounterUpdateSchema):
         await self.repository.update(encounter_id=encounter_id, new_schema=encounter)
+        return
+
+
+    async def get_combatants(self, encounter_id: str):
+        combatants = await self.repository.get_combatants(encounter_id=encounter_id)
+        return combatants
+
+
+    async def create_combatant(self, encounter_id: str, combatant: CombatantSchema):
+        combatant = await self.repository.create_combatant(encounter_id=encounter_id, new_schema=combatant)
+        return combatant
+
+    async def update_combatant(self, combatant: CombatantSchema):
+        await self.repository.update_combatant(new_schema=combatant)
+        return
+
+    async def delete_combatant(self, combatant_id: str):
+        await self.repository.delete_combatant(combatant_id=combatant_id)
         return
