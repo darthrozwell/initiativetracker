@@ -4,56 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="hp bar moved to header and +- buttons ready to use&#10;not saving yet">
-      <change afterPath="$PROJECT_DIR$/backend/src/monster/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/monster/enums.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/monster/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/monster/router.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/monster/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/monster/service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/test_api_combatant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/test_api_encounter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/test_api_monster.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/tests/test_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/initiativetracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/initiativetracker.iml" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="alembic new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/00826354b2b4_cascade_for_attacks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/0db05f0c5ba7_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/937412701721_combatants_table_init.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/bddb5b58d768_update_cascade_for_attacks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/dependencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/v1/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/v1/encounter_router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api/v1/monster_router.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/encounter/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/enums.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/encounter/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/dependencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/encounter/repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/encounter/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/encounter/service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/dependencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/dependencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/repository.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/schemas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monster/service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/encounter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/encounter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/StatsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/StatsTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/EncounterList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/EncounterList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/types/combat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/combat.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +34,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/frontend" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitToolBoxStore">
@@ -113,61 +68,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.1862517452519013E-50" />
-      <entry key="MS500" value="1.119965824173701E-10" />
-      <entry key="S2" value="0.00489796231268742" />
-      <entry key="S5" value="0.17851442440106188" />
-      <entry key="S10" value="0.5965635887819096" />
-      <entry key="S30" value="1.5475303011920443" />
-      <entry key="S60" value="3.342172378177481" />
-      <entry key="M2" value="8.117686157945988" />
-      <entry key="M5" value="21.711816291566652" />
-      <entry key="M10" value="40.883714569899965" />
-      <entry key="M15" value="57.24873531538654" />
-      <entry key="M30" value="97.4588133161824" />
-      <entry key="H1" value="163.6612919569383" />
-      <entry key="H2" value="292.95971217138793" />
-      <entry key="H4" value="580.0059722103119" />
-      <entry key="D1" value="3151.778377574702" />
-      <entry key="W1" value="5289.961071612916" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000022063096319" />
-      <entry key="S60" value="1.0014856463097903" />
-      <entry key="M2" value="1.0392481763282913" />
-      <entry key="M5" value="1.357012419634985" />
-      <entry key="M10" value="2.0499966824818383" />
-      <entry key="M15" value="2.8401418443477997" />
-      <entry key="M30" value="6.331152250473389" />
-      <entry key="H1" value="18.424808928338926" />
-      <entry key="H2" value="45.75498887557356" />
-      <entry key="H4" value="89.52457210607655" />
-      <entry key="D1" value="279.4403779571045" />
-      <entry key="W1" value="416.7346060892244" />
+      <entry key="S2" value="1.0000000000000067" />
+      <entry key="S5" value="1.0000021304742108" />
+      <entry key="S10" value="1.0014638258050501" />
+      <entry key="S30" value="1.1390732967810904" />
+      <entry key="S60" value="1.5632430194569387" />
+      <entry key="M2" value="2.2535643945105304" />
+      <entry key="M5" value="3.2909599661442366" />
+      <entry key="M10" value="6.9659963085816585" />
+      <entry key="M15" value="14.71796634836557" />
+      <entry key="M30" value="48.318878478642524" />
+      <entry key="H1" value="118.40485205586144" />
+      <entry key="H2" value="252.59077877651285" />
+      <entry key="H4" value="538.9226258946607" />
+      <entry key="D1" value="3117.67738485993" />
+      <entry key="W1" value="5316.629548318721" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="2.380350065498164E-145" />
+      <entry key="S10" value="4.8788831360242325E-73" />
+      <entry key="S30" value="7.8723938432811745E-25" />
+      <entry key="S60" value="8.873844536534214E-13" />
+      <entry key="M2" value="9.532924422978972E-7" />
+      <entry key="M5" value="0.004773747544393349" />
+      <entry key="M10" value="0.1147501682001772" />
+      <entry key="M15" value="0.4036931556306247" />
+      <entry key="M30" value="2.261563582648728" />
+      <entry key="H1" value="10.629833178545647" />
+      <entry key="H2" value="34.502068364139824" />
+      <entry key="H4" value="77.73179541149604" />
+      <entry key="D1" value="273.3958656401768" />
+      <entry key="W1" value="416.2187390171189" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="3.320059377782812E-11" />
-      <entry key="MS500" value="0.00802101209193122" />
-      <entry key="S2" value="0.30223630634848314" />
-      <entry key="S5" value="0.7630761648066798" />
-      <entry key="S10" value="1.324748316357509" />
-      <entry key="S30" value="2.4230525078589715" />
-      <entry key="S60" value="4.265807361945119" />
-      <entry key="M2" value="9.103340917810117" />
-      <entry key="M5" value="23.03190468864977" />
-      <entry key="M10" value="42.90272958756141" />
-      <entry key="M15" value="60.06003477370248" />
-      <entry key="M30" value="103.76357820742547" />
-      <entry key="H1" value="182.05982832285287" />
-      <entry key="H2" value="338.68753287211536" />
-      <entry key="H4" value="669.5038267852357" />
-      <entry key="D1" value="3431.2020424243383" />
-      <entry key="W1" value="5706.691941668336" />
+      <entry key="MS100" value="0.4444213405832851" />
+      <entry key="MS500" value="0.8502741600641959" />
+      <entry key="S2" value="0.9602620048261014" />
+      <entry key="S5" value="0.9839132945444727" />
+      <entry key="S10" value="0.9933791747426337" />
+      <entry key="S30" value="1.1360599836671759" />
+      <entry key="S60" value="1.5610800307900947" />
+      <entry key="M2" value="2.2518626492695124" />
+      <entry key="M5" value="3.2945370327059096" />
+      <entry key="M10" value="7.078178173529203" />
+      <entry key="M15" value="15.11678718510721" />
+      <entry key="M30" value="50.57002225811" />
+      <entry key="H1" value="129.01839617574103" />
+      <entry key="H2" value="287.07156959348606" />
+      <entry key="H4" value="616.6307844991267" />
+      <entry key="D1" value="3391.056828824899" />
+      <entry key="W1" value="5732.844546180478" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -334,7 +289,23 @@
       <option name="project" value="LOCAL" />
       <updated>1786129161172</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="refactoring + tests">
+      <option name="closed" value="true" />
+      <created>1786472088426</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1786472088426</updated>
+    </task>
+    <task id="LOCAL-00015" summary="alembic new">
+      <option name="closed" value="true" />
+      <created>1786472102987</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1786472102987</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +388,9 @@
     <MESSAGE value="get and post encounter temt" />
     <MESSAGE value="finished day 2" />
     <MESSAGE value="hp bar moved to header and +- buttons ready to use&#10;not saving yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="hp bar moved to header and +- buttons ready to use&#10;not saving yet" />
+    <MESSAGE value="refactoring + tests" />
+    <MESSAGE value="alembic new" />
+    <option name="LAST_COMMIT_MESSAGE" value="alembic new" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -445,7 +418,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
-          <line>385</line>
+          <line>384</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
