@@ -5,10 +5,9 @@ from sqlalchemy import pool
 
 from alembic import context
 
-import monster.models
-import encounter.models
-
-from models_core import Base
+from src.models_core import Base
+from src.encounter.models import EncounterModel, CombatantModel
+from src.monster.models import MonsterModel, MonsterAttackModel
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

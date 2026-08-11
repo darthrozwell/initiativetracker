@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
-from monster.models import Base
+from src.models_core import Base
 
 DATABASE_URL = "postgresql+asyncpg://postgres:postgres@localhost:6432/postgres"
 

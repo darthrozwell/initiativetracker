@@ -1,44 +1,37 @@
-from operator import gt
-
-from sqlalchemy import JSON, ForeignKey
+from sqlalchemy import JSON, ForeignKey, Enum
 from sqlalchemy.orm import Mapped, mapped_column
 
-from models_core import Base
-from monster.models import MonsterModel
+from src.encounter.enums import CombatantStatus
+from src.models_core import Base
 
 
 class EncounterModel(Base):
     __tablename__ = 'encounter'
 
-    id: Mapped[str] = mapped_column(primary_key=True)
+    encounter_id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column()
-
     round: Mapped[int] = mapped_column(default=1)
     current_turn: Mapped[int] = mapped_column(default=0)
-    combatants: Mapped[list[dict]] = mapped_column(JSON, nullable=True)
-    history: Mapped[list[dict]] = mapped_column(JSON, nullable=True)
-    settings: Mapped[dict] = mapped_column(JSON, nullable=True)
 
 
 class CombatantModel(Base):
     __tablename__ = "combatants"
 
-    id: Mapped[str] = mapped_column(primary_key=True)
+    combatant_id: Mapped[str] = mapped_column(primary_key=True)
     encounter_id: Mapped[str] = mapped_column(
         ForeignKey(
-            column="encounter.id",
+            column="encounter.encounter_id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         )
     )
     monster_id: Mapped[str] = mapped_column(
         ForeignKey(
-            column="monsters.id",
+            column="monsters.monster_id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         )
     )
-
-    nickname: Mapped[str] = mapped_column()
+    nickname: Mapped[str]
     current_hp: Mapped[int] = mapped_column(default=0)
-    status: Mapped[str]
+    status: Mapped[CombatantStatus] = mapped_column(Enum(CombatantStatus))

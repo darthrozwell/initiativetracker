@@ -1,18 +1,18 @@
-from sqlalchemy import JSON, ForeignKey
+from sqlalchemy import ForeignKey, Enum
 from sqlalchemy.orm import Mapped, mapped_column
 
-from models_core import Base
-
+from src.models_core import Base
+from src.monster.enums import MonsterType, MonsterAlignment, MonsterSize, MonsterSource
 
 class MonsterModel(Base):
     __tablename__ = "monsters"
 
-    id: Mapped[str] = mapped_column(primary_key=True)
+    monster_id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(unique=True, index=True)
-    source: Mapped[str] = mapped_column(nullable=True)
-    size: Mapped[str] = mapped_column(nullable=True)
-    creature_type: Mapped[str] = mapped_column(nullable=True)
-    alignment: Mapped[str] = mapped_column(nullable=True)
+    source: Mapped[MonsterSource] = mapped_column(Enum(MonsterSource))
+    size: Mapped[MonsterSize] = mapped_column(Enum(MonsterSize))
+    creature_type: Mapped[MonsterType] = mapped_column(Enum(MonsterType))
+    alignment: Mapped[MonsterAlignment] = mapped_column(Enum(MonsterAlignment))
 
     armor_class: Mapped[int] = mapped_column()  # "Класс Защиты": "16",
     initiative: Mapped[int] = mapped_column()  # "Инициатива": "+3 (13)",
@@ -56,7 +56,7 @@ class MonsterModel(Base):
 class MonsterAttackModel(Base):
     __tablename__ = "monster_attacks"
 
-    id: Mapped[str] = mapped_column(primary_key=True)
+    attack_id: Mapped[str] = mapped_column(primary_key=True)
     monster_name: Mapped[str] = mapped_column(
         ForeignKey(
             column="monsters.name",

@@ -1,10 +1,8 @@
-from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.v1.monster_router import router as monster_router
-from api.v1.encounter_router import router as encounter_router
+from src.monster.router import router as monster_router
+from src.encounter.router import router as encounter_router
 
 
 
@@ -15,6 +13,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "http://localhost:8000",
         "http://127.0.0.1:5173",
     ],
     allow_credentials=True,
@@ -23,5 +22,5 @@ app.add_middleware(
 )
 
 
-app.include_router(monster_router)
-app.include_router(encounter_router)
+app.include_router(router=monster_router, prefix="/monster", tags=["monsters"])
+app.include_router(router=encounter_router, prefix="/encounter", tags=["encounters"])
