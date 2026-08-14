@@ -70,6 +70,7 @@ class EncounterService:
         query = (select(CombatantModel, MonsterModel).
                  join(MonsterModel, CombatantModel.monster_id == MonsterModel.monster_id).
                  where(CombatantModel.encounter_id == encounter_id))
+
         result = await self.session.execute(query)
         combatants = []
         for combatant, monster in result:
