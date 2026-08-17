@@ -49,7 +49,7 @@ async def post_monster(
     return new_monster
 
 
-@router.post(path="/upload", response_model=list[MonsterOutSchema], status_code=status.HTTP_201_CREATED)
+@router.post(path="/upload", status_code=status.HTTP_201_CREATED)
 async def upload_monster(
         file: UploadFile,
         service: Annotated[MonsterService, Depends(get_monster_service)],

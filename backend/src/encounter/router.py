@@ -9,7 +9,7 @@ from src.encounter.exceptions import AddEncFailedError, DeleteEncFailedError, De
     AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError
 from src.encounter.dependencies import get_encounter_service
 from src.encounter.schemas import EncounterInSchema, EncounterOutSchema, CombatantOutSchema, \
-    CombatantInSchema
+    CombatantInSchema, CombatantUpdateSchema, EncounterUpdateSchema
 from src.encounter.service import EncounterService
 
 router = APIRouter()
@@ -65,7 +65,7 @@ async def delete_encounter(
 @router.put(path="/{encounter_id}", status_code=status.HTTP_200_OK)
 async def update_encounter(
         encounter_id: str,
-        encounter: Annotated[EncounterInSchema, Body(embed=True)],
+        encounter: Annotated[EncounterUpdateSchema, Body(embed=True)],
         service: Annotated[EncounterService, Depends(get_encounter_service)],
 ):
     try:
@@ -102,7 +102,7 @@ async def create_combatant(
 @router.put(path="/{encounter_id}/combatant/{combatant_id}", status_code=status.HTTP_200_OK)
 async def update_combatant(
         combatant_id: str,
-        combatant: Annotated[CombatantInSchema, Body(embed=True)],
+        combatant: Annotated[CombatantUpdateSchema, Body(embed=True)],
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
     try:

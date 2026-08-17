@@ -8,6 +8,8 @@ class BaseMonster(BaseModel):
 
 
 class MonsterAttackSchema(BaseMonster):
+    model_config = ConfigDict(from_attributes=True)
+
     title: str = ""
     name: str = ""
     text: str = ""
@@ -27,10 +29,10 @@ class MonsterInSchema(BaseMonster):
     alignment: MonsterAlignment = MonsterAlignment.NEUTRAL
 
     armor_class: int = Field(ge=1, le=50)  #"Класс Защиты": "16",
-    initiative: int = Field(ge=1, le=50)  #"Инициатива": "+3 (13)",
+    initiative: int = Field(le=50)  #"Инициатива": "+3 (13)",
     hit_points_value: int = Field(ge=1)  #"Хиты": "66 (12к8 + 12)",
     hit_points_formula: str = Field(min_length=1, max_length=20)
-    speed: str = Field(min_length=1, max_length=100)  #"Скорость": "20 футов, Полёта 50 футов",
+    speed: str = Field(min_length=1, max_length=256)  #"Скорость": "20 футов, Полёта 50 футов",
     skills: str | None = None  #"Навыки": "Восприятие +7, Природа +5, Тайная магия +3",
     damage_resistance: str | None = None  #Сопротивление урону
     damage_immunity: str | None = None #Иммунитеты
@@ -38,7 +40,7 @@ class MonsterInSchema(BaseMonster):
     senses: str | None = None  #"Чувства": "пассивное Восприятие 17",
     languages: str | None = None  #"Языки": "Первичный (Ауран), Язык Ааракокра",
     challenge_rating: str = Field(min_length=1, max_length=20)
-    experience: int = Field(ge=1, default=1)
+    experience: int = Field(ge=0, default=1)
     proficiency_bonus: int = Field(ge=1, default=1)
     equipment: str | None = None
     treasure: str | None = None

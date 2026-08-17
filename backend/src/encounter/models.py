@@ -34,4 +34,5 @@ class CombatantModel(Base):
     )
     nickname: Mapped[str]
     current_hp: Mapped[int] = mapped_column(default=0)
+    current_initiative: Mapped[int] = mapped_column(default=0)
     status: Mapped[CombatantStatus] = mapped_column(Enum(CombatantStatus))

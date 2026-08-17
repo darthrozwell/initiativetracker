@@ -2,6 +2,7 @@ import uuid
 from sqlalchemy import select, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from src.monster.exceptions import AddFailedError, AddAttackFailedError, UpdateFailedError, UpdateAttackFailedError, \
     DeleteFailedError, DeleteNotFoundError
@@ -46,6 +47,13 @@ class MonsterService:
         except IntegrityError:
             await self.session.rollback()
             raise AddAttackFailedError
+
+        result = await self.session.execute(
+            select(MonsterModel)
+            .options(selectinload(MonsterModel.abilities))
+            .where(MonsterModel.monster_id == new_monster.monster_id)
+        )
+        new_monster = result.scalar_one()
         return new_monster
 
 

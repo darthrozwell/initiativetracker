@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey, Enum
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models_core import Base
 from src.monster.enums import MonsterType, MonsterAlignment, MonsterSize, MonsterSource
@@ -51,6 +51,13 @@ class MonsterModel(Base):
     charisma_mod: Mapped[int] = mapped_column()
     charisma_save: Mapped[int] = mapped_column()
 
+    abilities: Mapped[list["MonsterAttackModel"]] = relationship(
+        "MonsterAttackModel",
+        back_populates="monster",
+        lazy="selectin",
+        cascade="all, delete-orphan",
+    )
+
 
 
 class MonsterAttackModel(Base):
@@ -72,3 +79,8 @@ class MonsterAttackModel(Base):
     hit_bonus: Mapped[int] = mapped_column()
     reach: Mapped[str] = mapped_column()
     damage: Mapped[str] = mapped_column()
+
+    monster: Mapped["MonsterModel"] = relationship(
+        "MonsterModel",
+        back_populates="abilities",
+    )

@@ -2,12 +2,14 @@ import uuid
 from sqlalchemy import select, update, delete
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from src.encounter.exceptions import AddEncFailedError, DeleteEncNotFoundError, DeleteEncFailedError, UpdateEncFailedError, \
     AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError
 from src.monster.schemas import MonsterInSchema
 from src.encounter.models import EncounterModel, CombatantModel
-from src.encounter.schemas import EncounterInSchema, CombatantInSchema, CombatantDbSchema
+from src.encounter.schemas import EncounterInSchema, CombatantInSchema, CombatantDbSchema, CombatantUpdateSchema, \
+    EncounterUpdateSchema
 from src.monster.models import MonsterModel
 
 
@@ -55,8 +57,8 @@ class EncounterService:
         return
 
 
-    async def update_encounter(self, encounter_id: str, encounter: EncounterInSchema) -> EncounterModel | None:
-        query = update(EncounterModel).where(EncounterModel.encounter_id == encounter_id).values(**encounter.model_dump())
+    async def update_encounter(self, encounter_id: str, encounter: EncounterUpdateSchema) -> EncounterModel | None:
+        query = update(EncounterModel).where(EncounterModel.encounter_id == encounter_id).values(**encounter.model_dump(exclude_unset=True))
         result = await self.session.execute(query)
         try:
             await self.session.commit()
@@ -69,6 +71,7 @@ class EncounterService:
     async def get_combatants(self, encounter_id: str):
         query = (select(CombatantModel, MonsterModel).
                  join(MonsterModel, CombatantModel.monster_id == MonsterModel.monster_id).
+                 options(selectinload(MonsterModel.abilities)).
                  where(CombatantModel.encounter_id == encounter_id))
 
         result = await self.session.execute(query)
@@ -103,8 +106,8 @@ class EncounterService:
         return combatant
 
 
-    async def update_combatant(self, combatant_id: str, new_schema: CombatantInSchema):
-        query = update(CombatantModel).where(CombatantModel.combatant_id == combatant_id).values(**new_schema.model_dump())
+    async def update_combatant(self, combatant_id: str, new_schema: CombatantUpdateSchema):
+        query = update(CombatantModel).where(CombatantModel.combatant_id == combatant_id).values(**new_schema.model_dump(exclude_unset=True))
         await self.session.execute(query)
         try:
             await self.session.commit()
