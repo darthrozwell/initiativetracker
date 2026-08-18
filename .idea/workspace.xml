@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="combat page refactor finished">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HpBarHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HpBarHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/InitiativeCard.tsx" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="faast refactor some code">
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,61 +69,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000075024036" />
-      <entry key="MS500" value="1.0237159258277195" />
-      <entry key="S2" value="1.3924280305746768" />
-      <entry key="S5" value="1.6878662609723087" />
-      <entry key="S10" value="1.8293770643396843" />
-      <entry key="S30" value="1.9445965085285604" />
-      <entry key="S60" value="2.0717690841771272" />
-      <entry key="M2" value="2.5601843914772475" />
-      <entry key="M5" value="5.1098594381754525" />
-      <entry key="M10" value="12.223153068558513" />
-      <entry key="M15" value="20.809616573050132" />
-      <entry key="M30" value="45.827399885896824" />
-      <entry key="H1" value="92.60075155671416" />
-      <entry key="H2" value="177.21672555174695" />
-      <entry key="H4" value="339.83725387740003" />
-      <entry key="D1" value="2602.617937051703" />
-      <entry key="W1" value="5734.823922611486" />
+      <entry key="MS100" value="4.3691506580705905E-9" />
+      <entry key="MS500" value="0.02128532836217267" />
+      <entry key="S2" value="0.39726828533737" />
+      <entry key="S5" value="0.9174716811111079" />
+      <entry key="S10" value="1.5166411914972986" />
+      <entry key="S30" value="3.485935450526926" />
+      <entry key="S60" value="5.556319567259491" />
+      <entry key="M2" value="7.733513642780487" />
+      <entry key="M5" value="11.320967452388519" />
+      <entry key="M10" value="17.988509739486165" />
+      <entry key="M15" value="26.06411587860917" />
+      <entry key="M30" value="50.5826177409508" />
+      <entry key="H1" value="97.2652106644682" />
+      <entry key="H2" value="182.088724100631" />
+      <entry key="H4" value="344.91041564234587" />
+      <entry key="D1" value="2606.3221028691355" />
+      <entry key="W1" value="5742.840838562154" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="4.31745420491491E-220" />
-      <entry key="S2" value="1.441474403419792E-55" />
-      <entry key="S5" value="1.1575047289003912E-22" />
-      <entry key="S10" value="1.0758739372716447E-11" />
-      <entry key="S30" value="2.207600391077055E-4" />
-      <entry key="S60" value="0.014857995977225813" />
-      <entry key="M2" value="0.12191749660711819" />
-      <entry key="M5" value="0.4949999513637642" />
-      <entry key="M10" value="1.9345037629522173" />
-      <entry key="M15" value="4.6242927373994185" />
-      <entry key="M30" value="15.651594442154941" />
-      <entry key="H1" value="37.87022574952681" />
-      <entry key="H2" value="71.17436351638528" />
-      <entry key="H4" value="119.83739205431914" />
-      <entry key="D1" value="389.65850252727324" />
-      <entry key="W1" value="641.0758559518114" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000046769518391" />
+      <entry key="S2" value="1.0468280934464411" />
+      <entry key="S5" value="1.33328851166353" />
+      <entry key="S10" value="1.7418785290070624" />
+      <entry key="S30" value="2.4003100204771872" />
+      <entry key="S60" value="2.6682827759037124" />
+      <entry key="M2" value="2.846161889163512" />
+      <entry key="M5" value="3.174142738940972" />
+      <entry key="M10" value="4.3286560707311175" />
+      <entry key="M15" value="6.64108335769173" />
+      <entry key="M30" value="16.922708709595987" />
+      <entry key="H1" value="38.72705730860267" />
+      <entry key="H2" value="72.13394348541381" />
+      <entry key="H4" value="121.10824834564478" />
+      <entry key="D1" value="391.71633788360015" />
+      <entry key="W1" value="643.8542109954983" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.551734833653828E-7" />
-      <entry key="MS500" value="0.051849907603385995" />
-      <entry key="S2" value="0.7592025034788883" />
-      <entry key="S5" value="1.3507658540114564" />
-      <entry key="S10" value="1.6422462376393796" />
-      <entry key="S30" value="1.877597918016094" />
-      <entry key="S60" value="2.050813179853538" />
-      <entry key="M2" value="2.6608529940317505" />
-      <entry key="M5" value="5.592283829430071" />
-      <entry key="M10" value="14.144161001854203" />
-      <entry key="M15" value="25.4171009268903" />
-      <entry key="M30" value="61.45588512374136" />
-      <entry key="H1" value="130.44428087916373" />
-      <entry key="H2" value="248.364887739877" />
-      <entry key="H4" value="459.6506124453398" />
-      <entry key="D1" value="2992.2583429933175" />
-      <entry key="W1" value="6375.894972188692" />
+      <entry key="MS100" value="0.00243814562507638" />
+      <entry key="MS500" value="0.30757209987362377" />
+      <entry key="S2" value="1.0759614769503967" />
+      <entry key="S5" value="1.9945640257893305" />
+      <entry key="S10" value="3.0573470168981607" />
+      <entry key="S30" value="5.776188981196322" />
+      <entry key="S60" value="8.158870337582274" />
+      <entry key="M2" value="10.540626581122106" />
+      <entry key="M5" value="14.473890443017185" />
+      <entry key="M10" value="22.300015772221297" />
+      <entry key="M15" value="32.686758406659045" />
+      <entry key="M30" value="67.48217618490558" />
+      <entry key="H1" value="135.9657859528388" />
+      <entry key="H2" value="254.19656915072537" />
+      <entry key="H4" value="465.99465314915466" />
+      <entry key="D1" value="2998.0203339030722" />
+      <entry key="W1" value="6386.690237128142" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -436,7 +432,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787059342910</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="faast refactor some code">
+      <option name="closed" value="true" />
+      <created>1787060285090</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1787060285090</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +531,8 @@
     <MESSAGE value="handle add and delete combatant refactor" />
     <MESSAGE value="handle prev and next turn refactor" />
     <MESSAGE value="combat page refactor finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="combat page refactor finished" />
+    <MESSAGE value="faast refactor some code" />
+    <option name="LAST_COMMIT_MESSAGE" value="faast refactor some code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -555,7 +560,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
-          <line>283</line>
+          <line>288</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -567,11 +572,6 @@
           <url>file://$PROJECT_DIR$/frontend/src/components/StatCard.tsx</url>
           <line>2</line>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/components/StatsTab.tsx</url>
-          <line>2</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
