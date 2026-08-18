@@ -14,6 +14,7 @@ async def test_create_combatant(client):
                                                                                         "monster_id": "test_monster_id",
                                                                                         "nickname": "new_comb",
                                                                                         "current_hp": 0,
+                                                                                        "current_initiative": 0,
                                                                                         "status": "alive"
                                                                                       }
                                                                                     })

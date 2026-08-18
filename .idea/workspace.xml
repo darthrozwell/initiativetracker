@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="some front 2">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/AttackCard.tsx" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="fixxed">
+      <change beforePath="$PROJECT_DIR$/.idea/initiativetracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/initiativetracker@1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/encounter/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/encounter/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/encounter/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/monster/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/monster/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tests/test_api_combatant.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tests/test_api_combatant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/encounter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/encounter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/rolld20.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/rolld20.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/BasestatsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BasestatsCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HpBarHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HpBarHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/StatsTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/StatsTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/EncounterList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/EncounterList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/types/combat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/combat.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="3530" />
+    <option name="cachedIndexableFilesCount" value="3531" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -87,61 +75,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.169485364981846E-9" />
-      <entry key="MS500" value="0.01850424393521301" />
-      <entry key="S2" value="0.36882513250327476" />
-      <entry key="S5" value="0.6765314010986284" />
-      <entry key="S10" value="0.8934818703114552" />
-      <entry key="S30" value="1.3820106835911037" />
-      <entry key="S60" value="2.243109493585741" />
-      <entry key="M2" value="6.330258177455051" />
-      <entry key="M5" value="20.01230637783921" />
-      <entry key="M10" value="34.1348198947486" />
-      <entry key="M15" value="43.01617431821106" />
-      <entry key="M30" value="61.31778970949167" />
-      <entry key="H1" value="93.1536132295141" />
-      <entry key="H2" value="160.3806345026047" />
-      <entry key="H4" value="316.1471051091661" />
-      <entry key="D1" value="2636.9087576591637" />
-      <entry key="W1" value="5604.47941197564" />
+      <entry key="MS100" value="8.983968404611654E-9" />
+      <entry key="MS500" value="0.02458632641733782" />
+      <entry key="S2" value="0.3964241999887157" />
+      <entry key="S5" value="0.7365164366833296" />
+      <entry key="S10" value="1.0692395538209263" />
+      <entry key="S30" value="1.9640402256505805" />
+      <entry key="S60" value="3.0838597653385755" />
+      <entry key="M2" value="5.217348865022279" />
+      <entry key="M5" value="10.622897035272615" />
+      <entry key="M10" value="16.95521000234075" />
+      <entry key="M15" value="22.127281713499016" />
+      <entry key="M30" value="40.343029030241254" />
+      <entry key="H1" value="82.68840837082057" />
+      <entry key="H2" value="163.29744423663908" />
+      <entry key="H4" value="323.4156115439675" />
+      <entry key="D1" value="2596.967345457567" />
+      <entry key="W1" value="5693.906075216958" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000001465696" />
-      <entry key="S10" value="1.000017104109785" />
-      <entry key="S30" value="1.04089261796772" />
-      <entry key="S60" value="1.287443059926526" />
-      <entry key="M2" value="1.8027414064058473" />
-      <entry key="M5" value="2.8529428771547316" />
-      <entry key="M10" value="3.9932288984394195" />
-      <entry key="M15" value="4.974315241259964" />
-      <entry key="M30" value="8.086105186775507" />
-      <entry key="H1" value="15.562626527430474" />
-      <entry key="H2" value="33.33607443894088" />
-      <entry key="H4" value="70.25910561728823" />
-      <entry key="D1" value="316.2954919903738" />
-      <entry key="W1" value="542.834423724634" />
+      <entry key="MS500" value="1.0000000000007627" />
+      <entry key="S2" value="1.0009379347333565" />
+      <entry key="S5" value="1.0719162308638366" />
+      <entry key="S10" value="1.4161957424826999" />
+      <entry key="S30" value="2.818233650595194" />
+      <entry key="S60" value="4.266918977925544" />
+      <entry key="M2" value="6.555839212978811" />
+      <entry key="M5" value="11.555285294774292" />
+      <entry key="M10" value="17.17571586545057" />
+      <entry key="M15" value="21.61616869890556" />
+      <entry key="M30" value="34.55233481075959" />
+      <entry key="H1" value="56.00108656784581" />
+      <entry key="H2" value="85.78643221964234" />
+      <entry key="H4" value="130.683590967092" />
+      <entry key="D1" value="393.3689471546073" />
+      <entry key="W1" value="638.8751108986646" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.3780351871709113E-9" />
-      <entry key="MS500" value="0.02408880756439195" />
-      <entry key="S2" value="0.639642504571342" />
-      <entry key="S5" value="1.2675605369782117" />
-      <entry key="S10" value="1.6505348812114533" />
-      <entry key="S30" value="2.311918263652467" />
-      <entry key="S60" value="3.461104534136669" />
-      <entry key="M2" value="8.086508207154738" />
-      <entry key="M5" value="22.82726625029373" />
-      <entry key="M10" value="38.09387085826326" />
-      <entry key="M15" value="47.95977360522184" />
-      <entry key="M30" value="69.37880980998212" />
-      <entry key="H1" value="108.69492191124334" />
-      <entry key="H2" value="193.69697107861953" />
-      <entry key="H4" value="386.3867779571594" />
-      <entry key="D1" value="2953.187382674511" />
-      <entry key="W1" value="6147.309373215524" />
+      <entry key="MS100" value="5.539057373445249E-5" />
+      <entry key="MS500" value="0.14393496795192248" />
+      <entry key="S2" value="0.8495183200440797" />
+      <entry key="S5" value="1.4795671125275225" />
+      <entry key="S10" value="2.248984844638338" />
+      <entry key="S30" value="4.63428451161919" />
+      <entry key="S60" value="7.24071298023132" />
+      <entry key="M2" value="11.687529072423745" />
+      <entry key="M5" value="22.109130937195097" />
+      <entry key="M10" value="34.07359965467264" />
+      <entry key="M15" value="43.69360559117529" />
+      <entry key="M30" value="74.85411823984447" />
+      <entry key="H1" value="138.6539654783583" />
+      <entry key="H2" value="249.0539843675539" />
+      <entry key="H4" value="454.0737225202443" />
+      <entry key="D1" value="2990.3180870531983" />
+      <entry key="W1" value="6332.776401741888" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -191,7 +179,7 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -215,7 +203,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,7 +217,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -248,7 +236,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -418,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786744747568</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixxed">
+      <option name="closed" value="true" />
+      <created>1786992903104</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1786992903104</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +501,8 @@
     <MESSAGE value="alembic new" />
     <MESSAGE value="some front" />
     <MESSAGE value="some front 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="some front 2" />
+    <MESSAGE value="fixxed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixxed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -533,7 +530,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
-          <line>285</line>
+          <line>292</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
