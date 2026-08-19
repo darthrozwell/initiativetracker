@@ -11,7 +11,7 @@ class BaseEncounter(BaseModel):
 
 class EncounterInSchema(BaseEncounter):
     name: str
-    round: int = Field(default=1, ge=1)
+    round: int = Field(default=1, ge=0)
     current_turn: int = Field(default=0, ge=0)
 
 
@@ -21,7 +21,7 @@ class EncounterOutSchema(EncounterInSchema):
 
 class EncounterUpdateSchema(BaseModel):
     name: Optional[str] = None
-    round: Optional[int] = Field(default=None, ge=1)
+    round: Optional[int] = Field(default=None, ge=0)
     current_turn: Optional[int] = Field(default=None, ge=0)
 
 

@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="scroll on selected when next/prev turb or add/delete combatant in sidebar">
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="next turn skips not alive combatants&#10;if there is no alive - alerts it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/encounter/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/EncounterList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/EncounterList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,61 +75,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000000004332" />
-      <entry key="S10" value="1.0000006593447472" />
-      <entry key="S30" value="1.0109355129690465" />
-      <entry key="S60" value="1.1882033313036888" />
-      <entry key="M2" value="2.1156585655921045" />
-      <entry key="M5" value="5.9488824363634745" />
-      <entry key="M10" value="13.50047404556982" />
-      <entry key="M15" value="22.017057591628017" />
-      <entry key="M30" value="49.20275615661239" />
-      <entry key="H1" value="101.26772218392617" />
-      <entry key="H2" value="193.34222333821367" />
-      <entry key="H4" value="362.0365768623312" />
-      <entry key="D1" value="2609.78395267005" />
-      <entry key="W1" value="5802.110930191613" />
+      <entry key="MS100" value="1.0000000001547555" />
+      <entry key="MS500" value="1.0132896098921078" />
+      <entry key="S2" value="1.5504502413720527" />
+      <entry key="S5" value="2.401429532755052" />
+      <entry key="S10" value="3.3308045273594176" />
+      <entry key="S30" value="5.026034563052772" />
+      <entry key="S60" value="6.146059654245704" />
+      <entry key="M2" value="8.321918406648475" />
+      <entry key="M5" value="15.874780894632895" />
+      <entry key="M10" value="30.47661632121559" />
+      <entry key="M15" value="46.39362763004805" />
+      <entry key="M30" value="91.6028557428472" />
+      <entry key="H1" value="164.61739626448835" />
+      <entry key="H2" value="277.1822331363221" />
+      <entry key="H4" value="462.0355736356935" />
+      <entry key="D1" value="2704.705885198158" />
+      <entry key="W1" value="5966.191470274936" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.4471363802321095E-178" />
-      <entry key="S2" value="3.4683855276506994E-45" />
-      <entry key="S5" value="1.6445646322691027E-18" />
-      <entry key="S10" value="1.2824069814782668E-9" />
-      <entry key="S30" value="0.0010996387922514214" />
-      <entry key="S60" value="0.0390108767828625" />
-      <entry key="M2" value="0.33026547699449516" />
-      <entry key="M5" value="1.6448250289422492" />
-      <entry key="M10" value="3.808952310073861" />
-      <entry key="M15" value="6.291345481261792" />
-      <entry key="M30" value="15.17894274493086" />
-      <entry key="H1" value="35.415793374713004" />
-      <entry key="H2" value="70.97669965285802" />
-      <entry key="H4" value="124.430407976363" />
-      <entry key="D1" value="406.166434518778" />
-      <entry key="W1" value="667.9180780236077" />
+      <entry key="MS100" value="2.9609871948374076E-138" />
+      <entry key="MS500" value="3.309368176664693E-28" />
+      <entry key="S2" value="1.987981760580564E-7" />
+      <entry key="S5" value="0.0031171974607321624" />
+      <entry key="S10" value="0.07876519148254106" />
+      <entry key="S30" value="0.6903233654203293" />
+      <entry key="S60" value="1.4219702791586473" />
+      <entry key="M2" value="3.0430045433808983" />
+      <entry key="M5" value="7.5532136365890254" />
+      <entry key="M10" value="14.304396329651402" />
+      <entry key="M15" value="19.944824024575855" />
+      <entry key="M30" value="32.70090292507995" />
+      <entry key="H1" value="53.698874372293865" />
+      <entry key="H2" value="90.86948392679953" />
+      <entry key="H4" value="148.77373803231131" />
+      <entry key="D1" value="444.29100265862496" />
+      <entry key="W1" value="718.199760047262" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.010672189505893714" />
-      <entry key="MS500" value="0.4033208796110631" />
-      <entry key="S2" value="0.7969162385529578" />
-      <entry key="S5" value="0.9131982500123629" />
-      <entry key="S10" value="0.9556146812345899" />
-      <entry key="S30" value="0.9967019297474847" />
-      <entry key="S60" value="1.2167299687089705" />
-      <entry key="M2" value="2.4331533285486517" />
-      <entry key="M5" value="7.577871839104942" />
-      <entry key="M10" value="17.293626239100835" />
-      <entry key="M15" value="28.29188762927608" />
-      <entry key="M30" value="64.36233730998701" />
-      <entry key="H1" value="136.6605458030452" />
-      <entry key="H2" value="264.29449668276857" />
-      <entry key="H4" value="486.44344724035807" />
-      <entry key="D1" value="3015.9321711939856" />
-      <entry key="W1" value="6470.024120622893" />
+      <entry key="MS100" value="0.7526233738261078" />
+      <entry key="MS500" value="0.9573431324565419" />
+      <entry key="S2" value="1.5273417420250854" />
+      <entry key="S5" value="2.3705603305256107" />
+      <entry key="S10" value="3.3494548616970015" />
+      <entry key="S30" value="5.642065728614175" />
+      <entry key="S60" value="7.505382384770007" />
+      <entry key="M2" value="11.30367111697604" />
+      <entry key="M5" value="23.365626739437563" />
+      <entry key="M10" value="44.720237161563965" />
+      <entry key="M15" value="66.28137077105394" />
+      <entry key="M30" value="124.25690690485678" />
+      <entry key="H1" value="218.27846528389145" />
+      <entry key="H2" value="368.01963551993293" />
+      <entry key="H4" value="610.7815872741411" />
+      <entry key="D1" value="3148.977747571087" />
+      <entry key="W1" value="6684.386137506357" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -465,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787062666357</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="next turn skips not alive combatants&#10;if there is no alive - alerts it">
+      <option name="closed" value="true" />
+      <created>1787064651504</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1787064651504</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +573,8 @@
     <MESSAGE value="fixed sorting combatants and selected id on load/reload page" />
     <MESSAGE value="status change on 0 hp" />
     <MESSAGE value="scroll on selected when next/prev turb or add/delete combatant in sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="scroll on selected when next/prev turb or add/delete combatant in sidebar" />
+    <MESSAGE value="next turn skips not alive combatants&#10;if there is no alive - alerts it" />
+    <option name="LAST_COMMIT_MESSAGE" value="next turn skips not alive combatants&#10;if there is no alive - alerts it" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -588,7 +602,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
-          <line>303</line>
+          <line>357</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -604,8 +618,13 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/components/Sidebar.tsx</url>
           <line>2</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
+          <line>27</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

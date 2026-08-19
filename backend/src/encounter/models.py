@@ -10,7 +10,7 @@ class EncounterModel(Base):
 
     encounter_id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column()
-    round: Mapped[int] = mapped_column(default=1)
+    round: Mapped[int] = mapped_column(default=0)
     current_turn: Mapped[int] = mapped_column(default=0)
 
 
