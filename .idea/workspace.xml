@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="stats rolls">
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="fixed rolls &lt; 1">
+      <change beforePath="$PROJECT_DIR$/.idea/initiativetracker@1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/initiativetracker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/AttackCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AttackCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CombatPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DmgResCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DmgResCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/StatCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/StatCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/mock/encounter.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="3531" />
+    <option name="cachedIndexableFilesCount" value="3532" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,60 +74,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0000000003667204" />
-      <entry key="S10" value="1.0000191513670813" />
-      <entry key="S30" value="1.0285361388771113" />
-      <entry key="S60" value="1.2232604123686097" />
-      <entry key="M2" value="1.7499488293518346" />
-      <entry key="M5" value="2.7031663610555663" />
-      <entry key="M10" value="3.9150661669529447" />
-      <entry key="M15" value="6.06600479776768" />
-      <entry key="M30" value="16.787561932018818" />
-      <entry key="H1" value="51.88011323353633" />
-      <entry key="H2" value="148.2790754124168" />
-      <entry key="H4" value="345.0862131896037" />
-      <entry key="D1" value="2569.335158528658" />
-      <entry key="W1" value="6032.539609964138" />
+      <entry key="MS500" value="1.0010880414859389" />
+      <entry key="S2" value="1.5114821334794453" />
+      <entry key="S5" value="2.9766353527251495" />
+      <entry key="S10" value="4.201215130511441" />
+      <entry key="S30" value="6.162114777109601" />
+      <entry key="S60" value="7.493481714993055" />
+      <entry key="M2" value="8.876332737349674" />
+      <entry key="M5" value="12.898007269034636" />
+      <entry key="M10" value="19.634993719981175" />
+      <entry key="M15" value="24.940235330600906" />
+      <entry key="M30" value="38.51632783713106" />
+      <entry key="H1" value="72.08926339140248" />
+      <entry key="H2" value="164.02525898486644" />
+      <entry key="H4" value="358.07148265678984" />
+      <entry key="D1" value="2576.8451546282813" />
+      <entry key="W1" value="6060.304833086748" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.739253827603274E-216" />
-      <entry key="S2" value="1.1483935429900584E-54" />
-      <entry key="S5" value="2.654827433682053E-22" />
-      <entry key="S10" value="1.6293641194288193E-11" />
-      <entry key="S30" value="2.535163943573947E-4" />
-      <entry key="S60" value="0.015922198163490338" />
-      <entry key="M2" value="0.12618326663768" />
-      <entry key="M5" value="0.4409771740365878" />
-      <entry key="M10" value="0.8584120013975669" />
-      <entry key="M15" value="1.549387031397825" />
-      <entry key="M30" value="4.731307498383981" />
-      <entry key="H1" value="14.434450706606958" />
-      <entry key="H2" value="42.79960521465411" />
-      <entry key="H4" value="102.6787574944276" />
-      <entry key="D1" value="433.61062786210863" />
-      <entry key="W1" value="745.3966123218321" />
+      <entry key="MS100" value="2.7745480352651223E-219" />
+      <entry key="MS500" value="1.9437412422698019E-44" />
+      <entry key="S2" value="1.1807545081635374E-11" />
+      <entry key="S5" value="4.254650053006926E-5" />
+      <entry key="S10" value="0.006522767858054531" />
+      <entry key="S30" value="0.18684320695837084" />
+      <entry key="S60" value="0.4323017175857396" />
+      <entry key="M2" value="0.664419024688764" />
+      <entry key="M5" value="0.9970008189631144" />
+      <entry key="M10" value="1.4453974507529541" />
+      <entry key="M15" value="1.9577947060465763" />
+      <entry key="M30" value="4.369426509894" />
+      <entry key="H1" value="12.69525580276094" />
+      <entry key="H2" value="39.04065516685481" />
+      <entry key="H4" value="97.58863647933863" />
+      <entry key="D1" value="430.4958904377059" />
+      <entry key="W1" value="746.1349311925052" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="9.511286372808835E-5" />
-      <entry key="MS500" value="0.1569089989103304" />
-      <entry key="S2" value="0.6293785867524289" />
-      <entry key="S5" value="0.8309306625210938" />
-      <entry key="S10" value="0.9115729942385148" />
-      <entry key="S30" value="0.998156696449634" />
-      <entry key="S60" value="1.2205003755214134" />
-      <entry key="M2" value="1.8584832401680516" />
-      <entry key="M5" value="3.1292587879531255" />
-      <entry key="M10" value="4.7624058471688215" />
-      <entry key="M15" value="7.605138289441502" />
-      <entry key="M30" value="21.50766001129926" />
-      <entry key="H1" value="66.3005302567487" />
-      <entry key="H2" value="191.06068075236539" />
-      <entry key="H4" value="447.7442617882587" />
-      <entry key="D1" value="3002.927224167385" />
-      <entry key="W1" value="6777.930991531361" />
+      <entry key="MS100" value="5.91818145611794E-13" />
+      <entry key="MS500" value="0.004524344355399056" />
+      <entry key="S2" value="0.7417029069976441" />
+      <entry key="S5" value="2.525003967407541" />
+      <entry key="S10" value="3.9422653343888165" />
+      <entry key="S30" value="6.220991024961264" />
+      <entry key="S60" value="7.839617192955923" />
+      <entry key="M2" value="9.486963692773328" />
+      <entry key="M5" value="13.863796878969778" />
+      <entry key="M10" value="21.055613946717173" />
+      <entry key="M15" value="26.876212979274147" />
+      <entry key="M30" value="42.86765071986546" />
+      <entry key="H1" value="84.76724196044118" />
+      <entry key="H2" value="203.04669739345817" />
+      <entry key="H4" value="455.6389642239095" />
+      <entry key="D1" value="3007.3223807058816" />
+      <entry key="W1" value="6806.434496305653" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -178,7 +177,7 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="initiativetracker@1" />
+      <module name="initiativetracker" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -202,7 +201,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="initiativetracker@1" />
+      <module name="initiativetracker" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -216,7 +215,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="initiativetracker@1" />
+      <module name="initiativetracker" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -235,7 +234,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="initiativetracker@1" />
+      <module name="initiativetracker" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -501,7 +500,23 @@
       <option name="project" value="LOCAL" />
       <updated>1787146308688</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="minor fixes">
+      <option name="closed" value="true" />
+      <created>1787149346489</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1787149346489</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fixed rolls &lt; 1">
+      <option name="closed" value="true" />
+      <created>1787220035794</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1787220035794</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,8 +589,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="skeleton added, dependencies added as well" />
-    <MESSAGE value="small fix in deps" />
     <MESSAGE value="fff" />
     <MESSAGE value="get post put delete default done" />
     <MESSAGE value="front v1" />
@@ -599,7 +612,9 @@
     <MESSAGE value="start and reset combat" />
     <MESSAGE value="reroll all initiative&#10;footer button disabled on !combatstarted" />
     <MESSAGE value="stats rolls" />
-    <option name="LAST_COMMIT_MESSAGE" value="stats rolls" />
+    <MESSAGE value="minor fixes" />
+    <MESSAGE value="fixed rolls &lt; 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed rolls &lt; 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
