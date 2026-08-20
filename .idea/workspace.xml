@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="characters migrations">
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/character.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/CreateCharacterTab.tsx" afterDir="false" />
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="characters half way">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/character/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/character/enums.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/encounter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/encounter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/monster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/monster.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CreateCharacterTab.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CreateCharacterTab.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/types/combat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/combat.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,60 +73,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000138266505" />
-      <entry key="S2" value="1.011556705823965" />
-      <entry key="S5" value="1.221770912747154" />
-      <entry key="S10" value="1.7414180445374048" />
-      <entry key="S30" value="4.021178424487212" />
-      <entry key="S60" value="7.134044609648419" />
-      <entry key="M2" value="12.078850570627967" />
-      <entry key="M5" value="22.392001020912264" />
-      <entry key="M10" value="35.70140243752209" />
-      <entry key="M15" value="48.32898040389124" />
-      <entry key="M30" value="85.41021543580523" />
-      <entry key="H1" value="174.38347479850933" />
-      <entry key="H2" value="373.77001005937007" />
-      <entry key="H4" value="704.698848292938" />
-      <entry key="D1" value="3103.1824461833726" />
-      <entry key="W1" value="6920.52231931065" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0000000010494468" />
+      <entry key="S30" value="1.0016130896304198" />
+      <entry key="S60" value="1.0568527395503164" />
+      <entry key="M2" value="1.3538676536147558" />
+      <entry key="M5" value="2.593257312696558" />
+      <entry key="M10" value="4.6708104872386835" />
+      <entry key="M15" value="6.354669629006546" />
+      <entry key="M30" value="13.063860783641223" />
+      <entry key="H1" value="48.35752954501085" />
+      <entry key="H2" value="183.69459066548038" />
+      <entry key="H4" value="490.37369419390274" />
+      <entry key="D1" value="2925.8744125404087" />
+      <entry key="W1" value="6884.055217105075" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.6316381437010036E-47" />
-      <entry key="MS500" value="5.1526122342629E-10" />
-      <entry key="S2" value="0.005065668573492691" />
-      <entry key="S5" value="0.15686360105006683" />
-      <entry key="S10" value="0.5408599486090775" />
-      <entry key="S30" value="1.3213967667189592" />
-      <entry key="S60" value="1.9514774912864834" />
-      <entry key="M2" value="3.053931094938595" />
-      <entry key="M5" value="5.173090693325751" />
-      <entry key="M10" value="7.3727183179024856" />
-      <entry key="M15" value="9.46210487832696" />
-      <entry key="M30" value="16.676626008013365" />
-      <entry key="H1" value="32.12977061929885" />
-      <entry key="H2" value="62.04021051648828" />
-      <entry key="H4" value="120.54040047385071" />
-      <entry key="D1" value="490.6122459187474" />
-      <entry key="W1" value="864.051153556632" />
+      <entry key="MS100" value="7.62559292544448E-16" />
+      <entry key="MS500" value="9.489859815238321E-4" />
+      <entry key="S2" value="0.2118445070776122" />
+      <entry key="S5" value="0.764238157533237" />
+      <entry key="S10" value="1.2215492567940505" />
+      <entry key="S30" value="1.696106853856443" />
+      <entry key="S60" value="1.9161040585273232" />
+      <entry key="M2" value="2.368392330163616" />
+      <entry key="M5" value="4.100859010493434" />
+      <entry key="M10" value="6.666214034503742" />
+      <entry key="M15" value="8.401436637973696" />
+      <entry key="M30" value="11.622279320432016" />
+      <entry key="H1" value="19.042448408031802" />
+      <entry key="H2" value="41.23953317161762" />
+      <entry key="H4" value="94.53944467138126" />
+      <entry key="D1" value="473.54083885180984" />
+      <entry key="W1" value="871.500193549055" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.001306569877720812" />
-      <entry key="MS500" value="0.26498820180055477" />
-      <entry key="S2" value="0.7301946238518862" />
-      <entry key="S5" value="1.213845082136829" />
-      <entry key="S10" value="2.1489580203273704" />
-      <entry key="S30" value="5.249207720269033" />
-      <entry key="S60" value="9.001525980062372" />
-      <entry key="M2" value="15.056699914621555" />
-      <entry key="M5" value="27.50727077993411" />
-      <entry key="M10" value="43.02697972093047" />
-      <entry key="M15" value="57.74769625519884" />
-      <entry key="M30" value="102.04752249081666" />
-      <entry key="H1" value="206.47499213538" />
-      <entry key="H2" value="435.7725126312116" />
-      <entry key="H4" value="825.2045029344176" />
-      <entry key="D1" value="3593.7720058747846" />
-      <entry key="W1" value="7784.567266939438" />
+      <entry key="MS100" value="0.010026764824710195" />
+      <entry key="MS500" value="0.3986641985270979" />
+      <entry key="S2" value="0.9543221382176443" />
+      <entry key="S5" value="1.5863778345297808" />
+      <entry key="S10" value="2.099324782945252" />
+      <entry key="S30" value="2.6422406853589604" />
+      <entry key="S60" value="2.913698529693862" />
+      <entry key="M2" value="3.6316823523514588" />
+      <entry key="M5" value="6.601801658795586" />
+      <entry key="M10" value="11.266648118678955" />
+      <entry key="M15" value="14.700147813693441" />
+      <entry key="M30" value="24.65007903268197" />
+      <entry key="H1" value="67.37272297202396" />
+      <entry key="H2" value="224.90671443865807" />
+      <entry key="H4" value="584.8843927492483" />
+      <entry key="D1" value="3399.39305838027" />
+      <entry key="W1" value="7755.54911755935" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -544,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787232323285</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="characters half way">
+      <option name="closed" value="true" />
+      <created>1787240886671</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1787240886671</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +620,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dsfdf" />
     <MESSAGE value="get and post encounter temt" />
     <MESSAGE value="finished day 2" />
     <MESSAGE value="hp bar moved to header and +- buttons ready to use&#10;not saving yet" />
@@ -642,7 +644,8 @@
     <MESSAGE value="tabs prototype for add dialog" />
     <MESSAGE value="characters module" />
     <MESSAGE value="characters migrations" />
-    <option name="LAST_COMMIT_MESSAGE" value="characters migrations" />
+    <MESSAGE value="characters half way" />
+    <option name="LAST_COMMIT_MESSAGE" value="characters half way" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -678,7 +681,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/pages/CombatPage.tsx</url>
-          <line>424</line>
+          <line>419</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
