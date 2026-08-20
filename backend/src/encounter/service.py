@@ -4,8 +4,12 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from src.encounter.exceptions import AddEncFailedError, DeleteEncNotFoundError, DeleteEncFailedError, UpdateEncFailedError, \
-    AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError
+from src.encounter.schemas import CombatantOutMonsterSchema
+from src.character.schemas import CharacterInSchema
+from src.character.models import CharacterModel
+from src.encounter.exceptions import AddEncFailedError, DeleteEncNotFoundError, DeleteEncFailedError, \
+    UpdateEncFailedError, \
+    AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError, CombatantHasNoTypeError
 from src.monster.schemas import MonsterInSchema
 from src.encounter.models import EncounterModel, CombatantModel
 from src.encounter.schemas import EncounterInSchema, CombatantInSchema, CombatantDbSchema, CombatantUpdateSchema, \
@@ -69,20 +73,35 @@ class EncounterService:
 
 
     async def get_combatants(self, encounter_id: str):
-        query = (select(CombatantModel, MonsterModel).
-                 join(MonsterModel, CombatantModel.monster_id == MonsterModel.monster_id).
-                 options(selectinload(MonsterModel.abilities)).
+        query = (select(CombatantModel, MonsterModel, CharacterModel).
+                 outerjoin(MonsterModel, CombatantModel.monster_id == MonsterModel.monster_id).
+                 outerjoin(CharacterModel, CombatantModel.character_id == CharacterModel.character_id).
+                 options(selectinload(MonsterModel.abilities), selectinload(CharacterModel.abilities)).
                  where(CombatantModel.encounter_id == encounter_id))
 
         result = await self.session.execute(query)
         combatants = []
-        for combatant, monster in result:
-            combatants.append(
-                {
-                    **CombatantDbSchema.model_validate(combatant, extra= 'ignore').model_dump(),
-                    **MonsterInSchema.model_validate(monster, extra= 'ignore').model_dump()
-                 }
-            )
+        # for res in result:
+        #     combatants.append(
+        #         CombatantOutMonsterSchema.model_validate(obj=*res, extra='ignore')
+        #     )
+        for combatant, monster, character in result:
+            if combatant.monster_id is not None:
+                combatants.append(
+                    {
+                        **CombatantDbSchema.model_validate(combatant, extra= 'ignore').model_dump(),
+                        **MonsterInSchema.model_validate(monster, extra= 'ignore').model_dump()
+                     }
+                )
+            elif combatant.character_id is not None:
+                combatants.append(
+                    {
+                        **CombatantDbSchema.model_validate(combatant, extra='ignore').model_dump(),
+                        **CharacterInSchema.model_validate(character, extra='ignore').model_dump()
+                    }
+                )
+            else:
+                raise CombatantHasNoTypeError
         return combatants
 
 
@@ -96,13 +115,24 @@ class EncounterService:
         except IntegrityError:
             await self.session.rollback()
             raise AddCombFailedError
-        query = select(MonsterModel).where(MonsterModel.monster_id == combatant_in.monster_id)
-        result = await self.session.execute(query)
-        monster = result.scalar_one_or_none()
-        combatant = {
-            **CombatantDbSchema.model_validate(new_model, extra='ignore').model_dump(),
-            **MonsterInSchema.model_validate(monster, extra='ignore').model_dump(),
-        }
+        if combatant_in.monster_id is not None:
+            query = select(MonsterModel).where(MonsterModel.monster_id == combatant_in.monster_id)
+            result = await self.session.execute(query)
+            monster = result.scalar_one_or_none()
+            combatant = {
+                **CombatantDbSchema.model_validate(new_model, extra='ignore').model_dump(),
+                **MonsterInSchema.model_validate(monster, extra='ignore').model_dump(),
+            }
+        elif combatant_in.character_id is not None:
+            query = select(CharacterModel).where(CharacterModel.character_id == combatant_in.character_id)
+            result = await self.session.execute(query)
+            character = result.scalar_one_or_none()
+            combatant = {
+                **CombatantDbSchema.model_validate(new_model, extra='ignore').model_dump(),
+                **CharacterInSchema.model_validate(character, extra='ignore').model_dump(),
+            }
+        else:
+            raise CombatantHasNoTypeError
         return combatant
 
 

@@ -6,10 +6,11 @@ from starlette import status
 from typing_extensions import Annotated
 
 from src.encounter.exceptions import AddEncFailedError, DeleteEncFailedError, DeleteEncNotFoundError, UpdateEncFailedError, \
-    AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError
+    AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError, CombatantHasNoTypeError
 from src.encounter.dependencies import get_encounter_service
-from src.encounter.schemas import EncounterInSchema, EncounterOutSchema, CombatantOutSchema, \
-    CombatantInSchema, CombatantUpdateSchema, EncounterUpdateSchema
+from src.encounter.schemas import EncounterInSchema, EncounterOutSchema, \
+    CombatantInSchema, CombatantUpdateSchema, EncounterUpdateSchema, CombatantOutMonsterSchema, \
+    CombatantOutCharacterSchema
 from src.encounter.service import EncounterService
 
 router = APIRouter()
@@ -75,18 +76,21 @@ async def update_encounter(
     return
 
 
-@router.get(path="/{encounter_id}/combatant", response_model=list[CombatantOutSchema], status_code=status.HTTP_200_OK)
+@router.get(path="/{encounter_id}/combatant", response_model=list[CombatantOutMonsterSchema | CombatantOutCharacterSchema], status_code=status.HTTP_200_OK)
 async def get_combatants(
         encounter_id: str,
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
-    combatants = await service.get_combatants(encounter_id=encounter_id)
+    try:
+        combatants = await service.get_combatants(encounter_id=encounter_id)
+    except CombatantHasNoTypeError:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Bad combatant data on server")
     if not combatants:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Combatants not found")
     return combatants
 
 
-@router.post(path="/{encounter_id}/combatant", response_model=CombatantOutSchema, status_code=status.HTTP_201_CREATED)
+@router.post(path="/{encounter_id}/combatant", response_model=CombatantOutMonsterSchema | CombatantOutCharacterSchema, status_code=status.HTTP_201_CREATED)
 async def create_combatant(
         encounter_id: str,
         combatant: Annotated[CombatantInSchema, Body(embed=True)],
@@ -94,6 +98,8 @@ async def create_combatant(
 ):
     try:
         combatant = await service.create_combatant(encounter_id=encounter_id, combatant_in=combatant)
+    except CombatantHasNoTypeError:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Combatant has no type")
     except AddCombFailedError:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Combatant already exists")
     return combatant

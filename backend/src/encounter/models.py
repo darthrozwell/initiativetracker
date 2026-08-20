@@ -1,4 +1,4 @@
-from sqlalchemy import JSON, ForeignKey, Enum
+from sqlalchemy import JSON, ForeignKey, Enum, CheckConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 
 from src.encounter.enums import CombatantStatus
@@ -17,6 +17,17 @@ class EncounterModel(Base):
 class CombatantModel(Base):
     __tablename__ = "combatants"
 
+    __table_args__ = (
+        CheckConstraint(
+            """
+            (monster_id IS NOT NULL AND character_id IS NULL)
+            OR
+            (monster_id IS NULL AND character_id IS NOT NULL)
+            """,
+            name="ck_combatant_exactly_one_owner",
+        ),
+    )
+
     combatant_id: Mapped[str] = mapped_column(primary_key=True)
     encounter_id: Mapped[str] = mapped_column(
         ForeignKey(
@@ -30,7 +41,16 @@ class CombatantModel(Base):
             column="monsters.monster_id",
             ondelete="CASCADE",
             onupdate="CASCADE"
-        )
+        ),
+        nullable=True,
+    )
+    character_id: Mapped[str] = mapped_column(
+        ForeignKey(
+            column="characters.character_id",
+            ondelete="CASCADE",
+            onupdate="CASCADE"
+        ),
+        nullable=True,
     )
     nickname: Mapped[str]
     current_hp: Mapped[int] = mapped_column(default=0)

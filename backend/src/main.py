@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src.monster.router import router as monster_router
 from src.encounter.router import router as encounter_router
+from src.character.router import router as player_router
 
 
 
@@ -24,3 +25,4 @@ app.add_middleware(
 
 app.include_router(router=monster_router, prefix="/monster", tags=["monsters"])
 app.include_router(router=encounter_router, prefix="/encounter", tags=["encounters"])
+app.include_router(router=player_router, prefix="/character", tags=["characters"])

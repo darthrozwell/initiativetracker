@@ -21,3 +21,6 @@ class DeleteCombFailedError(Exception):
 
 class DeleteCombNotFoundError(Exception):
     pass
+
+class CombatantHasNoTypeError(Exception):
+    pass

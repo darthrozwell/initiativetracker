@@ -2,6 +2,7 @@ from typing import Union, Optional
 
 from pydantic import BaseModel, Field, ConfigDict, create_model
 
+from src.character.schemas import CharacterInSchema
 from src.encounter.enums import CombatantStatus
 from src.monster.schemas import MonsterInSchema
 
@@ -26,7 +27,8 @@ class EncounterUpdateSchema(BaseModel):
 
 
 class CombatantInSchema(BaseModel):
-    monster_id: str
+    monster_id: str | None = None
+    character_id: str | None = None
     nickname: str = ""
     current_hp: int = Field(ge=0)
     current_initiative: int = Field(ge=0)
@@ -40,8 +42,11 @@ class CombatantDbSchema(CombatantInSchema):
     encounter_id: str
 
 
+class CombatantOutMonsterSchema(CombatantDbSchema, MonsterInSchema):
+    pass
 
-class CombatantOutSchema(CombatantDbSchema, MonsterInSchema):
+
+class CombatantOutCharacterSchema(CombatantDbSchema, CharacterInSchema):
     pass
 
 
