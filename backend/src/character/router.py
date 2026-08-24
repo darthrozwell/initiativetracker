@@ -20,7 +20,7 @@ async def get_all_characters(
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     if not characters:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No characters found")
+        return [] #raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No characters found")
     return characters
 
 

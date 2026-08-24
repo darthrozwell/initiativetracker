@@ -5,6 +5,7 @@ class Settings(BaseSettings):
     app_name: str = "InitiativeTracker"
     debug: bool = False
     database_url: str
+    alembic_database_url: str
 
     model_config = SettingsConfigDict(
         env_file=".env",

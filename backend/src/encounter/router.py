@@ -86,7 +86,7 @@ async def get_combatants(
     except CombatantHasNoTypeError:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Bad combatant data on server")
     if not combatants:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Combatants not found")
+        return [] #raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Combatants not found")
     return combatants
 
 
