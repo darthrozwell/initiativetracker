@@ -5,12 +5,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 from src.encounter.schemas import CombatantOutMonsterSchema
-from src.character.schemas import CharacterInSchema
+from src.character.schemas import CharacterInSchema, CharacterDbSchema
 from src.character.models import CharacterModel
 from src.encounter.exceptions import AddEncFailedError, DeleteEncNotFoundError, DeleteEncFailedError, \
     UpdateEncFailedError, \
     AddCombFailedError, UpdateCombFailedError, DeleteCombFailedError, DeleteCombNotFoundError, CombatantHasNoTypeError
-from src.monster.schemas import MonsterInSchema
+from src.monster.schemas import MonsterInSchema, MonsterDbSchema
 from src.encounter.models import EncounterModel, CombatantModel
 from src.encounter.schemas import EncounterInSchema, CombatantInSchema, CombatantDbSchema, CombatantUpdateSchema, \
     EncounterUpdateSchema
@@ -22,14 +22,16 @@ class EncounterService:
         self.session = session
 
 
-    async def get_encounter(self, name: str) -> EncounterModel | None:
-        query = select(EncounterModel).where(EncounterModel.encounter_id == name)
+    async def get_encounter(self, encounter_id: str) -> EncounterModel | None:
+        query = (select(EncounterModel)
+                 .where(EncounterModel.encounter_id == encounter_id))
         result = await self.session.execute(query)
         return result.scalar_one_or_none()
 
 
     async def get_all_encounters(self):
-        query = select(EncounterModel).order_by(EncounterModel.name)
+        query = (select(EncounterModel)
+                 .order_by(EncounterModel.name))
         result = await self.session.execute(query)
         return result.scalars().all()
 
@@ -47,7 +49,9 @@ class EncounterService:
 
 
     async def delete_encounter(self, encounter_id: str):
-        query = select(EncounterModel).where(EncounterModel.encounter_id == encounter_id).with_for_update()
+        query = (select(EncounterModel)
+                 .where(EncounterModel.encounter_id == encounter_id)
+                 .with_for_update())
         result = await self.session.execute(query)
         res = result.scalar_one_or_none()
         if res is None:
@@ -61,8 +65,10 @@ class EncounterService:
         return
 
 
-    async def update_encounter(self, encounter_id: str, encounter: EncounterUpdateSchema) -> EncounterModel | None:
-        query = update(EncounterModel).where(EncounterModel.encounter_id == encounter_id).values(**encounter.model_dump(exclude_unset=True))
+    async def update_encounter(self, encounter_id: str, encounter: EncounterUpdateSchema) -> None:
+        query = (update(EncounterModel)
+                 .where(EncounterModel.encounter_id == encounter_id)
+                 .values(**encounter.model_dump(exclude_unset=True)))
         result = await self.session.execute(query)
         try:
             await self.session.commit()
@@ -76,7 +82,7 @@ class EncounterService:
         query = (select(CombatantModel, MonsterModel, CharacterModel).
                  outerjoin(MonsterModel, CombatantModel.monster_id == MonsterModel.monster_id).
                  outerjoin(CharacterModel, CombatantModel.character_id == CharacterModel.character_id).
-                 options(selectinload(MonsterModel.abilities), selectinload(CharacterModel.abilities)).
+                 options(selectinload(MonsterModel.actions), selectinload(CharacterModel.actions)).
                  where(CombatantModel.encounter_id == encounter_id))
 
         result = await self.session.execute(query)
@@ -90,14 +96,14 @@ class EncounterService:
                 combatants.append(
                     {
                         **CombatantDbSchema.model_validate(combatant, extra= 'ignore').model_dump(),
-                        **MonsterInSchema.model_validate(monster, extra= 'ignore').model_dump()
+                        **MonsterDbSchema.model_validate(monster, extra= 'ignore').model_dump()
                      }
                 )
             elif combatant.character_id is not None:
                 combatants.append(
                     {
                         **CombatantDbSchema.model_validate(combatant, extra='ignore').model_dump(),
-                        **CharacterInSchema.model_validate(character, extra='ignore').model_dump()
+                        **CharacterDbSchema.model_validate(character, extra='ignore').model_dump()
                     }
                 )
             else:
@@ -116,20 +122,24 @@ class EncounterService:
             await self.session.rollback()
             raise AddCombFailedError
         if combatant_in.monster_id is not None:
-            query = select(MonsterModel).where(MonsterModel.monster_id == combatant_in.monster_id)
+            query = (select(MonsterModel)
+                     .options(selectinload(MonsterModel.actions))
+                     .where(MonsterModel.monster_id == combatant_in.monster_id))
             result = await self.session.execute(query)
             monster = result.scalar_one_or_none()
             combatant = {
                 **CombatantDbSchema.model_validate(new_model, extra='ignore').model_dump(),
-                **MonsterInSchema.model_validate(monster, extra='ignore').model_dump(),
+                **MonsterDbSchema.model_validate(monster, extra='ignore').model_dump(),
             }
         elif combatant_in.character_id is not None:
-            query = select(CharacterModel).where(CharacterModel.character_id == combatant_in.character_id)
+            query = (select(CharacterModel)
+                     .options(selectinload(CharacterModel.actions))
+                     .where(CharacterModel.character_id == combatant_in.character_id))
             result = await self.session.execute(query)
             character = result.scalar_one_or_none()
             combatant = {
                 **CombatantDbSchema.model_validate(new_model, extra='ignore').model_dump(),
-                **CharacterInSchema.model_validate(character, extra='ignore').model_dump(),
+                **CharacterDbSchema.model_validate(character, extra='ignore').model_dump(),
             }
         else:
             raise CombatantHasNoTypeError
@@ -137,7 +147,9 @@ class EncounterService:
 
 
     async def update_combatant(self, combatant_id: str, new_schema: CombatantUpdateSchema):
-        query = update(CombatantModel).where(CombatantModel.combatant_id == combatant_id).values(**new_schema.model_dump(exclude_unset=True))
+        query = (update(CombatantModel)
+                 .where(CombatantModel.combatant_id == combatant_id)
+                 .values(**new_schema.model_dump(exclude_unset=True)))
         await self.session.execute(query)
         try:
             await self.session.commit()
@@ -147,7 +159,9 @@ class EncounterService:
         return
 
     async def delete_combatant(self, combatant_id: str):
-        query = select(CombatantModel).where(CombatantModel.combatant_id == combatant_id)
+        query = (select(CombatantModel)
+                 .where(CombatantModel.combatant_id == combatant_id)
+                 .with_for_update())
         result = await self.session.execute(query)
         res = result.scalar_one_or_none()
         if res is None:

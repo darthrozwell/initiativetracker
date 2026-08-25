@@ -7,42 +7,58 @@ import {
     TextField,
 } from "@mui/material";
 
-export interface CharacterAttack {
-    title: string;
-    name: string;
-    text: string;
-    attack_type: string;
-    attack_range: string;
-    hit_bonus: number;
-    reach: string;
-    damage: string;
-}
+import type {Action, ActionType, DamageType} from "../types/combat.ts"
+
 
 interface AttackFormProps {
-    onSubmit: (attack: CharacterAttack) => void;
+    onSubmit: (attack: Action) => void;
     onCancel?: () => void;
 }
 
-const initialAttack: CharacterAttack = {
-    title: "",
+const initialAttack: Action = {
+    type: "Особенности",
     name: "",
     text: "",
-    attack_type: "",
-    attack_range: "",
-    hit_bonus: 0,
+    range: "",
     reach: "",
+    hit_bonus: 0,
     damage: "",
-};
+    damage_type: "Дробящий урон",
+}
+
+const damage_types: DamageType[] = [
+    "Дробящий урон",
+    "Колющий урон",
+    "Рубящий урон",
+    "урон Кислотой",
+    "урон Холодом",
+    "урон Огнём",
+    "Силовой урон",
+    "урон Электричеством",
+    "Некротический урон",
+    "урон Ядом",
+    "Психический урон",
+    "урон Излучением",
+    "урон Звуком",
+]
+
+const action_types: ActionType[] = [
+    "Действия",
+    "Бонусные действия",
+    "Реакции",
+    "Легендарные действия",
+    "Особенности",
+]
 
 export default function AttackForm({
     onSubmit,
     onCancel,
 }: AttackFormProps) {
-    const [form, setForm] = useState<CharacterAttack>(initialAttack);
+    const [form, setForm] = useState<Action>(initialAttack);
 
-    const handleChange = <K extends keyof CharacterAttack>(
+    const handleChange = <K extends keyof Action>(
         field: K,
-        value: CharacterAttack[K],
+        value: string | number | DamageType | ActionType
     ) => {
         setForm((prev) => ({
             ...prev,
@@ -65,14 +81,21 @@ export default function AttackForm({
 
                 <Grid size={{ xs: 12, sm: 6 }}>
                     <TextField
+                        select
                         fullWidth
                         size="small"
                         label="Title"
-                        value={form.title}
+                        value={form.type}
                         onChange={(e) =>
-                            handleChange("title", e.target.value)
+                            handleChange("type", e.target.value)
                         }
-                    />
+                    >
+                    {action_types.map((act) => (
+                                <MenuItem key={act} value={act}>
+                                    {act}
+                                </MenuItem>
+                            ))}
+                    </TextField>
                 </Grid>
 
                 <Grid size={{ xs: 12, sm: 6 }}>
@@ -92,17 +115,17 @@ export default function AttackForm({
                         select
                         fullWidth
                         size="small"
-                        label="Attack Type"
-                        value={form.attack_type}
+                        label="Damage Type"
+                        value={form.damage_type}
                         onChange={(e) =>
-                            handleChange("attack_type", e.target.value)
+                            handleChange("damage_type", e.target.value)
                         }
                     >
-                        <MenuItem value="Melee">Melee</MenuItem>
-                        <MenuItem value="Ranged">Ranged</MenuItem>
-                        <MenuItem value="Melee or Ranged">
-                            Melee or Ranged
-                        </MenuItem>
+                        {damage_types.map((dmg_type) => (
+                                <MenuItem key={dmg_type} value={dmg_type}>
+                                    {dmg_type}
+                                </MenuItem>
+                            ))}
                     </TextField>
                 </Grid>
 
@@ -110,11 +133,11 @@ export default function AttackForm({
                     <TextField
                         fullWidth
                         size="small"
-                        label="Attack Range"
+                        label="Range"
                         placeholder="e.g. 5 ft."
-                        value={form.attack_range}
+                        value={form.range}
                         onChange={(e) =>
-                            handleChange("attack_range", e.target.value)
+                            handleChange("range", e.target.value)
                         }
                     />
                 </Grid>

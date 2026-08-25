@@ -6,7 +6,7 @@ import {
     Typography,
 } from "@mui/material";
 
-import type {Attack, Combatant} from "../types/combat"
+import type {Action, Combatant} from "../types/combat"
 import StatCard from "./StatCard"
 import BaseStatsCard from "./BasestatsCard.tsx"
 import DmgResStatCard from "./DmgResCard.tsx"
@@ -72,8 +72,8 @@ export default function StatsTab({
                         <Grid size={4}>
                             <BaseStatsCard
                                 title="Сила"
-                                roll={combatant.strength_mod}
-                                save={combatant.strength_save}
+                                roll={Math.floor((combatant.strength_value - 10) / 2)}
+                                save={Math.floor((combatant.strength_value - 10) / 2) + (combatant.is_strength_save ? combatant.proficiency_bonus : 0)}
                                 onRoll={(bonus: number) => onRoll(combatant, bonus)}
                             />
                         </Grid>
@@ -81,8 +81,8 @@ export default function StatsTab({
                         <Grid size={4}>
                             <BaseStatsCard
                                 title="Ловкость"
-                                roll={combatant.dexterity_mod}
-                                save={combatant.dexterity_save}
+                                roll={Math.floor((combatant.dexterity_value - 10) / 2)}
+                                save={Math.floor((combatant.dexterity_value - 10) / 2) + (combatant.is_dexterity_save ? combatant.proficiency_bonus : 0)}
                                 onRoll={(bonus: number) => onRoll(combatant, bonus)}
                             />
                         </Grid>
@@ -90,16 +90,16 @@ export default function StatsTab({
                         <Grid size={4}>
                             <BaseStatsCard
                                 title="Телосложение"
-                                roll={combatant.constitution_mod}
-                                save={combatant.constitution_save}
+                                roll={Math.floor((combatant.constitution_value - 10) / 2)}
+                                save={Math.floor((combatant.constitution_value - 10) / 2) + (combatant.is_constitution_save ? combatant.proficiency_bonus : 0)}
                                 onRoll={(bonus: number) => onRoll(combatant, bonus)}
                             />
                         </Grid>
                         <Grid size={4}>
                             <BaseStatsCard
                                 title="Интеллект"
-                                roll={combatant.intelligence_mod}
-                                save={combatant.intelligence_save}
+                                roll={Math.floor((combatant.intelligence_value - 10) / 2)}
+                                save={Math.floor((combatant.intelligence_value - 10) / 2) + (combatant.is_intelligence_save ? combatant.proficiency_bonus : 0)}
                                 onRoll={(bonus: number) => onRoll(combatant, bonus)}
                             />
                         </Grid>
@@ -107,8 +107,8 @@ export default function StatsTab({
                         <Grid size={4}>
                             <BaseStatsCard
                                 title="Мудрость"
-                                roll={combatant.wisdom_mod}
-                                save={combatant.wisdom_save}
+                                roll={Math.floor((combatant.wisdom_value - 10) / 2)}
+                                save={Math.floor((combatant.wisdom_value - 10) / 2) + (combatant.is_wisdom_save ? combatant.proficiency_bonus : 0)}
                                 onRoll={(bonus: number) => onRoll(combatant, bonus)}
                             />
                         </Grid>
@@ -116,8 +116,8 @@ export default function StatsTab({
                         <Grid size={4}>
                             <BaseStatsCard
                                 title="Харизма"
-                                roll={combatant.charisma_mod}
-                                save={combatant.charisma_save}
+                                roll={Math.floor((combatant.charisma_value - 10) / 2)}
+                                save={Math.floor((combatant.charisma_value - 10) / 2) + (combatant.is_charisma_save ? combatant.proficiency_bonus : 0)}
                                 onRoll={(bonus: number) => onRoll(combatant, bonus)}
                             />
                         </Grid>
@@ -164,9 +164,9 @@ export default function StatsTab({
                         Особенности
                     </Typography>
 
-                    {combatant.abilities?.length > 0 && (
+                    {combatant.actions?.length > 0 && (
                           <Grid container spacing={0}>
-                            {combatant.abilities.filter((ability) => ability.title === "Особенности").map((attack: Attack, index: number) => (
+                            {combatant.actions.filter((ability) => ability.type === "Особенности").map((attack: Action, index: number) => (
                               <Grid key={index}>
                                 <AttackCard attack={attack} />
                               </Grid>
@@ -185,9 +185,9 @@ export default function StatsTab({
                         Действия
                     </Typography>
 
-                    {combatant.abilities?.length > 0 && (
+                    {combatant.actions?.length > 0 && (
                           <Grid container spacing={0}>
-                            {combatant.abilities.filter((ability) => ability.title === "Действия").map((attack: Attack, index: number) => (
+                            {combatant.actions.filter((ability) => ability.type === "Действия").map((attack: Action, index: number) => (
                               <Grid key={index}>
                                 <AttackCard attack={attack} />
                               </Grid>
@@ -206,9 +206,9 @@ export default function StatsTab({
                         Бонусные действия
                     </Typography>
 
-                    {combatant.abilities?.length > 0 && (
+                    {combatant.actions?.length > 0 && (
                           <Grid container spacing={0}>
-                            {combatant.abilities.filter((ability) => ability.title === "Бонусные действия").map((attack: Attack, index: number) => (
+                            {combatant.actions.filter((ability) => ability.type === "Бонусные действия").map((attack: Action, index: number) => (
                               <Grid key={index}>
                                 <AttackCard attack={attack} />
                               </Grid>
@@ -227,9 +227,9 @@ export default function StatsTab({
                         Реакции
                     </Typography>
 
-                    {combatant.abilities?.length > 0 && (
+                    {combatant.actions?.length > 0 && (
                           <Grid container spacing={0}>
-                            {combatant.abilities.filter((ability) => ability.title === "Реакции").map((attack: Attack, index: number) => (
+                            {combatant.actions.filter((ability) => ability.type === "Реакции").map((attack: Action, index: number) => (
                               <Grid key={index}>
                                 <AttackCard attack={attack} />
                               </Grid>
@@ -248,9 +248,9 @@ export default function StatsTab({
                         Легендарные действия
                     </Typography>
 
-                    {combatant.abilities?.length > 0 && (
+                    {combatant.actions?.length > 0 && (
                           <Grid container spacing={0}>
-                            {combatant.abilities.filter((ability) => ability.title === "Легендарные действия").map((attack: Attack, index: number) => (
+                            {combatant.actions.filter((ability) => ability.type === "Легендарные действия").map((attack: Action, index: number) => (
                               <Grid key={index}>
                                 <AttackCard attack={attack} />
                               </Grid>

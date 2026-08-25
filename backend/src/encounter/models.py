@@ -1,12 +1,12 @@
-from sqlalchemy import JSON, ForeignKey, Enum, CheckConstraint
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import ForeignKey, Enum, CheckConstraint
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.encounter.enums import CombatantStatus
 from src.models_core import Base
 
 
 class EncounterModel(Base):
-    __tablename__ = 'encounter'
+    __tablename__ = 'encounters'
 
     encounter_id: Mapped[str] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column()
@@ -31,7 +31,7 @@ class CombatantModel(Base):
     combatant_id: Mapped[str] = mapped_column(primary_key=True)
     encounter_id: Mapped[str] = mapped_column(
         ForeignKey(
-            column="encounter.encounter_id",
+            column="encounters.encounter_id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         )

@@ -1,5 +1,6 @@
 // src/types/combat.ts
 
+
 export type CombatantType = "character" | "monster" | "npc"
 
 export type CombatantStatus =
@@ -69,6 +70,28 @@ export type MonsterType =
     | "Растение"
     | "Нежить"
 
+export type ActionType =
+    | "Действия"
+    | "Бонусные действия"
+    | "Реакции"
+    | "Легендарные действия"
+    | "Особенности"
+
+export type DamageType =
+    | "Дробящий урон"
+    | "Колющий урон"
+    | "Рубящий урон"
+    | "урон Кислотой"
+    | "урон Холодом"
+    | "урон Огнём"
+    | "Силовой урон"
+    | "урон Электричеством"
+    | "Некротический урон"
+    | "урон Ядом"
+    | "Психический урон"
+    | "урон Излучением"
+    | "урон Звуком"
+
 
 export interface Effect {
     id: number
@@ -77,50 +100,50 @@ export interface Effect {
     color?: string
 }
 
-export interface Attack {
-    title: string
+export interface Action {
+    type: ActionType
     name: string
     text: string
-    attack_type: string
-    attack_range: string
-    hit_bonus: number
+    range: string
     reach: string
+    hit_bonus: number
     damage: string
+    damage_type: DamageType
 }
 
 
 export interface Creature {
     name: string
     source: string
+    alignment: MonsterAlignment
 
     armor_class: number
     initiative: number
     hit_points_value: number
     speed: string
-    damage_resistance?: string
-    damage_immunity?: string
-    damage_vulnerability?: string
+    damage_resistance: string
+    damage_immunity: string
+    damage_vulnerability: string
+
+    skills: string
+    senses: string
+    languages: string
+    proficiency_bonus: number
 
     strength_value: number
-    strength_mod: number
-    strength_save: number
+    is_strength_save: boolean
     dexterity_value: number
-    dexterity_mod: number
-    dexterity_save: number
+    is_dexterity_save: boolean
     constitution_value: number
-    constitution_mod: number
-    constitution_save: number
+    is_constitution_save: boolean
     intelligence_value: number
-    intelligence_mod: number
-    intelligence_save: number
+    is_intelligence_save: boolean
     wisdom_value: number
-    wisdom_mod: number
-    wisdom_save: number
+    is_wisdom_save: boolean
     charisma_value: number
-    charisma_mod: number
-    charisma_save: number
+    is_charisma_save: boolean
 
-    abilities?: Attack[]
+    actions: Action[]
 }
 
 
@@ -128,18 +151,17 @@ export interface Monster extends Creature {
     monster_id: string
     size: MonsterSize
     creature_type: MonsterType
-    alignment: MonsterAlignment
 
     hit_points_formula: string
-    skills?: string
-    senses?: string
-    languages?: string
+    skills: string
+    senses: string
+    languages: string
     challenge_rating: string
     experience: number
     proficiency_bonus: number
-    equipment?: string
-    treasure?: string
-    habitat?: string
+    equipment: string
+    treasure: string
+    habitat: string
 }
 
 export type MonsterCreationForm = Omit<

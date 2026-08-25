@@ -1,16 +1,11 @@
-from typing import Union, Optional
+from pydantic import BaseModel, Field, ConfigDict
 
-from pydantic import BaseModel, Field, ConfigDict, create_model
-
-from src.character.schemas import CharacterInSchema
+from src.character.schemas import CharacterOutSchema
 from src.encounter.enums import CombatantStatus
-from src.monster.schemas import MonsterInSchema
+from src.monster.schemas import MonsterOutSchema
 
 
-class BaseEncounter(BaseModel):
-    pass
-
-class EncounterInSchema(BaseEncounter):
+class EncounterInSchema(BaseModel):
     name: str
     round: int = Field(default=1, ge=0)
     current_turn: int = Field(default=0, ge=0)
@@ -21,18 +16,18 @@ class EncounterOutSchema(EncounterInSchema):
 
 
 class EncounterUpdateSchema(BaseModel):
-    name: Optional[str] = None
-    round: Optional[int] = Field(default=None, ge=0)
-    current_turn: Optional[int] = Field(default=None, ge=0)
+    name: str | None = None
+    round: int | None = Field(default=None, ge=0)
+    current_turn: int | None = Field(default=None, ge=0)
 
 
 class CombatantInSchema(BaseModel):
     monster_id: str | None = None
     character_id: str | None = None
-    nickname: str = ""
+    nickname: str
     current_hp: int = Field(ge=0)
     current_initiative: int = Field(ge=0)
-    status: CombatantStatus = CombatantStatus.ALIVE
+    status: CombatantStatus
 
 
 class CombatantDbSchema(CombatantInSchema):
@@ -42,16 +37,16 @@ class CombatantDbSchema(CombatantInSchema):
     encounter_id: str
 
 
-class CombatantOutMonsterSchema(CombatantDbSchema, MonsterInSchema):
+class CombatantOutMonsterSchema(CombatantDbSchema, MonsterOutSchema):
     pass
 
 
-class CombatantOutCharacterSchema(CombatantDbSchema, CharacterInSchema):
+class CombatantOutCharacterSchema(CombatantDbSchema, CharacterOutSchema):
     pass
 
 
 class CombatantUpdateSchema(BaseModel):
-    nickname: Optional[str] = None
-    current_hp: Optional[int] = Field(default=None, ge=0)
-    current_initiative: Optional[int] = None
-    status: Optional[CombatantStatus] = None
+    nickname: str | None = None
+    current_hp: int | None = Field(default=None, ge=0)
+    current_initiative: int | None = Field(default=None, ge=0)
+    status: CombatantStatus | None = None

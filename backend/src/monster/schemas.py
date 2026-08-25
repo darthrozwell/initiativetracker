@@ -1,76 +1,52 @@
 from pydantic import BaseModel, Field, ConfigDict
 
 from src.monster.enums import MonsterType, MonsterSize, MonsterSource
-from src.enums_core import CreatureAlignment
+from src.action.schemas import ActionSchema, ActionUpdateSchema, ActionDbSchema, ActionOutSchema
+from src.schemas_core import CreatureMixinSchema, CreatureUpdateMixinSchema, TimestampMixinSchema
 
 
-class BaseMonster(BaseModel):
-    pass
-
-
-class MonsterAttackSchema(BaseMonster):
-    model_config = ConfigDict(from_attributes=True)
-
-    title: str = ""
-    name: str = ""
-    text: str = ""
-    attack_type: str = ""
-    attack_range: str = ""
-    hit_bonus: int = 0
-    reach: str = ""
-    damage: str = ""
-
-class MonsterInSchema(BaseMonster):
+class MonsterInSchema(CreatureMixinSchema, BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     name: str = Field(min_length=1, max_length=500)
-    source: MonsterSource = MonsterSource.CUSTOM
-    size: MonsterSize = MonsterSize.AVG
-    creature_type: MonsterType = MonsterType.HUMANOID
-    alignment: CreatureAlignment = CreatureAlignment.NEUTRAL
+    source: MonsterSource
+    size: MonsterSize
+    creature_type: MonsterType
 
-    armor_class: int = Field(ge=1, le=50)  #"Класс Защиты": "16",
-    initiative: int = Field(le=50)  #"Инициатива": "+3 (13)",
-    hit_points_value: int = Field(ge=1)  #"Хиты": "66 (12к8 + 12)",
     hit_points_formula: str = Field(min_length=1, max_length=20)
-    speed: str = Field(min_length=1, max_length=256)  #"Скорость": "20 футов, Полёта 50 футов",
-    skills: str | None = None  #"Навыки": "Восприятие +7, Природа +5, Тайная магия +3",
-    damage_resistance: str | None = None  #Сопротивление урону
-    damage_immunity: str | None = None #Иммунитеты
-    damage_vulnerability: str | None = None
-    senses: str | None = None  #"Чувства": "пассивное Восприятие 17",
-    languages: str | None = None  #"Языки": "Первичный (Ауран), Язык Ааракокра",
     challenge_rating: str = Field(min_length=1, max_length=20)
     experience: int = Field(ge=0, default=1)
-    proficiency_bonus: int = Field(ge=1, default=1)
+    equipment: str
+    treasure: str
+    habitat: str
+
+    actions: list[ActionSchema]
+
+
+class MonsterDbSchema(MonsterInSchema, TimestampMixinSchema):
+    model_config = ConfigDict(from_attributes=True)
+
+    monster_id: str
+    actions: list[ActionDbSchema]
+
+
+class MonsterOutSchema(MonsterDbSchema):
+    actions: list[ActionOutSchema]
+
+
+class MonsterUpdateSchema(CreatureUpdateMixinSchema, BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    name: str | None = None
+    source: MonsterSource | None = None
+    size: MonsterSize | None = None
+    creature_type: MonsterType | None = None
+
+    hit_points_formula: str | None = Field(min_length=1, max_length=20, default=None)
+    challenge_rating: str | None = Field(min_length=1, max_length=20, default=None)
+    experience: int | None = Field(ge=0, default=None)
     equipment: str | None = None
     treasure: str | None = None
-    habitat: str | None = None  #"Среда обитания": "Горы, Стихийный план Воздуха",
+    habitat: str | None = None
 
-    strength_value: int = Field(ge=1, default=10)
-    strength_mod: int = Field(ge=-5, default=0)
-    strength_save: int = Field(ge=-5, default=0)
-    dexterity_value: int = Field(ge=1, default=10)
-    dexterity_mod: int = Field(ge=-5, default=0)
-    dexterity_save: int = Field(ge=-5, default=0)
-    constitution_value: int = Field(ge=1, default=10)
-    constitution_mod: int = Field(ge=-5, default=0)
-    constitution_save: int = Field(ge=-5, default=0)
-    intelligence_value: int = Field(ge=1, default=10)
-    intelligence_mod: int = Field(ge=-5, default=0)
-    intelligence_save: int = Field(ge=-5, default=0)
-    wisdom_value: int = Field(ge=1, default=10)
-    wisdom_mod: int = Field(ge=-5, default=0)
-    wisdom_save: int = Field(ge=-5, default=0)
-    charisma_value: int = Field(ge=1, default=10)
-    charisma_mod: int = Field(ge=-5, default=0)
-    charisma_save: int = Field(ge=-5, default=0)
-
-    abilities: list[MonsterAttackSchema] | None = None
-
-
-class MonsterOutSchema(MonsterInSchema):
-    monster_id: str = Field(min_length=1, max_length=500)
-
-
-
+    actions: list[ActionUpdateSchema] | None = None

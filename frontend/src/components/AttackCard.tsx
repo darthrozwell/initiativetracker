@@ -5,10 +5,10 @@ import {
     Paper,
     Typography,
 } from "@mui/material"
-import type {Attack} from "../types/combat.ts"
+import type {Action} from "../types/combat.ts"
 
 interface AttackCardProps {
-    attack: Attack
+    attack: Action
 }
 
 export default function AttackCard({

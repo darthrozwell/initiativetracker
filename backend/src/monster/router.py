@@ -6,7 +6,7 @@ from typing_extensions import Annotated
 from src.monster.dependencies import get_monster_service
 from src.monster.exceptions import AddFailedError, AddAttackFailedError, UpdateFailedError, UpdateAttackFailedError, \
     DeleteFailedError, DeleteNotFoundError
-from src.monster.schemas import MonsterInSchema, MonsterOutSchema
+from src.monster.schemas import MonsterInSchema, MonsterOutSchema, MonsterUpdateSchema
 from src.monster.service import MonsterService
 
 router = APIRouter()
@@ -72,7 +72,7 @@ async def upload_monster(
 @router.put(path="/{monster_id}", status_code=status.HTTP_200_OK)
 async def update_monster(
         monster_id: str,
-        monster: Annotated[MonsterInSchema, Body(embed=True)],
+        monster: Annotated[MonsterUpdateSchema, Body(embed=True)],
         service: Annotated[MonsterService, Depends(get_monster_service)],
 ):
     try:

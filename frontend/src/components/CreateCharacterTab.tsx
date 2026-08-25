@@ -1,10 +1,10 @@
 import {useState} from "react";
 import {
     Box,
-    Button,
+    Button, Checkbox,
     Dialog,
     DialogContent, DialogTitle,
-    Divider,
+    Divider, FormControlLabel,
     Grid,
     MenuItem,
     TextField,
@@ -47,6 +47,7 @@ const initialForm: CharacterCreationForm = {
     source:"Custom",
     character_class: "Fighter",
     race: "Human",
+    alignment: "Нейтральный",
 
     armor_class: 10,
     initiative: 0,
@@ -57,50 +58,45 @@ const initialForm: CharacterCreationForm = {
     damage_immunity: "",
     damage_vulnerability: "",
 
+    skills: "",
+    senses: "",
+    languages: "",
+    proficiency_bonus: 1,
+
     strength_value: 10,
-    strength_mod: 0,
-    strength_save: 0,
+    is_strength_save: false,
 
     dexterity_value: 10,
-    dexterity_mod: 0,
-    dexterity_save: 0,
+    is_dexterity_save: false,
 
     constitution_value: 10,
-    constitution_mod: 0,
-    constitution_save: 0,
+    is_constitution_save: false,
 
     intelligence_value: 10,
-    intelligence_mod: 0,
-    intelligence_save: 0,
+    is_intelligence_save: false,
 
     wisdom_value: 10,
-    wisdom_mod: 0,
-    wisdom_save: 0,
+    is_wisdom_save: false,
 
     charisma_value: 10,
-    charisma_mod: 0,
-    charisma_save: 0,
+    is_charisma_save: false,
 
-    abilities: [],
-};
+    actions: [],
+}
 
 interface AbilityFieldsProps {
     name: string
     value: number
-    modifier: number
-    save: number
+    save: boolean
     onValueChange: (value: number) => void
-    onModifierChange: (value: number) => void
-    onSaveChange: (value: number) => void
+    onSaveChange: (value: boolean) => void
 }
 
 function AbilityFields({
     name,
     value,
-    modifier,
     save,
     onValueChange,
-    onModifierChange,
     onSaveChange,
 }: AbilityFieldsProps) {
     return (
@@ -123,34 +119,29 @@ function AbilityFields({
                     />
                 </Grid>
 
-                <Grid size={{ xs: 4 }}>
-                    <TextField
-                        fullWidth
-                        size="small"
-                        type="number"
-                        label="Mod"
-                        value={modifier}
-                        onChange={(e) =>
-                            onModifierChange(Number(e.target.value))
+                 <Grid
+                    size={{ xs: 4 }}
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={save}
+                                onChange={(e) =>
+                                    onSaveChange(e.target.checked)
+                                }
+                            />
                         }
-                    />
-                </Grid>
-
-                <Grid size={{ xs: 4 }}>
-                    <TextField
-                        fullWidth
-                        size="small"
-                        type="number"
                         label="Save"
-                        value={save}
-                        onChange={(e) =>
-                            onSaveChange(Number(e.target.value))
-                        }
                     />
                 </Grid>
             </Grid>
         </Grid>
-    );
+    )
 }
 
 
@@ -168,7 +159,7 @@ export default function CharacterForm({
 
     const handleChange = (
         field: keyof CharacterCreationForm,
-        value: string | number | null,
+        value: string | number | boolean | null,
     ) => {
         setForm((prev) => ({
             ...prev,
@@ -244,7 +235,7 @@ export default function CharacterForm({
                         />
                     </Grid>
 
-                    <Grid size={{ xs: 3 }}>
+                    <Grid size={{ xs: 2 }}>
                         <TextField
                             select
                             fullWidth
@@ -265,7 +256,7 @@ export default function CharacterForm({
                         </TextField>
                     </Grid>
 
-                    <Grid size={{ xs:3 }}>
+                    <Grid size={{ xs:2 }}>
                         <TextField
                             select
                             fullWidth
@@ -281,6 +272,21 @@ export default function CharacterForm({
                                 </MenuItem>
                             ))}
                         </TextField>
+                    </Grid>
+
+                    <Grid size={{ xs: 2 }}>
+                        <TextField
+                            fullWidth
+                            type="number"
+                            label="Proficiency bonus"
+                            value={form.proficiency_bonus}
+                            onChange={(e) =>
+                                handleChange(
+                                    "proficiency_bonus",
+                                    Number(e.target.value),
+                                )
+                            }
+                        />
                     </Grid>
 
                     <Grid size={{ xs: 6 }}>
@@ -316,32 +322,24 @@ export default function CharacterForm({
                     <AbilityFields
                         name="Strength"
                         value={form.strength_value}
-                        modifier={form.strength_mod}
-                        save={form.strength_save}
+                        save={form.is_strength_save}
                         onValueChange={(value) =>
                             handleChange("strength_value", value)
                         }
-                        onModifierChange={(value) =>
-                            handleChange("strength_mod", value)
-                        }
                         onSaveChange={(value) =>
-                            handleChange("strength_save", value)
+                            handleChange("is_strength_save", value)
                         }
                     />
 
                     <AbilityFields
                         name="Dexterity"
                         value={form.dexterity_value}
-                        modifier={form.dexterity_mod}
-                        save={form.dexterity_save}
+                        save={form.is_dexterity_save}
                         onValueChange={(value) =>
                             handleChange("dexterity_value", value)
                         }
-                        onModifierChange={(value) =>
-                            handleChange("dexterity_mod", value)
-                        }
                         onSaveChange={(value) =>
-                            handleChange("dexterity_save", value)
+                            handleChange("is_dexterity_save", value)
                         }
                     />
 
@@ -362,32 +360,24 @@ export default function CharacterForm({
                     <AbilityFields
                         name="Constitution"
                         value={form.constitution_value}
-                        modifier={form.constitution_mod}
-                        save={form.constitution_save}
+                        save={form.is_constitution_save}
                         onValueChange={(value) =>
                             handleChange("constitution_value", value)
                         }
-                        onModifierChange={(value) =>
-                            handleChange("constitution_mod", value)
-                        }
                         onSaveChange={(value) =>
-                            handleChange("constitution_save", value)
+                            handleChange("is_constitution_save", value)
                         }
                     />
 
                     <AbilityFields
                         name="Intelligence"
                         value={form.intelligence_value}
-                        modifier={form.intelligence_mod}
-                        save={form.intelligence_save}
+                        save={form.is_intelligence_save}
                         onValueChange={(value) =>
                             handleChange("intelligence_value", value)
                         }
-                        onModifierChange={(value) =>
-                            handleChange("intelligence_mod", value)
-                        }
                         onSaveChange={(value) =>
-                            handleChange("intelligence_save", value)
+                            handleChange("is_intelligence_save", value)
                         }
                     />
 
@@ -408,32 +398,24 @@ export default function CharacterForm({
                     <AbilityFields
                         name="Wisdom"
                         value={form.wisdom_value}
-                        modifier={form.wisdom_mod}
-                        save={form.wisdom_save}
+                        save={form.is_wisdom_save}
                         onValueChange={(value) =>
                             handleChange("wisdom_value", value)
                         }
-                        onModifierChange={(value) =>
-                            handleChange("wisdom_mod", value)
-                        }
                         onSaveChange={(value) =>
-                            handleChange("wisdom_save", value)
+                            handleChange("is_wisdom_save", value)
                         }
                     />
 
                     <AbilityFields
                         name="Charisma"
                         value={form.charisma_value}
-                        modifier={form.charisma_mod}
-                        save={form.charisma_save}
+                        save={form.is_charisma_save}
                         onValueChange={(value) =>
                             handleChange("charisma_value", value)
                         }
-                        onModifierChange={(value) =>
-                            handleChange("charisma_mod", value)
-                        }
                         onSaveChange={(value) =>
-                            handleChange("charisma_save", value)
+                            handleChange("is_charisma_save", value)
                         }
                     />
 
@@ -454,7 +436,7 @@ export default function CharacterForm({
                         Attacks
                     </Typography>
 
-                    {form.abilities?.map((attack, index) => (
+                    {form.actions?.map((attack, index) => (
                         <Box
                             key={index}
                             sx={{
@@ -487,7 +469,7 @@ export default function CharacterForm({
                                 onClick={() => {
                                     setForm((prev) => ({
                                         ...prev,
-                                        abilities: prev.abilities?.filter(
+                                        actions: prev.actions?.filter(
                                             (_, i) => i !== index
                                         ),
                                     }));
@@ -541,8 +523,8 @@ export default function CharacterForm({
                         onSubmit={(attack) => {
                             setForm((prev) => ({
                                 ...prev,
-                                abilities: [
-                                    ...(prev.abilities ?? []),
+                                actions: [
+                                    ...(prev.actions ?? []),
                                     attack,
                                 ],
                             }));

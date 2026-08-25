@@ -8,8 +8,9 @@ from alembic import context
 from src.settings import settings
 from src.models_core import Base
 from src.encounter.models import EncounterModel, CombatantModel
-from src.monster.models import MonsterModel, MonsterAttackModel
-from src.character.models import CharacterModel, CharacterAttackModel
+from src.monster.models import MonsterModel
+from src.character.models import CharacterModel
+from src.action.models import ActionModel
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
