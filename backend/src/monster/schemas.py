@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field, ConfigDict
 
-from src.monster.enums import MonsterType, MonsterAlignment, MonsterSize, MonsterSource
+from src.monster.enums import MonsterType, MonsterSize, MonsterSource
+from src.enums_core import CreatureAlignment
 
 
 class BaseMonster(BaseModel):
@@ -26,7 +27,7 @@ class MonsterInSchema(BaseMonster):
     source: MonsterSource = MonsterSource.CUSTOM
     size: MonsterSize = MonsterSize.AVG
     creature_type: MonsterType = MonsterType.HUMANOID
-    alignment: MonsterAlignment = MonsterAlignment.NEUTRAL
+    alignment: CreatureAlignment = CreatureAlignment.NEUTRAL
 
     armor_class: int = Field(ge=1, le=50)  #"Класс Защиты": "16",
     initiative: int = Field(le=50)  #"Инициатива": "+3 (13)",

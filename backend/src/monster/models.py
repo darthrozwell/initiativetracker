@@ -2,7 +2,8 @@ from sqlalchemy import ForeignKey, Enum
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models_core import Base
-from src.monster.enums import MonsterType, MonsterAlignment, MonsterSize, MonsterSource
+from src.monster.enums import MonsterType, MonsterSize, MonsterSource
+from src.enums_core import CreatureAlignment
 
 class MonsterModel(Base):
     __tablename__ = "monsters"
@@ -12,7 +13,7 @@ class MonsterModel(Base):
     source: Mapped[MonsterSource] = mapped_column(Enum(MonsterSource))
     size: Mapped[MonsterSize] = mapped_column(Enum(MonsterSize))
     creature_type: Mapped[MonsterType] = mapped_column(Enum(MonsterType))
-    alignment: Mapped[MonsterAlignment] = mapped_column(Enum(MonsterAlignment))
+    alignment: Mapped[CreatureAlignment] = mapped_column(Enum(CreatureAlignment))
 
     armor_class: Mapped[int] = mapped_column()  # "Класс Защиты": "16",
     initiative: Mapped[int] = mapped_column()  # "Инициатива": "+3 (13)",
