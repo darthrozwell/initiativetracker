@@ -29,7 +29,7 @@ async def get_all_monsters(
 ):
     monsters = await service.get_all()
     if not monsters:
-        return [] #raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Monster not found")
+        return []
     return monsters
 
 

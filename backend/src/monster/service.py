@@ -1,5 +1,6 @@
 from uuid import UUID
 
+from asyncpg import PostgresError
 from sqlalchemy import select, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
