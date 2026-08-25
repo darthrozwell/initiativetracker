@@ -7,6 +7,7 @@ from alembic import context
 
 from src.settings import settings
 from src.models_core import Base
+from src.damage.models import DamageResistanceModel, DamageVulnerabilityModel, ImmunityModel
 from src.encounter.models import EncounterModel, CombatantModel
 from src.monster.models import MonsterModel
 from src.character.models import CharacterModel

@@ -127,21 +127,21 @@ export default function StatsTab({
                         <Grid size={12}>
                         <DmgResStatCard
                                 title={"Сопротивление урону"}
-                                value={combatant.damage_resistance}
+                                value={combatant.protections.damage_resistance}
                             />
                         </Grid>
 
                         <Grid size={12}>
                         <DmgResStatCard
                                 title={"Иммунитет к урону"}
-                                value={combatant.damage_immunity}
+                                value={combatant.protections.damage_immunity}
                             />
                         </Grid>
 
                         <Grid size={12}>
                         <DmgResStatCard
                                 title={"Уязвимость к урону"}
-                                value={combatant.damage_vulnerability}
+                                value={combatant.protections.damage_vulnerability}
                             />
                         </Grid>
                     </Grid>

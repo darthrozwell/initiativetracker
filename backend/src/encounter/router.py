@@ -1,3 +1,5 @@
+from uuid import UUID
+
 from fastapi import APIRouter, HTTPException
 from fastapi.params import Depends, Body
 from typing import List
@@ -18,7 +20,7 @@ router = APIRouter()
 
 @router.get(path="/{encounter_id}", response_model=EncounterOutSchema, status_code=status.HTTP_200_OK)
 async def get_encounter(
-        encounter_id: str,
+        encounter_id: UUID,
         service: Annotated[EncounterService, Depends(get_encounter_service)],
 ):
     encounter = await service.get_encounter(encounter_id)
@@ -51,7 +53,7 @@ async def create_encounter(
 
 @router.delete(path="/{encounter_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_encounter(
-        encounter_id: str,
+        encounter_id: UUID,
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
     try:
@@ -65,12 +67,12 @@ async def delete_encounter(
 
 @router.put(path="/{encounter_id}", status_code=status.HTTP_200_OK)
 async def update_encounter(
-        encounter_id: str,
+        encounter_id: UUID,
         encounter: Annotated[EncounterUpdateSchema, Body(embed=True)],
         service: Annotated[EncounterService, Depends(get_encounter_service)],
 ):
     try:
-        result = await service.update_encounter(encounter_id=encounter_id, encounter=encounter)
+        result = await service.update_encounter(encounter_id=encounter_id, encounter_schema=encounter)
     except UpdateEncFailedError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Something went wrong")
     return
@@ -78,7 +80,7 @@ async def update_encounter(
 
 @router.get(path="/{encounter_id}/combatant", response_model=list[CombatantOutMonsterSchema | CombatantOutCharacterSchema], status_code=status.HTTP_200_OK)
 async def get_combatants(
-        encounter_id: str,
+        encounter_id: UUID,
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
     try:
@@ -92,7 +94,7 @@ async def get_combatants(
 
 @router.post(path="/{encounter_id}/combatant", response_model=CombatantOutMonsterSchema | CombatantOutCharacterSchema, status_code=status.HTTP_201_CREATED)
 async def create_combatant(
-        encounter_id: str,
+        encounter_id: UUID,
         combatant: Annotated[CombatantInSchema, Body(embed=True)],
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
@@ -107,7 +109,7 @@ async def create_combatant(
 
 @router.put(path="/{encounter_id}/combatant/{combatant_id}", status_code=status.HTTP_200_OK)
 async def update_combatant(
-        combatant_id: str,
+        combatant_id: UUID,
         combatant: Annotated[CombatantUpdateSchema, Body(embed=True)],
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
@@ -120,7 +122,7 @@ async def update_combatant(
 
 @router.delete(path="/{encounter_id}/combatant/{combatant_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_combatant(
-        combatant_id: str,
+        combatant_id: UUID,
         service: Annotated[EncounterService, Depends(get_encounter_service)]
 ):
     try:

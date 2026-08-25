@@ -1,4 +1,4 @@
-import uuid
+from uuid import UUID
 from sqlalchemy import select, update, delete
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -22,7 +22,7 @@ class EncounterService:
         self.session = session
 
 
-    async def get_encounter(self, encounter_id: str) -> EncounterModel | None:
+    async def get_encounter(self, encounter_id: UUID) -> EncounterModel | None:
         query = (select(EncounterModel)
                  .where(EncounterModel.encounter_id == encounter_id))
         result = await self.session.execute(query)
@@ -38,7 +38,6 @@ class EncounterService:
 
     async def create_encounter(self, new_schema: EncounterInSchema) -> EncounterModel | None:
         new_model = EncounterModel(**new_schema.model_dump())
-        new_model.encounter_id = str(uuid.uuid4())
         self.session.add(new_model)
         try:
             await self.session.commit()
@@ -48,7 +47,7 @@ class EncounterService:
         return new_model
 
 
-    async def delete_encounter(self, encounter_id: str):
+    async def delete_encounter(self, encounter_id: UUID):
         query = (select(EncounterModel)
                  .where(EncounterModel.encounter_id == encounter_id)
                  .with_for_update())
@@ -65,11 +64,19 @@ class EncounterService:
         return
 
 
-    async def update_encounter(self, encounter_id: str, encounter: EncounterUpdateSchema) -> None:
-        query = (update(EncounterModel)
+    async def update_encounter(self, encounter_id: UUID, encounter_schema: EncounterUpdateSchema) -> None:
+        query = (select(EncounterModel)
                  .where(EncounterModel.encounter_id == encounter_id)
-                 .values(**encounter.model_dump(exclude_unset=True)))
+                 .with_for_update())
         result = await self.session.execute(query)
+        encounter = result.scalar_one_or_none()
+        if encounter is None:
+            raise UpdateEncFailedError
+
+        update_data = encounter_schema.model_dump(exclude_unset=True)
+        for field, value in update_data.items():
+            setattr(encounter, field, value)
+
         try:
             await self.session.commit()
         except IntegrityError:
@@ -78,19 +85,22 @@ class EncounterService:
         return
 
 
-    async def get_combatants(self, encounter_id: str):
+    async def get_combatants(self, encounter_id: UUID):
         query = (select(CombatantModel, MonsterModel, CharacterModel).
                  outerjoin(MonsterModel, CombatantModel.monster_id == MonsterModel.monster_id).
                  outerjoin(CharacterModel, CombatantModel.character_id == CharacterModel.character_id).
-                 options(selectinload(MonsterModel.actions), selectinload(CharacterModel.actions)).
+                 options(selectinload(MonsterModel.actions),
+                         selectinload(MonsterModel.damage_vulnerability),
+                         selectinload(MonsterModel.damage_resistance),
+                         selectinload(MonsterModel.damage_immunity),
+                         selectinload(CharacterModel.actions),
+                         selectinload(CharacterModel.damage_vulnerability),
+                         selectinload(CharacterModel.damage_resistance),
+                         selectinload(CharacterModel.damage_immunity),).
                  where(CombatantModel.encounter_id == encounter_id))
 
         result = await self.session.execute(query)
         combatants = []
-        # for res in result:
-        #     combatants.append(
-        #         CombatantOutMonsterSchema.model_validate(obj=*res, extra='ignore')
-        #     )
         for combatant, monster, character in result:
             if combatant.monster_id is not None:
                 combatants.append(
@@ -111,9 +121,8 @@ class EncounterService:
         return combatants
 
 
-    async def create_combatant(self, encounter_id: str, combatant_in: CombatantInSchema):
+    async def create_combatant(self, encounter_id: UUID, combatant_in: CombatantInSchema):
         new_model = CombatantModel(**combatant_in.model_dump())
-        new_model.combatant_id = str(uuid.uuid4())
         new_model.encounter_id = encounter_id
         self.session.add(new_model)
         try:
@@ -123,7 +132,10 @@ class EncounterService:
             raise AddCombFailedError
         if combatant_in.monster_id is not None:
             query = (select(MonsterModel)
-                     .options(selectinload(MonsterModel.actions))
+                     .options(selectinload(MonsterModel.actions),
+                         selectinload(MonsterModel.damage_vulnerability),
+                         selectinload(MonsterModel.damage_resistance),
+                         selectinload(MonsterModel.damage_immunity),)
                      .where(MonsterModel.monster_id == combatant_in.monster_id))
             result = await self.session.execute(query)
             monster = result.scalar_one_or_none()
@@ -133,7 +145,10 @@ class EncounterService:
             }
         elif combatant_in.character_id is not None:
             query = (select(CharacterModel)
-                     .options(selectinload(CharacterModel.actions))
+                     .options(selectinload(CharacterModel.actions),
+                         selectinload(CharacterModel.damage_vulnerability),
+                         selectinload(CharacterModel.damage_resistance),
+                         selectinload(CharacterModel.damage_immunity),)
                      .where(CharacterModel.character_id == combatant_in.character_id))
             result = await self.session.execute(query)
             character = result.scalar_one_or_none()
@@ -146,11 +161,19 @@ class EncounterService:
         return combatant
 
 
-    async def update_combatant(self, combatant_id: str, new_schema: CombatantUpdateSchema):
-        query = (update(CombatantModel)
+    async def update_combatant(self, combatant_id: UUID, new_schema: CombatantUpdateSchema):
+        query = (select(CombatantModel)
                  .where(CombatantModel.combatant_id == combatant_id)
-                 .values(**new_schema.model_dump(exclude_unset=True)))
-        await self.session.execute(query)
+                 .with_for_update())
+        result = await self.session.execute(query)
+        combatant = result.scalar_one_or_none()
+        if combatant is None:
+            raise UpdateCombFailedError
+
+        update_data = new_schema.model_dump(exclude_unset=True)
+        for field, value in update_data.items():
+            setattr(combatant, field, value)
+
         try:
             await self.session.commit()
         except IntegrityError:
@@ -158,7 +181,7 @@ class EncounterService:
             raise UpdateCombFailedError
         return
 
-    async def delete_combatant(self, combatant_id: str):
+    async def delete_combatant(self, combatant_id: UUID):
         query = (select(CombatantModel)
                  .where(CombatantModel.combatant_id == combatant_id)
                  .with_for_update())

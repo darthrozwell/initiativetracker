@@ -1,3 +1,5 @@
+from uuid import UUID, uuid4
+
 from sqlalchemy import ForeignKey, Enum, CheckConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -8,7 +10,7 @@ from src.models_core import Base
 class EncounterModel(Base):
     __tablename__ = 'encounters'
 
-    encounter_id: Mapped[str] = mapped_column(primary_key=True)
+    encounter_id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
     name: Mapped[str] = mapped_column()
     round: Mapped[int] = mapped_column(default=0)
     current_turn: Mapped[int] = mapped_column(default=0)
@@ -28,15 +30,15 @@ class CombatantModel(Base):
         ),
     )
 
-    combatant_id: Mapped[str] = mapped_column(primary_key=True)
-    encounter_id: Mapped[str] = mapped_column(
+    combatant_id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
+    encounter_id: Mapped[UUID] = mapped_column(
         ForeignKey(
             column="encounters.encounter_id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         )
     )
-    monster_id: Mapped[str] = mapped_column(
+    monster_id: Mapped[UUID] = mapped_column(
         ForeignKey(
             column="monsters.monster_id",
             ondelete="CASCADE",
@@ -44,7 +46,7 @@ class CombatantModel(Base):
         ),
         nullable=True,
     )
-    character_id: Mapped[str] = mapped_column(
+    character_id: Mapped[UUID] = mapped_column(
         ForeignKey(
             column="characters.character_id",
             ondelete="CASCADE",

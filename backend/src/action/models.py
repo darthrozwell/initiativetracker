@@ -1,7 +1,11 @@
+from uuid import UUID, uuid4
+
 from sqlalchemy import CheckConstraint, ForeignKey
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from src.action.enums import ActionType, DamageType
+from src.action.schemas import Damage
+from src.action.enums import ActionType
 from src.models_core import Base, TimestampMixin
 
 
@@ -19,8 +23,8 @@ class ActionModel(Base, TimestampMixin):
         ),
     )
 
-    action_id: Mapped[str] = mapped_column(primary_key=True)
-    monster_id: Mapped[str] = mapped_column(
+    action_id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
+    monster_id: Mapped[UUID] = mapped_column(
         ForeignKey(
             column="monsters.monster_id",
             ondelete="CASCADE",
@@ -28,7 +32,7 @@ class ActionModel(Base, TimestampMixin):
         ),
         nullable = True
     )
-    character_id: Mapped[str] = mapped_column(
+    character_id: Mapped[UUID] = mapped_column(
         ForeignKey(
             column="characters.character_id",
             ondelete="CASCADE",
@@ -42,8 +46,10 @@ class ActionModel(Base, TimestampMixin):
     range: Mapped[str] = mapped_column()
     reach: Mapped[str] = mapped_column()
     hit_bonus: Mapped[int] = mapped_column()
-    damage: Mapped[str] = mapped_column()
-    damage_type: Mapped[DamageType] = mapped_column()
+    damage: Mapped[list[Damage]] = mapped_column(
+        JSONB,
+        default=list,
+    )
 
     monster: Mapped["MonsterModel"] = relationship(
         "MonsterModel",

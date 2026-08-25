@@ -1,9 +1,11 @@
-import uuid
+from uuid import UUID
+
 from sqlalchemy import select, update
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
+from src.damage.models import DamageResistanceModel, DamageVulnerabilityModel, ImmunityModel
 from src.action.models import ActionModel
 from src.monster.exceptions import AddFailedError, AddAttackFailedError, UpdateFailedError, UpdateAttackFailedError, \
     DeleteFailedError, DeleteNotFoundError
@@ -19,75 +21,90 @@ class MonsterService:
     async def get_by_name(self, name: str) -> MonsterModel | None:
         query = (select(MonsterModel)
                  .where(MonsterModel.name == name)
-                 .options(selectinload(MonsterModel.actions)))
+                 .options(selectinload(MonsterModel.actions),
+                 selectinload(MonsterModel.damage_immunity),
+                 selectinload(MonsterModel.damage_vulnerability),
+                 selectinload(MonsterModel.damage_resistance)))
         result = await self.session.execute(query)
         return result.scalars().first()
 
 
     async def get_all(self):
         query = (select(MonsterModel)
-                 .options(selectinload(MonsterModel.actions))
+                 .options(selectinload(MonsterModel.actions),
+                 selectinload(MonsterModel.damage_immunity),
+                 selectinload(MonsterModel.damage_vulnerability),
+                 selectinload(MonsterModel.damage_resistance))
                  .order_by(MonsterModel.name))
         result = await self.session.execute(query)
         return result.scalars().all()
 
 
-    async def add(self, monster_schema: MonsterInSchema):
-        new_monster = MonsterModel(**monster_schema.model_dump(exclude={"actions"}))
-        new_monster.monster_id = str(uuid.uuid4())
+    async def create(self, monster_schema: MonsterInSchema):
+        new_monster = MonsterModel(**monster_schema.model_dump(exclude={"actions", "protections"}))
+        for action in monster_schema.actions:
+            new_action = ActionModel(**action.model_dump())
+            new_monster.actions.append(new_action)
+        new_monster.damage_resistance = [DamageResistanceModel(resistance=resistance) for resistance in monster_schema.protections.damage_resistance]
+        new_monster.damage_vulnerability = [DamageVulnerabilityModel(vulnerability=vulnerability) for vulnerability in monster_schema.protections.damage_vulnerability]
+        new_monster.damage_immunity = [ImmunityModel(immunity=immunity) for immunity in monster_schema.protections.damage_immunity]
         self.session.add(new_monster)
         try:
             await self.session.commit()
         except IntegrityError:
             await self.session.rollback()
             raise AddFailedError
-        if monster_schema.actions is not None:
-            for action in monster_schema.actions:
-                new_action = ActionModel(**action.model_dump())
-                new_action.action_id = str(uuid.uuid4())
-                new_action.monster_id = new_monster.monster_id
-                self.session.add(new_action)
-        try:
-            await self.session.commit()
-        except IntegrityError:
-            await self.session.rollback()
-            raise AddAttackFailedError
 
-        result = await self.session.execute(
-            select(MonsterModel)
-            .options(selectinload(MonsterModel.actions))
-            .where(MonsterModel.monster_id == new_monster.monster_id)
-        )
-        new_monster = result.scalar_one()
+        await self.session.refresh(new_monster, [
+            "damage_resistance",
+            "damage_vulnerability",
+            "damage_immunity",
+            "actions",
+        ])
         return new_monster
 
 
-    async def update(self, monster_id: str, monster_schema: MonsterUpdateSchema):
-        data = monster_schema.model_dump(exclude={"actions"}, exclude_unset=True)
-        query = (update(MonsterModel)
+    async def update(self, monster_id: UUID, monster_schema: MonsterUpdateSchema):
+        query = (select(MonsterModel)
                  .where(MonsterModel.monster_id == monster_id)
-                 .values(**data))
-        await self.session.execute(query)
+                 .options(selectinload(MonsterModel.actions),
+                          selectinload(MonsterModel.damage_immunity),
+                          selectinload(MonsterModel.damage_resistance),
+                          selectinload(MonsterModel.damage_vulnerability))
+                 .with_for_update())
+        result = await self.session.execute(query)
+        monster = result.scalar_one_or_none()
+        if monster is None:
+            raise UpdateFailedError
+
+        update_data = monster_schema.model_dump(exclude_unset=True, exclude={"actions", "protections"})
+        for field, value in update_data.items():
+            setattr(monster, field, value)
+
+        if monster_schema.protections is not None:
+            monster.damage_resistance = [
+                DamageResistanceModel(resistance=x)
+                for x in monster_schema.protections.damage_resistance
+            ]
+            monster.damage_vulnerability = [
+                DamageVulnerabilityModel(vulnerability=x)
+                for x in monster_schema.protections.damage_vulnerability
+            ]
+            monster.damage_immunity = [
+                ImmunityModel(immunity=x)
+                for x in monster_schema.protections.damage_immunity
+            ]
+
         try:
             await self.session.commit()
         except IntegrityError:
             await self.session.rollback()
             raise UpdateFailedError
-        if monster_schema.actions is not None:
-            for action in monster_schema.actions:
-                query = (update(ActionModel)
-                         .where(ActionModel.action_id == action.action_id)
-                         .values(**action.model_dump(exclude_unset=True)))
-                result = await self.session.execute(query)
-        try:
-            await self.session.commit()
-        except IntegrityError:
-            await self.session.rollback()
-            raise UpdateAttackFailedError
+
         return
 
 
-    async def delete(self, monster_id: str):
+    async def delete(self, monster_id: UUID):
         query = (select(MonsterModel).
                  where(MonsterModel.monster_id == monster_id).
                  with_for_update())

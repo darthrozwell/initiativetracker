@@ -39,7 +39,7 @@ async def post_monster(
         service: Annotated[MonsterService, Depends(get_monster_service)],
 ):
     try:
-        new_monster = await service.add(monster_schema=monster)
+        new_monster = await service.create(monster_schema=monster)
     except AddFailedError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
                             detail="Monster violates database constraints")
@@ -59,7 +59,7 @@ async def upload_monster(
     monsters = TypeAdapter(list[MonsterInSchema]).validate_python(data)
     for monster in monsters:
         try:
-            await service.add(monster)
+            await service.create(monster)
         except UpdateFailedError:
             raise HTTPException(status_code=status.HTTP_409_CONFLICT,
                                 detail="Monster violates database constraints")

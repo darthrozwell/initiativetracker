@@ -5,10 +5,11 @@ import {
     Paper,
     Typography,
 } from "@mui/material"
+import type {DamageType} from "../types/combat.ts";
 
 interface DmgResCardProps {
     title: string
-    value: string
+    value: DamageType[]
 }
 
 export default function DmgResStatCard({
@@ -50,10 +51,10 @@ export default function DmgResStatCard({
                             lineHeight: 1.2,
                         }}
                     >
-                        {value}
+                        {value.join(", ")}
                     </Typography>
                 </Grid>
             </Grid>
         </Paper>
-    );
+    )
 }

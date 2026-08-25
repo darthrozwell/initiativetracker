@@ -1,5 +1,8 @@
+from uuid import UUID
+
 from pydantic import BaseModel, Field, ConfigDict
 
+from src.damage.schemas import DamageProtectionSchema
 from src.monster.enums import MonsterType, MonsterSize, MonsterSource
 from src.action.schemas import ActionSchema, ActionUpdateSchema, ActionDbSchema, ActionOutSchema
 from src.schemas_core import CreatureMixinSchema, CreatureUpdateMixinSchema, TimestampMixinSchema
@@ -21,12 +24,13 @@ class MonsterInSchema(CreatureMixinSchema, BaseModel):
     habitat: str
 
     actions: list[ActionSchema]
+    protections: DamageProtectionSchema
 
 
 class MonsterDbSchema(MonsterInSchema, TimestampMixinSchema):
     model_config = ConfigDict(from_attributes=True)
 
-    monster_id: str
+    monster_id: UUID
     actions: list[ActionDbSchema]
 
 
@@ -50,3 +54,4 @@ class MonsterUpdateSchema(CreatureUpdateMixinSchema, BaseModel):
     habitat: str | None = None
 
     actions: list[ActionUpdateSchema] | None = None
+    protections: DamageProtectionSchema | None = None

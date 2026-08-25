@@ -2,6 +2,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, Field, ConfigDict
 
+from src.enums_core import DamageType, ConditionType
 from src.enums_core import CreatureAlignment
 
 
@@ -17,9 +18,9 @@ class CreatureMixinSchema(BaseModel):
     initiative: int = Field(le=50)  # "Инициатива": "+3 (13)",
     speed: str = Field(min_length=1, max_length=256)  # "Скорость": "20 футов, Полёта 50 футов",
     hit_points_value: int = Field(ge=1)  # "Хиты": "66 (12к8 + 12)",
-    damage_resistance: str  # Сопротивление урону
-    damage_immunity: str  # Иммунитеты
-    damage_vulnerability: str
+    # damage_resistance: list[DamageType]  # Сопротивление урону
+    # damage_immunity: list[DamageType | ConditionType]  # Иммунитеты
+    # damage_vulnerability: list[DamageType]
     skills: str
     senses: str
     languages: str
@@ -46,9 +47,9 @@ class CreatureUpdateMixinSchema(BaseModel):
     initiative: int | None  = Field(le=50, default=None)  # "Инициатива": "+3 (13)",
     speed: str | None  = Field(min_length=1, max_length=256, default=None)  # "Скорость": "20 футов, Полёта 50 футов",
     hit_points_value: int | None  = Field(ge=1, default=None)  # "Хиты": "66 (12к8 + 12)",
-    damage_resistance: str | None = None  # Сопротивление урону
-    damage_immunity: str | None = None  # Иммунитеты
-    damage_vulnerability: str | None = None
+    # damage_resistance: list[DamageType]  | None = None  # Сопротивление урону
+    # damage_immunity: list[DamageType | ConditionType]  | None = None  # Иммунитеты
+    # damage_vulnerability: list[DamageType]  | None = None
     skills: str | None = None
     senses: str | None = None
     languages: str | None = None

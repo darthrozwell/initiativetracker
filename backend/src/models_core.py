@@ -22,9 +22,6 @@ class CreatureMixin:
     hit_points_value: Mapped[int] = mapped_column()  # "Хиты": "66 (12к8 + 12)",
     speed: Mapped[str] = mapped_column()  # "Скорость": "20 футов, Полёта 50 футов",
     skills: Mapped[str] = mapped_column()  # "Навыки": "Восприятие +7, Природа +5, Тайная магия +3",
-    damage_resistance: Mapped[str] = mapped_column()
-    damage_immunity: Mapped[str] = mapped_column()
-    damage_vulnerability: Mapped[str] = mapped_column()
     senses: Mapped[str] = mapped_column()  # "Чувства": "пассивное Восприятие 17",
     languages: Mapped[str] = mapped_column()  # "Языки": "Первичный (Ауран), Язык Ааракокра",
     proficiency_bonus: Mapped[int] = mapped_column()

@@ -1,3 +1,5 @@
+from uuid import UUID
+
 from pydantic import BaseModel, Field, ConfigDict
 
 from src.character.schemas import CharacterOutSchema
@@ -12,7 +14,7 @@ class EncounterInSchema(BaseModel):
 
 
 class EncounterOutSchema(EncounterInSchema):
-    encounter_id: str | None = None
+    encounter_id: UUID
 
 
 class EncounterUpdateSchema(BaseModel):
@@ -22,8 +24,8 @@ class EncounterUpdateSchema(BaseModel):
 
 
 class CombatantInSchema(BaseModel):
-    monster_id: str | None = None
-    character_id: str | None = None
+    monster_id: UUID | None = None
+    character_id: UUID | None = None
     nickname: str
     current_hp: int = Field(ge=0)
     current_initiative: int = Field(ge=0)
@@ -33,8 +35,8 @@ class CombatantInSchema(BaseModel):
 class CombatantDbSchema(CombatantInSchema):
     model_config = ConfigDict(from_attributes=True)
 
-    combatant_id: str
-    encounter_id: str
+    combatant_id: UUID
+    encounter_id: UUID
 
 
 class CombatantOutMonsterSchema(CombatantDbSchema, MonsterOutSchema):

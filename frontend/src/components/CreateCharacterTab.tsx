@@ -10,7 +10,7 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
-import type {CharacterClass, CharacterCreationForm, Race} from "../types/combat.ts"
+import type {CharacterClass, CharacterCreationForm, Race, DamageType} from "../types/combat.ts"
 import AttackForm from "./AddAttackForm.tsx";
 
 const characterClasses: CharacterClass[] = [
@@ -40,7 +40,23 @@ const races: Race[] = [
     "Tiefling",
     "Human",
     "Elf",
-];
+]
+
+const damage_types: DamageType[] = [
+    "Дробящий",
+    "Колющий",
+    "Рубящий",
+    "Кислота",
+    "Холод",
+    "Огонь",
+    "Силовой",
+    "Электричество",
+    "Некротический",
+    "Яд",
+    "Психический",
+    "Излучение",
+    "Звук",
+]
 
 const initialForm: CharacterCreationForm = {
     name: "",
@@ -54,9 +70,11 @@ const initialForm: CharacterCreationForm = {
     speed: "30 feet",
     hit_points_value: 10,
 
-    damage_resistance: "",
-    damage_immunity: "",
-    damage_vulnerability: "",
+    protections: {
+        damage_resistance: [],
+        damage_immunity: [],
+        damage_vulnerability: []
+    },
 
     skills: "",
     senses: "",
@@ -307,16 +325,39 @@ export default function CharacterForm({
                 <Grid container spacing={2} justifyContent={"center"} alignItems={"flex-end"} >
                     <Grid size={{ xs: 8 }}>
                         <TextField
+                            select
                             fullWidth
                             label="Damage Resistance"
-                            value={form.damage_resistance ?? ""}
-                            onChange={(e) =>
-                                handleChange(
-                                    "damage_resistance",
-                                    e.target.value || null,
-                                )
-                            }
-                        />
+                            value={form.protections.damage_resistance ?? []}
+                            onChange={(e) => {
+                                const value = e.target.value;
+
+                                setForm((prev) => ({
+                                    ...prev,
+                                    protections: {
+                                        ...prev.protections,
+                                        damage_resistance: (
+                                            Array.isArray(value)
+                                                ? value
+                                                : value.split(",")
+                                        ) as DamageType[],
+                                    },
+                                }));
+                            }}
+                            slotProps={{
+                                select: {
+                                    multiple: true,
+                                    renderValue: (selected) =>
+                                        (selected as DamageType[]).join(", "),
+                                },
+                            }}
+                        >
+                            {damage_types.map((damageType) => (
+                                <MenuItem key={damageType} value={damageType}>
+                                    {damageType}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                     </Grid>
 
                     <AbilityFields
@@ -345,16 +386,39 @@ export default function CharacterForm({
 
                     <Grid size={{ xs: 8 }}>
                         <TextField
+                            select
                             fullWidth
                             label="Damage Immunity"
-                            value={form.damage_immunity ?? ""}
-                            onChange={(e) =>
-                                handleChange(
-                                    "damage_immunity",
-                                    e.target.value || null,
-                                )
-                            }
-                        />
+                            value={form.protections.damage_immunity ?? []}
+                            onChange={(e) => {
+                                const value = e.target.value;
+
+                                setForm((prev) => ({
+                                    ...prev,
+                                    protections: {
+                                        ...prev.protections,
+                                        damage_immunity: (
+                                            Array.isArray(value)
+                                                ? value
+                                                : value.split(",")
+                                        ) as DamageType[],
+                                    },
+                                }));
+                            }}
+                            slotProps={{
+                                select: {
+                                    multiple: true,
+                                    renderValue: (selected) =>
+                                        (selected as DamageType[]).join(", "),
+                                },
+                            }}
+                        >
+                            {damage_types.map((damageType) => (
+                                <MenuItem key={damageType} value={damageType}>
+                                    {damageType}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                     </Grid>
 
                     <AbilityFields
@@ -383,16 +447,39 @@ export default function CharacterForm({
 
                     <Grid size={{ xs: 8 }}>
                         <TextField
+                            select
                             fullWidth
                             label="Damage Vulnerability"
-                            value={form.damage_vulnerability ?? ""}
-                            onChange={(e) =>
-                                handleChange(
-                                    "damage_vulnerability",
-                                    e.target.value || null,
-                                )
-                            }
-                        />
+                            value={form.protections.damage_vulnerability ?? []}
+                            onChange={(e) => {
+                                const value = e.target.value;
+
+                                setForm((prev) => ({
+                                    ...prev,
+                                    protections: {
+                                        ...prev.protections,
+                                        damage_vulnerability: (
+                                            Array.isArray(value)
+                                                ? value
+                                                : value.split(",")
+                                        ) as DamageType[],
+                                    },
+                                }));
+                            }}
+                            slotProps={{
+                                select: {
+                                    multiple: true,
+                                    renderValue: (selected) =>
+                                        (selected as DamageType[]).join(", "),
+                                },
+                            }}
+                        >
+                            {damage_types.map((damageType) => (
+                                <MenuItem key={damageType} value={damageType}>
+                                    {damageType}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                     </Grid>
 
                     <AbilityFields
@@ -448,16 +535,16 @@ export default function CharacterForm({
                         >
                             <Box>
                                 <Typography>
-                                    {attack.name || attack.title}
+                                    {attack.name || attack.type}
                                 </Typography>
 
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
                                 >
-                                    {attack.attack_type}
+                                    {attack.damage[0].damage_type}
                                     {" · "}
-                                    {attack.damage}
+                                    {attack.damage[0].damage}
                                     {" · "}
                                     +{attack.hit_bonus}
                                 </Typography>

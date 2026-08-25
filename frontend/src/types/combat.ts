@@ -78,20 +78,25 @@ export type ActionType =
     | "Особенности"
 
 export type DamageType =
-    | "Дробящий урон"
-    | "Колющий урон"
-    | "Рубящий урон"
-    | "урон Кислотой"
-    | "урон Холодом"
-    | "урон Огнём"
-    | "Силовой урон"
-    | "урон Электричеством"
-    | "Некротический урон"
-    | "урон Ядом"
-    | "Психический урон"
-    | "урон Излучением"
-    | "урон Звуком"
+    | "Дробящий"
+    | "Колющий"
+    | "Рубящий"
+    | "Кислота"
+    | "Холод"
+    | "Огонь"
+    | "Силовой"
+    | "Электричество"
+    | "Некротический"
+    | "Яд"
+    | "Психический"
+    | "Излучение"
+    | "Звук"
 
+
+export interface Damage {
+    damage: string
+    damage_type: DamageType
+}
 
 export interface Effect {
     id: number
@@ -107,8 +112,7 @@ export interface Action {
     range: string
     reach: string
     hit_bonus: number
-    damage: string
-    damage_type: DamageType
+    damage: Damage[]
 }
 
 
@@ -121,9 +125,12 @@ export interface Creature {
     initiative: number
     hit_points_value: number
     speed: string
-    damage_resistance: string
-    damage_immunity: string
-    damage_vulnerability: string
+
+    protections: {
+        damage_resistance: DamageType[]
+        damage_immunity: DamageType[]
+        damage_vulnerability: DamageType[]
+    }
 
     skills: string
     senses: string

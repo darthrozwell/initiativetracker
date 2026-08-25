@@ -22,24 +22,23 @@ const initialAttack: Action = {
     range: "",
     reach: "",
     hit_bonus: 0,
-    damage: "",
-    damage_type: "Дробящий урон",
+    damage: [{damage: "1", damage_type: "Дробящий"}],
 }
 
 const damage_types: DamageType[] = [
-    "Дробящий урон",
-    "Колющий урон",
-    "Рубящий урон",
-    "урон Кислотой",
-    "урон Холодом",
-    "урон Огнём",
-    "Силовой урон",
-    "урон Электричеством",
-    "Некротический урон",
-    "урон Ядом",
-    "Психический урон",
-    "урон Излучением",
-    "урон Звуком",
+    "Дробящий",
+    "Колющий",
+    "Рубящий",
+    "Кислота",
+    "Холод",
+    "Огонь",
+    "Силовой",
+    "Электричество",
+    "Некротический",
+    "Яд",
+    "Психический",
+    "Излучение",
+    "Звук",
 ]
 
 const action_types: ActionType[] = [
@@ -116,10 +115,18 @@ export default function AttackForm({
                         fullWidth
                         size="small"
                         label="Damage Type"
-                        value={form.damage_type}
+                        value={form.damage[0].damage_type}
                         onChange={(e) =>
-                            handleChange("damage_type", e.target.value)
-                        }
+                                                setForm(prev => ({
+                                                    ...prev,
+                                                    damage: [
+                                                        {
+                                                            ...prev.damage[0],
+                                                            damage_type: e.target.value as DamageType,
+                                                        },
+                                                    ],
+                                                }))
+                                            }
                     >
                         {damage_types.map((dmg_type) => (
                                 <MenuItem key={dmg_type} value={dmg_type}>
@@ -177,10 +184,18 @@ export default function AttackForm({
                         size="small"
                         label="Damage"
                         placeholder="e.g. 1d8 + 3 slashing"
-                        value={form.damage}
+                        value={form.damage[0].damage}
                         onChange={(e) =>
-                            handleChange("damage", e.target.value)
-                        }
+                                                setForm(prev => ({
+                                                    ...prev,
+                                                    damage: [
+                                                        {
+                                                            ...prev.damage[0],
+                                                            damage: e.target.value,
+                                                        },
+                                                    ],
+                                                }))
+                                            }
                     />
                 </Grid>
 
