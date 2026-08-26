@@ -15,7 +15,7 @@ import {
     ListItemButton,
     ListItemText,
     CircularProgress,
-    Tooltip, Tab, Tabs, ListItem, IconButton
+    Tooltip, Tab, Tabs, ListItem, IconButton, TextField
 } from "@mui/material"
 import {useEffect, useRef, useState} from "react"
 
@@ -54,6 +54,7 @@ export default function Sidebar({
     const [characters, setCharacters] = useState<CharacterCombatant[]>([])
     const [loadingMonsters, setLoadingMonsters] = useState(false)
     const [dialogTab, setDialogTab] = useState(0)
+    const [monsterSearch, setMonsterSearch] = useState("")
 
     async function handleAddClick() {
         setLoadingMonsters(true);
@@ -272,20 +273,49 @@ export default function Sidebar({
                 </Box>
                 <DialogContent>
                     {dialogTab === 0 && (
-                        <Box sx={{ pt: 2}}>
+                        <Box sx={{ pt: 2 }}>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                label="Search monster"
+                                placeholder="Enter monster name..."
+                                value={monsterSearch}
+                                onChange={(e) => setMonsterSearch(e.target.value)}
+                                sx={{ mb: 2 }}
+                            />
+
                             {loadingMonsters ? (
-                                <Box sx={{ display: 'flex', justifyContent: 'center', p: 2 }}>
+                                <Box sx={{ display: "flex", justifyContent: "center", p: 2 }}>
                                     <CircularProgress />
                                 </Box>
                             ) : monsters.length === 0 ? (
-                                <Typography color="text.secondary">No monsters found</Typography>
+                                <Typography color="text.secondary">
+                                    No monsters found
+                                </Typography>
                             ) : (
                                 <List>
-                                    {monsters.map((monster: MonsterCombatant) => (
-                                        <ListItemButton key={monster.monster_id} onClick={() => handleSelectCreature({...monster, type: "monster"})}>
-                                            <ListItemText primary={monster.name} secondary={`CR: ${monster.challenge_rating ?? '-'}`} />
-                                        </ListItemButton>
-                                    ))}
+                                    {monsters
+                                        .filter((monster) =>
+                                            monster.name
+                                                .toLowerCase()
+                                                .includes(monsterSearch.toLowerCase())
+                                        )
+                                        .map((monster: MonsterCombatant) => (
+                                            <ListItemButton
+                                                key={monster.monster_id}
+                                                onClick={() =>
+                                                    handleSelectCreature({
+                                                        ...monster,
+                                                        type: "monster",
+                                                    })
+                                                }
+                                            >
+                                                <ListItemText
+                                                    primary={monster.name}
+                                                    secondary={`CR: ${monster.challenge_rating ?? "-"}`}
+                                                />
+                                </ListItemButton>
+                            ))}
                                 </List>
                             )}
                         </Box>
