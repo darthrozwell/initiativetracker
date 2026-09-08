@@ -1,11 +1,12 @@
 from uuid import UUID, uuid4
 
-from sqlalchemy import CheckConstraint, ForeignKey
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import CheckConstraint, ForeignKey, Enum
+from sqlalchemy.dialects.postgresql import JSONB, ARRAY
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+from src.enums_core import ConditionType
+from src.action.enums import AbilityType, AbilityDistance, HitMethod, SaveEffect
 from src.action.schemas import Damage
-from src.action.enums import ActionType
 from src.models_core import Base, TimestampMixin
 
 
@@ -40,16 +41,21 @@ class ActionModel(Base, TimestampMixin):
         ),
         nullable=True
     )
-    type: Mapped[ActionType] = mapped_column()
+
+
+    type: Mapped[AbilityType] = mapped_column(
+        Enum(AbilityType, native_enum=False),
+    )
     name: Mapped[str] = mapped_column()
     text: Mapped[str] = mapped_column()
-    range: Mapped[str] = mapped_column()
-    reach: Mapped[str] = mapped_column()
-    hit_bonus: Mapped[int] = mapped_column()
-    damage: Mapped[list[Damage]] = mapped_column(
-        JSONB,
-        default=list,
-    )
+    distance: Mapped[dict[str, int]] = mapped_column(JSONB, default=dict) # {range: 50 }, {emanation: 20}, numbers in foots
+    hit_method: Mapped[HitMethod] = mapped_column(Enum(HitMethod, native_enum=False))
+    hit_bonus: Mapped[int | None] = mapped_column(nullable=True)
+    dc: Mapped[int | None] = mapped_column(nullable=True)
+    on_successful_save: Mapped[list[SaveEffect] | None] = mapped_column(ARRAY(Enum(SaveEffect, native_enum=False)), nullable=True)
+    damage: Mapped[list[Damage] | None] = mapped_column(JSONB, nullable=True)
+    condition: Mapped[list[ConditionType] | None] = mapped_column(ARRAY(Enum(ConditionType, native_enum=False)), nullable=True)
+
 
     monster: Mapped["MonsterModel"] = relationship(
         "MonsterModel",

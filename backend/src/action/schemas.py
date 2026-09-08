@@ -2,19 +2,31 @@ from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict
 
-from src.action.enums import ActionType
+from src.enums_core import ConditionType
+from src.action.enums import AbilityType, AbilityDistance, HitMethod, SaveEffect
 from src.enums_core import DamageType
 
 
 class Damage(BaseModel):
-    damage: str
-    damage_type: DamageType
+    formula: str
+    type: DamageType
+    hit_method: HitMethod
+
+
+class AbilityEffect(BaseModel):
+    distance: dict[AbilityDistance, int]
+    hit_method: HitMethod
+    hit_bonus: int | None = None
+    dc: int | None = None
+    on_successful_save: list[SaveEffect] | None = None
+    damage: list[Damage] | None = None
+    condition: list[ConditionType] | None = None
 
 
 class ActionSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    type: ActionType
+    type: AbilityType
     name: str
     text: str
     range: str
