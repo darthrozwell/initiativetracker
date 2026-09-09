@@ -10,7 +10,7 @@ from src.models_core import Base
 class EncounterModel(Base):
     __tablename__ = 'encounters'
 
-    encounter_id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
+    id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
     name: Mapped[str] = mapped_column()
     round: Mapped[int] = mapped_column(default=0)
     current_turn: Mapped[int] = mapped_column(default=0)
@@ -30,17 +30,17 @@ class CombatantModel(Base):
         ),
     )
 
-    combatant_id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
+    id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
     encounter_id: Mapped[UUID] = mapped_column(
         ForeignKey(
-            column="encounters.encounter_id",
+            column="encounters.id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         )
     )
     monster_id: Mapped[UUID] = mapped_column(
         ForeignKey(
-            column="monsters.monster_id",
+            column="monsters.id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         ),
@@ -48,7 +48,7 @@ class CombatantModel(Base):
     )
     character_id: Mapped[UUID] = mapped_column(
         ForeignKey(
-            column="characters.character_id",
+            column="characters.id",
             ondelete="CASCADE",
             onupdate="CASCADE"
         ),
@@ -57,4 +57,4 @@ class CombatantModel(Base):
     nickname: Mapped[str]
     current_hp: Mapped[int] = mapped_column(default=0)
     current_initiative: Mapped[int] = mapped_column(default=0)
-    status: Mapped[CombatantStatus] = mapped_column(Enum(CombatantStatus))
+    status: Mapped[CombatantStatus] = mapped_column(Enum(CombatantStatus, native_enum=False))

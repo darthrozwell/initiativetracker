@@ -13,6 +13,27 @@ class CreatureAlignment(StrEnum):
     LAWFUL_GOOD = "LG"
 
 
+class CreatureSize(StrEnum):
+    TINY = "tiny"
+    SMALL = "small"
+    AVG = "average"
+    BIG = "big"
+    HUGE = "huge"
+    GIANT = "giant"
+
+
+class CreatureSource(StrEnum):
+    CUSTOM = "custom"
+    DMG = "Dungeon Master Guide 2024"
+    ADV_IN_FAERUN = "Forgotten Realms: Adventures in Faerun"
+    BOOK_OF_HUNGERS = "Astarion's Book of Hungers"
+    LORWYN = "Lorwyn: First Light"
+    MM = "Monster Manual 2024"
+    NETHERIL = "Netheril's Fall"
+    PHB = "Player's Handbook 2024"
+    RAVENLOFT = "Ravenloft: The Horrors Within"
+
+
 class DamageType(StrEnum):
     BLUDGEONING = "bludgeoning"
     PIERCING = "piercing"
@@ -45,13 +66,6 @@ class ConditionType(StrEnum):
     STUNNED = "stunned"
     PARALYZED = "paralyzed"
     GRAPPLED = "grappled"
-
-
-class CreatureSource(StrEnum):
-    CUSTOM = "custom"
-    DMG = "DMG"
-    MM = "MM"
-    PHB = "PHB"
 
 
 class Skills(StrEnum):

@@ -1,9 +1,11 @@
 from datetime import datetime
-from sqlalchemy import DateTime, Enum, func
+from uuid import UUID, uuid4
+
+from sqlalchemy import DateTime, Enum, func, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 
-from src.enums_core import CreatureAlignment, CreatureSource, DamageType, ConditionType, Skills
+from src.enums_core import CreatureAlignment, CreatureSource, DamageType, ConditionType, Skills, CreatureSize
 
 
 class Base(DeclarativeBase):
@@ -16,6 +18,8 @@ class TimestampMixin:
 
 
 class CreatureMixin:
+    id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
+
     armor_class: Mapped[int] = mapped_column()  # 13 18 16
     initiative: Mapped[int] = mapped_column(default=0)  # only if it has proficiency 1, 2, 3...
     hit_points: Mapped[int] = mapped_column()  # average hit points 10, 66, 123...
@@ -47,12 +51,13 @@ class CreatureMixin:
     charisma: Mapped[int] = mapped_column()
     saves: Mapped[dict[str, str]] = mapped_column(JSONB, default=dict) # {"str": "+6", "dex": "+5"}, {"dex": "+8", "wis": "+10}, {}
 
-    name: Mapped[str] = mapped_column()
+    name: Mapped[str] = mapped_column(unique=True, index=True)
     alignment: Mapped[CreatureAlignment] = mapped_column(
         Enum(CreatureAlignment, native_enum=False)
     )
+    size: Mapped[CreatureSize] = mapped_column(Enum(CreatureSize, native_enum=False))
     source: Mapped[CreatureSource] = mapped_column(Enum(CreatureSource, native_enum=False))
 
     skills: Mapped[dict[Skills, str]] = mapped_column(JSONB, default=dict)  # {"perception": "+5", "stealth": "+7"}, {"arcana": "+7", "insight": "+6", "perception": "+6"}
-    senses: Mapped[list[str]] = mapped_column(default=list)  # ["Darkvision 60 ft."], ["Darkvision 120 ft."], ["Truesight 120 ft."]
-    languages: Mapped[list[str]] = mapped_column(default=list)  # ["Common"], ["Undercommon"], ["Infernal; telepathy 120 ft."], ["Deep Speech", "Undercommon; telepathy 120 ft."]
+    senses: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)  # ["Darkvision 60 ft."], ["Darkvision 120 ft."], ["Truesight 120 ft."]
+    languages: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)  # ["Common"], ["Undercommon"], ["Infernal; telepathy 120 ft."], ["Deep Speech", "Undercommon; telepathy 120 ft."]

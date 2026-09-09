@@ -1,5 +1,4 @@
 from uuid import UUID, uuid4
-
 from sqlalchemy import CheckConstraint, ForeignKey, Enum
 from sqlalchemy.dialects.postgresql import JSONB, ARRAY
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -7,10 +6,10 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.enums_core import ConditionType
 from src.action.enums import AbilityType, AbilityDistance, HitMethod, SaveEffect
 from src.action.schemas import Damage
-from src.models_core import Base, TimestampMixin
+from src.models_core import Base
 
 
-class ActionModel(Base, TimestampMixin):
+class AbilityModel(Base):
     __tablename__ = 'actions'
 
     __table_args__ = (
@@ -24,10 +23,10 @@ class ActionModel(Base, TimestampMixin):
         ),
     )
 
-    action_id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
+    id: Mapped[UUID] = mapped_column(primary_key=True, default=uuid4)
     monster_id: Mapped[UUID] = mapped_column(
         ForeignKey(
-            column="monsters.monster_id",
+            column="monsters.id",
             ondelete="CASCADE",
             onupdate="CASCADE",
         ),
@@ -35,7 +34,7 @@ class ActionModel(Base, TimestampMixin):
     )
     character_id: Mapped[UUID] = mapped_column(
         ForeignKey(
-            column="characters.character_id",
+            column="characters.id",
             ondelete="CASCADE",
             onupdate="CASCADE",
         ),
@@ -48,7 +47,7 @@ class ActionModel(Base, TimestampMixin):
     )
     name: Mapped[str] = mapped_column()
     text: Mapped[str] = mapped_column()
-    distance: Mapped[dict[str, int]] = mapped_column(JSONB, default=dict) # {range: 50 }, {emanation: 20}, numbers in foots
+    distance: Mapped[dict[AbilityDistance, int]] = mapped_column(JSONB, default=dict) # {range: 50 }, {emanation: 20}, numbers in foots
     hit_method: Mapped[HitMethod] = mapped_column(Enum(HitMethod, native_enum=False))
     hit_bonus: Mapped[int | None] = mapped_column(nullable=True)
     dc: Mapped[int | None] = mapped_column(nullable=True)
@@ -59,10 +58,10 @@ class ActionModel(Base, TimestampMixin):
 
     monster: Mapped["MonsterModel"] = relationship(
         "MonsterModel",
-        back_populates="actions",
+        back_populates="abilities",
     )
 
     character: Mapped["CharacterModel"] = relationship(
         "CharacterModel",
-        back_populates="actions",
+        back_populates="abilities",
     )

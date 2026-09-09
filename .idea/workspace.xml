@@ -4,13 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="v 0.11 almost ready">
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="core and action models">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/action/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/action/enums.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/2026-08-25_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/action/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/action/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/action/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/action/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/character/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/character/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/damage/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/damage/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/damage/schemas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/enums_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/enums_core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models_core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/monster/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/enums.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,61 +111,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000000015068" />
-      <entry key="S5" value="1.0000233983326803" />
-      <entry key="S10" value="1.006713292316633" />
-      <entry key="S30" value="1.5150530808720895" />
-      <entry key="S60" value="3.3940348933876554" />
-      <entry key="M2" value="7.841682226837138" />
-      <entry key="M5" value="18.834272649392787" />
-      <entry key="M10" value="32.66252063932134" />
-      <entry key="M15" value="46.23142324251232" />
-      <entry key="M30" value="84.21149566544611" />
-      <entry key="H1" value="154.95187727235864" />
-      <entry key="H2" value="306.78441029278247" />
-      <entry key="H4" value="627.4632538869098" />
-      <entry key="D1" value="3370.782656997383" />
-      <entry key="W1" value="8573.141183295036" />
+      <entry key="MS100" value="1.3491878741322108" />
+      <entry key="MS500" value="3.8127771015410863" />
+      <entry key="S2" value="7.738670534216475" />
+      <entry key="S5" value="9.95711622101022" />
+      <entry key="S10" value="11.901726435784562" />
+      <entry key="S30" value="14.978962092882297" />
+      <entry key="S60" value="16.709255705021256" />
+      <entry key="M2" value="18.746415450016578" />
+      <entry key="M5" value="25.46739849609181" />
+      <entry key="M10" value="41.877865828834835" />
+      <entry key="M15" value="58.904800882164885" />
+      <entry key="M30" value="104.90933369169909" />
+      <entry key="H1" value="183.74071258729634" />
+      <entry key="H2" value="338.72385351828285" />
+      <entry key="H4" value="659.4350852772002" />
+      <entry key="D1" value="3410.859727959894" />
+      <entry key="W1" value="8651.388734150254" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="9.172486171917658E-93" />
-      <entry key="S2" value="9.786373042586558E-24" />
-      <entry key="S5" value="6.255374414348253E-10" />
-      <entry key="S10" value="2.5119088396001952E-5" />
-      <entry key="S30" value="0.03677396015446904" />
-      <entry key="S60" value="0.31015850949071233" />
-      <entry key="M2" value="1.197284532136446" />
-      <entry key="M5" value="3.563613854125901" />
-      <entry key="M10" value="5.818737525901544" />
-      <entry key="M15" value="7.347842902014434" />
-      <entry key="M30" value="10.610521640340146" />
-      <entry key="H1" value="17.67024873538909" />
-      <entry key="H2" value="42.379838096044566" />
-      <entry key="H4" value="105.05862946947724" />
-      <entry key="D1" value="574.478879648164" />
-      <entry key="W1" value="1199.9153912831468" />
+      <entry key="MS500" value="2.395585089774523E-106" />
+      <entry key="S2" value="3.934167988833577E-27" />
+      <entry key="S5" value="2.7412027582146605E-11" />
+      <entry key="S10" value="5.235649680999159E-6" />
+      <entry key="S30" value="0.01736428323729592" />
+      <entry key="S60" value="0.13178416265264542" />
+      <entry key="M2" value="0.3683824304579261" />
+      <entry key="M5" value="0.9398598314951137" />
+      <entry key="M10" value="2.238084430461339" />
+      <entry key="M15" value="3.754104481450561" />
+      <entry key="M30" value="7.939008772319401" />
+      <entry key="H1" value="15.660287394759296" />
+      <entry key="H2" value="38.7990077720986" />
+      <entry key="H4" value="99.23561128166013" />
+      <entry key="D1" value="569.3660589659245" />
+      <entry key="W1" value="1201.8815567246131" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.11343989441464511" />
-      <entry key="MS500" value="0.6470728272414268" />
-      <entry key="S2" value="0.8968881596632655" />
-      <entry key="S5" value="0.9574259248795658" />
-      <entry key="S10" value="0.9849708361352147" />
-      <entry key="S30" value="1.5371587257647379" />
-      <entry key="S60" value="3.6789244921109168" />
-      <entry key="M2" value="9.001451731772812" />
-      <entry key="M5" value="22.358654894569842" />
-      <entry key="M10" value="38.44843443906041" />
-      <entry key="M15" value="53.54990048648972" />
-      <entry key="M30" value="94.7983481169068" />
-      <entry key="H1" value="172.6020626433379" />
-      <entry key="H2" value="349.1427734041943" />
-      <entry key="H4" value="732.4973429413211" />
-      <entry key="D1" value="3945.237853069789" />
-      <entry key="W1" value="9773.048723350059" />
+      <entry key="MS100" value="1.3015465767190906" />
+      <entry key="MS500" value="3.7680451335566216" />
+      <entry key="S2" value="7.71032284895878" />
+      <entry key="S5" value="9.891807190488853" />
+      <entry key="S10" value="11.800144942994335" />
+      <entry key="S30" value="14.91489327063615" />
+      <entry key="S60" value="16.783616993391654" />
+      <entry key="M2" value="19.07440513834257" />
+      <entry key="M5" value="26.380041813712406" />
+      <entry key="M10" value="44.092336645950404" />
+      <entry key="M15" value="62.636055261114656" />
+      <entry key="M30" value="112.82683213249767" />
+      <entry key="H1" value="199.3812626379522" />
+      <entry key="H2" value="377.50191200032566" />
+      <entry key="H4" value="758.6467616093755" />
+      <entry key="D1" value="3980.2021966809343" />
+      <entry key="W1" value="9853.262413202969" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -172,28 +180,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "models-refactor",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Roz/PycharmProjects/InitiativeTracker",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "ts.external.directory.path": "C:\\Users\\Roz\\PycharmProjects\\InitiativeTracker\\frontend\\node_modules\\typescript\\lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;models-refactor&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roz/PycharmProjects/InitiativeTracker&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Roz\\PycharmProjects\\InitiativeTracker\\frontend\\node_modules\\typescript\\lib&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Roz\PycharmProjects\InitiativeTracker\backend" />
@@ -207,7 +215,7 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -231,7 +239,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -245,7 +253,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -264,7 +272,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -283,7 +291,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -300,7 +308,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="initiativetracker" />
+      <module name="initiativetracker@1" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -704,7 +712,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787692616692</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="core and action models">
+      <option name="closed" value="true" />
+      <created>1788883825364</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1788883825364</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -745,7 +761,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend" />
     </ignored-roots>
-    <MESSAGE value="handle prev and next turn refactor" />
     <MESSAGE value="combat page refactor finished" />
     <MESSAGE value="faast refactor some code" />
     <MESSAGE value="fixed sorting combatants and selected id on load/reload page" />
@@ -770,7 +785,8 @@
     <MESSAGE value="massive refactor&#10;mixins/timestamps/relations etc" />
     <MESSAGE value="refactor completed mb)&#10;protections property and selectinloads for all" />
     <MESSAGE value="exc begin" />
-    <option name="LAST_COMMIT_MESSAGE" value="exc begin" />
+    <MESSAGE value="core and action models" />
+    <option name="LAST_COMMIT_MESSAGE" value="core and action models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
