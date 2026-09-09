@@ -1,4 +1,6 @@
 import json
+from uuid import UUID
+
 from fastapi import APIRouter, Body, Depends, HTTPException, UploadFile, status
 from pydantic import TypeAdapter
 from typing_extensions import Annotated
@@ -34,7 +36,7 @@ async def get_all_monsters(
 
 
 @router.post(path="/", response_model=MonsterOutSchema, status_code=status.HTTP_201_CREATED)
-async def post_monster(
+async def create_monster(
         monster: Annotated[MonsterInSchema, Body(embed=True)],
         service: Annotated[MonsterService, Depends(get_monster_service)],
 ):
@@ -69,30 +71,30 @@ async def upload_monster(
     return {"count": len(monsters)}
 
 
-@router.put(path="/{monster_id}", status_code=status.HTTP_200_OK)
+@router.put(path="/{monster_id}", response_model=MonsterOutSchema, status_code=status.HTTP_200_OK)
 async def update_monster(
-        monster_id: str,
+        monster_id: UUID,
         monster: Annotated[MonsterUpdateSchema, Body(embed=True)],
         service: Annotated[MonsterService, Depends(get_monster_service)],
 ):
     try:
-        await service.update(monster_id, monster)
+        updated_monster = await service.update(monster_id=monster_id, monster_schema=monster)
     except UpdateFailedError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
                             detail="Monster violates database constraints")
     except UpdateAttackFailedError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
                             detail="Monster attack violates database constraints")
-    return
+    return updated_monster
 
 
 @router.delete(path="/{monster_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_monster(
-        monster_id: str,
+        monster_id: UUID,
         service: Annotated[MonsterService, Depends(get_monster_service)],
 ):
     try:
-        await service.delete(monster_id)
+        await service.delete(monster_id=monster_id)
     except DeleteFailedError:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
                             detail="Monster cannot be deleted")

@@ -1,9 +1,8 @@
 from datetime import datetime
+from uuid import UUID
+from pydantic import BaseModel, Field
 
-from pydantic import BaseModel, Field, ConfigDict
-
-from src.enums_core import DamageType, ConditionType
-from src.enums_core import CreatureAlignment
+from src.enums_core import CreatureAlignment, ConditionType, CreatureSize, CreatureSource, DamageType, Skills
 
 
 class TimestampMixinSchema(BaseModel):
@@ -12,58 +11,62 @@ class TimestampMixinSchema(BaseModel):
 
 
 class CreatureMixinSchema(BaseModel):
+    armor_class: int = Field(ge=1)
+    initiative: int = Field(ge=0)
+    hit_points: int = Field(ge=1)
+    hit_points_formula: str = Field(min_length=1, examples=["1d6 + 2"])
+    speed: dict[str, int] = Field(default_factory=dict, examples=[{"walk": 30, "fly": 50}])
+
+    resistances: list[DamageType] = Field(default_factory=list)
+    immunities: list[DamageType] = Field(default_factory=list)
+    vulnerabilities: list[DamageType] = Field(default_factory=list)
+    condition_immunities: list[ConditionType] = Field(default_factory=list)
+
+    strength: int = Field(ge=1)
+    dexterity: int = Field(ge=1)
+    constitution: int = Field(ge=1)
+    intelligence: int = Field(ge=1)
+    wisdom: int = Field(ge=1)
+    charisma: int = Field(ge=1)
+    saves: dict[str, str] = Field(default_factory=dict, examples=[{"str": "-2", "wis": "+4"}])
+
+    name: str = Field(min_length=1, max_length=500, examples=["BFMonster"])
     alignment: CreatureAlignment
+    size: CreatureSize
+    source: CreatureSource
 
-    armor_class: int = Field(ge=1, le=50)  # "Класс Защиты": "16",
-    initiative: int = Field(le=50)  # "Инициатива": "+3 (13)",
-    speed: str = Field(min_length=1, max_length=256)  # "Скорость": "20 футов, Полёта 50 футов",
-    hit_points_value: int = Field(ge=1)  # "Хиты": "66 (12к8 + 12)",
-    # damage_resistance: list[DamageType]  # Сопротивление урону
-    # damage_immunity: list[DamageType | ConditionType]  # Иммунитеты
-    # damage_vulnerability: list[DamageType]
-    skills: str
-    senses: str
-    languages: str
-    proficiency_bonus: int = Field(ge=1)
-
-    strength_value: int = Field(ge=1)
-    is_strength_save: bool = False
-    dexterity_value: int = Field(ge=1)
-    is_dexterity_save: bool = False
-    constitution_value: int = Field(ge=1)
-    is_constitution_save: bool = False
-    intelligence_value: int = Field(ge=1)
-    is_intelligence_save: bool = False
-    wisdom_value: int = Field(ge=1)
-    is_wisdom_save: bool = False
-    charisma_value: int = Field(ge=1)
-    is_charisma_save: bool = False
+    skills: dict[Skills, str] = Field(default_factory=dict, examples=[{"acrobatics": "+5", "athletics": "+10"}])
+    senses: list[str] = Field(default_factory=list, examples=[["Darkvision 60 ft."], ["Truesight 120 ft."]])
+    languages: list[str] = Field(default_factory=list, examples=[["Common"], ["Deep Speech", "Undercommon; telepathy 120 ft."]])
 
 
 class CreatureUpdateMixinSchema(BaseModel):
+    id: UUID
+
+    armor_class: int | None = Field(ge=1, default=None)
+    initiative: int | None = Field(ge=0, default=None)
+    hit_points: int | None = Field(ge=1, default=None)
+    hit_points_formula: str | None = None
+    speed: dict[str, int] | None = None
+
+    resistances: list[DamageType] | None = None
+    immunities: list[DamageType] | None = None
+    vulnerabilities: list[DamageType] | None = None
+    condition_immunities: list[ConditionType] | None = None
+
+    strength: int | None = Field(ge=1, default=None)
+    dexterity: int | None= Field(ge=1, default=None)
+    constitution: int | None = Field(ge=1, default=None)
+    intelligence: int | None = Field(ge=1, default=None)
+    wisdom: int | None = Field(ge=1, default=None)
+    charisma: int | None = Field(ge=1, default=None)
+    saves: dict[str, str] | None = None
+
+    name: str | None = Field(min_length=1, max_length=500, default=None)
     alignment: CreatureAlignment | None = None
+    size: CreatureSize | None = None
+    source: CreatureSource | None = None
 
-    armor_class: int | None  = Field(ge=1, le=50, default=None)  # "Класс Защиты": "16",
-    initiative: int | None  = Field(le=50, default=None)  # "Инициатива": "+3 (13)",
-    speed: str | None  = Field(min_length=1, max_length=256, default=None)  # "Скорость": "20 футов, Полёта 50 футов",
-    hit_points_value: int | None  = Field(ge=1, default=None)  # "Хиты": "66 (12к8 + 12)",
-    # damage_resistance: list[DamageType]  | None = None  # Сопротивление урону
-    # damage_immunity: list[DamageType | ConditionType]  | None = None  # Иммунитеты
-    # damage_vulnerability: list[DamageType]  | None = None
-    skills: str | None = None
-    senses: str | None = None
-    languages: str | None = None
-    proficiency_bonus: int | None  = Field(ge=1, default=None)
-
-    strength_value: int | None  = Field(ge=1, default=None)
-    is_strength_save: bool | None  = None
-    dexterity_value: int | None  = Field(ge=1, default=None)
-    is_dexterity_save: bool | None  = None
-    constitution_value: int | None  = Field(ge=1, default=None)
-    is_constitution_save: bool | None  = None
-    intelligence_value: int | None  = Field(ge=1, default=None)
-    is_intelligence_save: bool | None  = None
-    wisdom_value: int | None  = Field(ge=1, default=None)
-    is_wisdom_save: bool | None  = None
-    charisma_value: int | None  = Field(ge=1, default=None)
-    is_charisma_save: bool | None  = None
+    skills: dict[Skills, str] | None = None
+    senses: list[str] | None = None
+    languages: list[str] | None = None

@@ -1,57 +1,42 @@
 from uuid import UUID
-
 from pydantic import BaseModel, Field, ConfigDict
 
-from src.damage.schemas import DamageProtectionSchema
-from src.monster.enums import MonsterType, MonsterSize, MonsterSource
-from src.action.schemas import ActionSchema, ActionUpdateSchema, ActionDbSchema, ActionOutSchema
 from src.schemas_core import CreatureMixinSchema, CreatureUpdateMixinSchema, TimestampMixinSchema
+from src.monster.enums import MonsterType
+from src.action.schemas import AbilityInSchema, AbilityDbSchema, AbilityOutSchema, AbilityUpdateSchema
 
 
 class MonsterInSchema(CreatureMixinSchema, BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    name: str = Field(min_length=1, max_length=500)
-    source: MonsterSource
-    size: MonsterSize
-    creature_type: MonsterType
+    type: MonsterType
+    challenge_rating: str = Field(min_length=1, max_length=20, examples=["1/4", "1/2", "2", "20"])
+    equipment: list[str] = Field(default_factory=list, examples=[["spear|xphb"], ["breastplate|xphb"]])
+    treasure: list[str] = Field(default_factory=list, examples=[["any"], ["armaments"]])
+    environment: list[str] = Field(default_factory=list, examples=[["underdark"], ["any"], ["mountain", "planar, earth", "underdark"], ["planar, abyss"]])
 
-    hit_points_formula: str = Field(min_length=1, max_length=20)
-    challenge_rating: str = Field(min_length=1, max_length=20)
-    experience: int = Field(ge=0, default=1)
-    equipment: str
-    treasure: str
-    habitat: str
-
-    actions: list[ActionSchema]
-    protections: DamageProtectionSchema
+    abilities: list[AbilityInSchema]
 
 
 class MonsterDbSchema(MonsterInSchema, TimestampMixinSchema):
     model_config = ConfigDict(from_attributes=True)
 
-    monster_id: UUID
-    actions: list[ActionDbSchema]
+    id: UUID
+    abilities: list[AbilityDbSchema]
 
 
 class MonsterOutSchema(MonsterDbSchema):
-    actions: list[ActionOutSchema]
+    model_config = ConfigDict(from_attributes=True)
 
+    abilities: list[AbilityOutSchema]
 
 class MonsterUpdateSchema(CreatureUpdateMixinSchema, BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
-    name: str | None = None
-    source: MonsterSource | None = None
-    size: MonsterSize | None = None
-    creature_type: MonsterType | None = None
-
-    hit_points_formula: str | None = Field(min_length=1, max_length=20, default=None)
+    type: MonsterType | None = None
     challenge_rating: str | None = Field(min_length=1, max_length=20, default=None)
-    experience: int | None = Field(ge=0, default=None)
-    equipment: str | None = None
-    treasure: str | None = None
-    habitat: str | None = None
+    equipment: list[str] | None = None
+    treasure: list[str] | None = None
+    environment: list[str] | None = None
 
-    actions: list[ActionUpdateSchema] | None = None
-    protections: DamageProtectionSchema | None = None
+    abilities: list[AbilityUpdateSchema] | None = None

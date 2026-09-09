@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="core and action models">
+    <list default="true" id="afa335d1-1bb6-4482-ae6f-f827945fa43f" name="Changes" comment="monster, character, encounter and combatant models + enums">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/alembic/versions/2026-08-25_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/action/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/action/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/character/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/character/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/damage/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/damage/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/damage/schemas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/encounter/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/encounter/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/enums_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/enums_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models_core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/monster/enums.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/enums.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/monster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/action/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/action/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/character/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/character/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/character/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/character/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/character/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/character/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/monster/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/monster/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/monster/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/monster/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/schemas_core.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/schemas_core.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,61 +110,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.3491878741322108" />
-      <entry key="MS500" value="3.8127771015410863" />
-      <entry key="S2" value="7.738670534216475" />
-      <entry key="S5" value="9.95711622101022" />
-      <entry key="S10" value="11.901726435784562" />
-      <entry key="S30" value="14.978962092882297" />
-      <entry key="S60" value="16.709255705021256" />
-      <entry key="M2" value="18.746415450016578" />
-      <entry key="M5" value="25.46739849609181" />
-      <entry key="M10" value="41.877865828834835" />
-      <entry key="M15" value="58.904800882164885" />
-      <entry key="M30" value="104.90933369169909" />
-      <entry key="H1" value="183.74071258729634" />
-      <entry key="H2" value="338.72385351828285" />
-      <entry key="H4" value="659.4350852772002" />
-      <entry key="D1" value="3410.859727959894" />
-      <entry key="W1" value="8651.388734150254" />
+      <entry key="MS100" value="1.0000006248442668" />
+      <entry key="MS500" value="1.057658135473373" />
+      <entry key="S2" value="1.6497196784491703" />
+      <entry key="S5" value="2.4791190100300993" />
+      <entry key="S10" value="3.526925819599333" />
+      <entry key="S30" value="7.869876371917458" />
+      <entry key="S60" value="11.993871501641204" />
+      <entry key="M2" value="18.09940864628045" />
+      <entry key="M5" value="33.50644543260501" />
+      <entry key="M10" value="55.9307481090626" />
+      <entry key="M15" value="77.9599871769657" />
+      <entry key="M30" value="142.11687596622272" />
+      <entry key="H1" value="251.97757308671487" />
+      <entry key="H2" value="434.6400470233779" />
+      <entry key="H4" value="771.245277651093" />
+      <entry key="D1" value="3559.0589836147183" />
+      <entry key="W1" value="8902.473093252695" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.395585089774523E-106" />
-      <entry key="S2" value="3.934167988833577E-27" />
-      <entry key="S5" value="2.7412027582146605E-11" />
-      <entry key="S10" value="5.235649680999159E-6" />
-      <entry key="S30" value="0.01736428323729592" />
-      <entry key="S60" value="0.13178416265264542" />
-      <entry key="M2" value="0.3683824304579261" />
-      <entry key="M5" value="0.9398598314951137" />
-      <entry key="M10" value="2.238084430461339" />
-      <entry key="M15" value="3.754104481450561" />
-      <entry key="M30" value="7.939008772319401" />
-      <entry key="H1" value="15.660287394759296" />
-      <entry key="H2" value="38.7990077720986" />
-      <entry key="H4" value="99.23561128166013" />
-      <entry key="D1" value="569.3660589659245" />
-      <entry key="W1" value="1201.8815567246131" />
+      <entry key="MS100" value="3.5234612026300384E-14" />
+      <entry key="MS500" value="0.0020388904832455445" />
+      <entry key="S2" value="0.21249488214601245" />
+      <entry key="S5" value="0.5382299270471081" />
+      <entry key="S10" value="0.7395583458850519" />
+      <entry key="S30" value="1.0977119262413548" />
+      <entry key="S60" value="1.5472765453874513" />
+      <entry key="M2" value="2.539135486756476" />
+      <entry key="M5" value="6.045832024857612" />
+      <entry key="M10" value="12.661402663347692" />
+      <entry key="M15" value="18.910014475924264" />
+      <entry key="M30" value="33.00962613721127" />
+      <entry key="H1" value="50.005859348301094" />
+      <entry key="H2" value="76.29475152758535" />
+      <entry key="H4" value="134.79712737497843" />
+      <entry key="D1" value="608.515714445874" />
+      <entry key="W1" value="1259.8077532477832" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3015465767190906" />
-      <entry key="MS500" value="3.7680451335566216" />
-      <entry key="S2" value="7.71032284895878" />
-      <entry key="S5" value="9.891807190488853" />
-      <entry key="S10" value="11.800144942994335" />
-      <entry key="S30" value="14.91489327063615" />
-      <entry key="S60" value="16.783616993391654" />
-      <entry key="M2" value="19.07440513834257" />
-      <entry key="M5" value="26.380041813712406" />
-      <entry key="M10" value="44.092336645950404" />
-      <entry key="M15" value="62.636055261114656" />
-      <entry key="M30" value="112.82683213249767" />
-      <entry key="H1" value="199.3812626379522" />
-      <entry key="H2" value="377.50191200032566" />
-      <entry key="H4" value="758.6467616093755" />
-      <entry key="D1" value="3980.2021966809343" />
-      <entry key="W1" value="9853.262413202969" />
+      <entry key="MS100" value="0.8950256263162258" />
+      <entry key="MS500" value="1.0345522876695077" />
+      <entry key="S2" value="1.725888760805948" />
+      <entry key="S5" value="2.8103685767691333" />
+      <entry key="S10" value="4.088828848988966" />
+      <entry key="S30" value="8.857571026603129" />
+      <entry key="S60" value="13.460320968228682" />
+      <entry key="M2" value="20.57436241830631" />
+      <entry key="M5" value="39.49942937948825" />
+      <entry key="M10" value="68.54234651995706" />
+      <entry key="M15" value="96.82078676127469" />
+      <entry key="M30" value="175.08011248601477" />
+      <entry key="H1" value="301.9440461403661" />
+      <entry key="H2" value="510.90204771119676" />
+      <entry key="H4" value="906.0125415563738" />
+      <entry key="D1" value="4167.549997824389" />
+      <entry key="W1" value="10162.272703982566" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -212,122 +211,6 @@
       <recent name="C:\Users\Roz\PycharmProjects\InitiativeTracker\backend\monster" />
       <recent name="C:\Users\Roz\PycharmProjects\InitiativeTracker\backend" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="initiativetracker@1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="initiativetracker@1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="initiativetracker@1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="initiativetracker@1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="initiativetracker@1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="initiativetracker@1" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -720,7 +603,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788883825364</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="monster, character, encounter and combatant models + enums">
+      <option name="closed" value="true" />
+      <created>1788962869329</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1788962869329</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -761,7 +652,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend" />
     </ignored-roots>
-    <MESSAGE value="combat page refactor finished" />
     <MESSAGE value="faast refactor some code" />
     <MESSAGE value="fixed sorting combatants and selected id on load/reload page" />
     <MESSAGE value="status change on 0 hp" />
@@ -786,7 +676,8 @@
     <MESSAGE value="refactor completed mb)&#10;protections property and selectinloads for all" />
     <MESSAGE value="exc begin" />
     <MESSAGE value="core and action models" />
-    <option name="LAST_COMMIT_MESSAGE" value="core and action models" />
+    <MESSAGE value="monster, character, encounter and combatant models + enums" />
+    <option name="LAST_COMMIT_MESSAGE" value="monster, character, encounter and combatant models + enums" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -800,16 +691,16 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/backend/src/character/models.py</url>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/alembic/env.py</url>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/src/damage/schemas.py</url>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backend/src/character/models.py</url>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/mock/encounter.ts</url>
